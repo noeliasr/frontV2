@@ -11,21 +11,19 @@ async function obtenerDatosUsuario(userID) {
         const dataUser = await response.json();
 
         // setteo de variables
-        var usernameH3 = document.getElementById('usernameHeader');
-        usernameH3.textContent = dataUser.username;
+        var inputUsername = document.getElementById('inputUsername');
+        inputUsername.value = dataUser.username;
+
+        var inputName = document.getElementById('inputName');
+        inputName.value = dataUser.name;
+        
+        var inputSurname = document.getElementById('inputName');
+        inputSurname.value = dataUser.surname;
 
         var imageURL = document.getElementById('profileImage');
         imageURL.src = dataUser.avatar;
 
-        // settear posts
-        var postContainer = document.getElementById('pin_container');
-        if(!dataUser.posts){
-            console.log("no tiene posts")
-            var noPosts = document.createElement("p")
-        }else{
-            console.log("POST POST")
-            var noPosts = document.createElement("p")
-        }
+        
 
         // return a consola
         return dataUser;
