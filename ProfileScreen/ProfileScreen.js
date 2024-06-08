@@ -1,3 +1,7 @@
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
 async function obtenerDatosUsuario(userID) {
     const url = `http://192.168.56.1:9000/memeo/api/getuser/${userID}`;
 
@@ -18,13 +22,32 @@ async function obtenerDatosUsuario(userID) {
         imageURL.src = dataUser.avatar;
 
         // settear posts
-        var postContainer = document.getElementById('pin_container');
+        var postContainer = document.querySelector('.pin_container');
         if(!dataUser.posts){
-            console.log("no tiene posts")
-            var noPosts = document.createElement("p")
+            console.log("No hay posts.");
+
+            var noPosts = document.createElement("div");
+            noPosts.textContent = "No hay posts que mostrar :("
+            postContainer.appendChild(noPosts); //FALTA FORMATO
         }else{
-            console.log("POST POST")
-            var noPosts = document.createElement("p")
+            console.log("Hay posts.");
+            var postsArray = dataUser.posts;
+            console.log(postsArray);
+
+            postsArray.forEach( ()=> {
+                var unPost = document.createElement("div");
+                unPost.classList.add("card");
+    
+                var aleatorio = randomIntFromInterval(1,3);
+                if(aleatorio === 1){
+                    unPost.classList.add("card-small");
+                } else if(aleatorio === 2){
+                    unPost.classList.add("card-medium");
+                } else{
+                    unPost.classList.add("card-large");
+                }
+                postContainer.appendChild(unPost);
+            });
         }
 
         // return a consola
