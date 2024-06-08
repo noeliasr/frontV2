@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.modal-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.columna {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+.modal {
+}
+.modal-container {
+}
+.close-modal {
+}
