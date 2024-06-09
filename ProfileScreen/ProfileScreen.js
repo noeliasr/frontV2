@@ -1,3 +1,8 @@
+// // para asegurarnos de que carga antes de tirar el evento
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     obtenerDatosUsuario(1);
+// });
+
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -22,7 +27,8 @@ async function obtenerDatosUsuario(userID) {
         imageURL.src = dataUser.avatar;
 
         // settear posts
-        var postContainer = document.querySelector('.pin_container');
+        var pinContainer = document.querySelector('.pin_container');
+
         if(!dataUser.posts){
             console.log("No hay posts.");
 
@@ -31,22 +37,30 @@ async function obtenerDatosUsuario(userID) {
             postContainer.appendChild(noPosts); //FALTA FORMATO
         }else{
             console.log("Hay posts.");
+
             var postsArray = dataUser.posts;
             console.log(postsArray);
 
             postsArray.forEach( ()=> {
-                var unPost = document.createElement("div");
-                unPost.classList.add("card");
-    
+                var containerPost = document.createElement("div");
+                containerPost.classList.add("card");
+
                 var aleatorio = randomIntFromInterval(1,3);
                 if(aleatorio === 1){
-                    unPost.classList.add("card-small");
+                    containerPost.classList.add("card_small");
+
                 } else if(aleatorio === 2){
-                    unPost.classList.add("card-medium");
+                    containerPost.classList.add("card_medium");
                 } else{
-                    unPost.classList.add("card-large");
+                    containerPost.classList.add("card_large");
                 }
-                postContainer.appendChild(unPost);
+                pinContainer.appendChild(containerPost);
+
+                var anImage = document.createElement("img");
+                anImage.src = dataUser.avatar;
+                anImage.alt = "Imagen de un post";
+                anImage.classList.add("cardImage");
+                containerPost.appendChild(anImage);
             });
         }
 

@@ -1,12 +1,11 @@
-/* @import url(reset.css); */
+@import url(../reset.css);
 
 /*PROFILE HEAD*/
 .profileChange{
     margin: 0 auto;
-    padding: 0;
-    padding-top: 30px;
+    padding: 30px 20px;
     width: 60vw;
-    height: 60vh;
+    height: auto;
     position: relative;
 
     border-radius: 10px;
@@ -27,16 +26,23 @@
 
     margin: 10px;
     margin-top: 25px;
+    width: 8em;
+    height: 8em;
+
+    border-radius: 50%;
 }
 
 #usernameHeader{
     display: flex;
 
     margin: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .inputsList{
+    width: 60%;
+    max-width: calc(100% - 20px); /* Para evitar overflow por padding */
+
     margin: 7px;
     background-color: rgba(211, 211, 211, 0.678);
     color: gray;
@@ -46,7 +52,7 @@
     border-left: none;
     border-radius: 5px;
     
-    padding: 8px;
+    padding: 5px;
     padding-left: 14px;
 }
 
