@@ -52,4 +52,9 @@ h1 {
 .comments-section {
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.date-span {
+  font-size: 12px;
 }
