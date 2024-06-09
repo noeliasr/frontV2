@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>meme-o</title>
     <link rel="stylesheet" href="HomeScreen.css" />
-    <script src="HomeScreen.js"></script>
   </head>
 
   <body>
-    <main>
-      <section>
+    <main class="main">
+      <section class="main-section">
         <h1>meme-o</h1>
         <h2>
           <span>A new era for memes,</span>
@@ -18,17 +17,108 @@
           <span>by you</span>
         </h2>
       </section>
-      <section>
+      <section class="main-section">
         <div>
           <span>Already in?</span>
-          <button type="button">Log in!</button>
+          <button type="button" class="toggle-btn">Log in!</button>
         </div>
         <hr />
         <div>
           <span>Wanna join?</span>
-          <button type="button">Sign in!</button>
+          <button type="button" class="toggle-btn">Sign in!</button>
         </div>
       </section>
     </main>
+
+    <!-- MODAL LOGIN -->
+    <div class="modal">
+      <div class="modal-wrapper">
+        <div class="modal-content">
+          <div class="modal-head-login">
+            <h1 class="heading">LOG IN</h1>
+          </div>
+          <div class="modal-body-login">
+            <form action="#">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                aria-label="Insert your username" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                aria-label="Insert your password" />
+            </form>
+          </div>
+          <div class="modal-foot-login">
+            <input type="submit" value="Go!" class="btn close-btn" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL SIGN IN -->
+    <div class="modal">
+      <div class="modal-wrapper">
+        <div class="modal-content">
+          <div class="modal-head">
+            <h1 class="heading">SIGN IN</h1>
+          </div>
+          <div class="modal-body">
+            <form action="#">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                aria-label="Insert your name" />
+              <input
+                type="text"
+                name="surname"
+                id="surname"
+                placeholder="Surname"
+                aria-label="Insert your surname" />
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email"
+                aria-label="Insert your email" />
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                aria-label="Insert your username" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                aria-label="Insert your password" />
+              <input
+                type="date"
+                name="birthday"
+                id="birthday"
+                aria-label="Insert your birth date" />
+              <label for="avatar">Insert your profile picture</label>
+              <input
+                type="file"
+                name="avatar"
+                id="avatar"
+                value="Selecciona tu foto de perfil"
+                aria-label="Insert your profile picture" />
+            </form>
+          </div>
+          <div class="modal-foot">
+            <input type="submit" value="Go!" class="btn close-btn" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="HomeScreen.js"></script>
   </body>
 </html>

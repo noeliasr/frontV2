@@ -1,5 +1,205 @@
 @import url(../reset.css);
 
+body{
+    align-items: center;
+}
+
 span{
     display: block;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+/*para dividir la pantalla por el medio*/
+.main-section{
+    width: 50%;
+}
+
+/*variables disponibles en todo el html*/
+:root {
+    --bg-color: #ffffff;
+    --grad-color-1: #F1A1FF;
+    --grad-color-2: #BA70FB;
+    --gradient: linear-gradient(90deg, var(--grad-color-1) 0%, var(--grad-color-2) 100%);
+    --shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--bg-color);
+}
+
+button{
+    cursor: pointer;
+}
+
+.close-btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.heading{
+    background: linear-gradient(to right, #F1A1FF, #BA70FB);
+    background-size: cover;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn {
+    background-image: var(--gradient);
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.2s ease;
+}
+
+/* cuando el modal tiene la clase open */
+.modal.open {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    min-height: calc(100% - 3rem);
+}
+
+@media (max-width: 575.98px) {
+    .modal-wrapper {
+        margin: 0.5rem;
+        min-height: calc(100% - 1rem);
+    }
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    /* height: 70vh; */
+    width: 40vw;
+    padding: 4rem;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.modal-content::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+/* estado del contenido cuando el modal esté abierto */
+.modal.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-body-login {
+    margin: 2rem 0 3rem;
+    position: absolute;
+    top: -5%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.modal-head-login{
+    position: absolute;
+    top: 34%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.modal-foot-login{
+    position: absolute;
+    top: 60%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.modal-body p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 0.8px;
+}
+
+.close-btn {
+    font-size: 1.2rem;
+}
+
+input{
+    display: block;
+    line-height: 2;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 5%;
+    z-index: 100;
 }
