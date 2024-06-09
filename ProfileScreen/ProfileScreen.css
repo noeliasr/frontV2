@@ -34,6 +34,40 @@
 
     margin: 10px;
     margin-bottom: 20px;
+
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.editProfileA{
+    display: flex;
+    padding: 0.6em;
+
+    font-family: sans-serif;
+    font-size: 0.8em;
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 25px;
+
+    color: black;
+    background-color: lightgrey;
+
+    transition: transform 0.1s ease-in-out;
+}
+.editProfileA:hover{
+    color: white;
+    background-color: rgb(158, 158, 158);
+    border: 1px solid rgba(0, 0, 0, 0.664);
+}
+.editProfileA:active {
+    transform: scale(0.90); /* Reduce ligeramente el tamaño del botón cuando se hace clic */
+  }
+
+#postTitle{
+    margin-top: 50px;
+    font-family: sans-serif;
 }
 
 /*PINTEREST GRID*/

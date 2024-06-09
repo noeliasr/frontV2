@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single Conversation Screen</title>
+
+    <link rel="stylesheet" type="text/css" href="SingleConnversationScreen.css">
 </head>
 <body>
+        <!-- HEADER -->
+        <header>
+        </header>
     
+        <!-- CUERPO -->
+        <div class="conversationContainer">
+            <div class="senderUser">
+                <h3 class="senderUserH">SENDER USER</h3>
+            </div>
+
+            <!-- contenedor de los mensajes -->
+            <div class="messagesContainer">
+                <div class="received">blabla bla bla?</div>
+                <div class="sent">Lorem ipsum dolor sit, qua nam inventore ad minima!</div>
+                <div class="sent">blablablabla</div>
+                <div class="sent">blablablabla</div>
+                <div class="received">blabla bla bla?</div>
+                <div class="received">blabla bla bla?</div>
+            </div>
+
+            <!-- contenedor de la barra de enviar mensajes -->
+            <div class="inputContainer">
+                <input id="inputMessage" type="text" name="messageToSent" placeholder="Comienza la conversación aquí!">
+            </div>
+        </div>
+    
+        <!-- FOOTER -->
+        <footer>
+        </footer>
+    
+        <script src="SingleConversationScreen.js"></script>
 </body>
 </html>
