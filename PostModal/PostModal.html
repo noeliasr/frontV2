@@ -8,25 +8,25 @@
 </head>
 <body>
     <div>
-        <button>Open post</button>
+        <button class="btnComment" id="openModalBtn">Open post</button>
     </div>
 
     <div class="modal" id="modalAdd">
-        <div class="modalContainer">
-            <div class="closeModal"></div>
-            <div class="modalBody">
-                <div class="columna">
-                    <h2>usuario</h2>
-                    <div class="post"></div>
-                </div>
-                <div class="columna">
-                    <button>Agregar comentario</button>
-                    <div class="comentarios"></div>
+        <div class="modal-container">
+            <div class="close-modal" id="closeModalBtn">X</div>
+            <div class="flex-container">
+                <div class="left-column">
+                    <h2 id="user">usuario</h2>
+                    <div id="idPost" class="post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta, leo vel rutrum sollicitudin, ex felis feugiat ipsum, ac efficitur nibh magna quis lorem. </div>
                     <!-- opcional -->
-                    <button>Like</button>
+                    <button id="idLike" class="btnComment">Like</button>
                 </div>
-            </div>
-            
+                <div class="right-column">
+                    <div id="idComment" class="comentarios">Guapa</div>
+                    <input id="inputComment" class="styled-input" type="text" placeholder="¡Agrega tu comentario!"> 
+                    <button class="btnComment">Agregar comentario</button>
+                </div>
+            </div> 
         </div>
     </div>
 
