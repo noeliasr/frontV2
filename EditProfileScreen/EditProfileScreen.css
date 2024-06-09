@@ -1,0 +1,113 @@
+@import url(../reset.css);
+
+/*PROFILE HEAD*/
+.profileChange{
+    margin: 0 auto;
+    padding: 30px 20px;
+    width: 60vw;
+    height: auto;
+    position: relative;
+
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+    -webkit-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.3);
+
+    background-color: white;
+}
+
+#profileImage{
+    display: flex;
+    align-self: center;
+
+    margin: 10px;
+    margin-top: 25px;
+    width: 8em;
+    height: 8em;
+
+    border-radius: 50%;
+}
+
+#usernameHeader{
+    display: flex;
+
+    margin: 10px;
+    margin-bottom: 30px;
+}
+
+.inputsList{
+    align-self: center;
+
+    width: 60%;
+    max-width: calc(100% - 20px); /* Para evitar overflow por padding */
+
+    margin: 7px;
+    background-color: rgba(211, 211, 211, 0.678);
+    color: gray;
+
+    border-color: rgb(183, 183, 183);
+    border-top: none;
+    border-left: none;
+    border-radius: 5px;
+    
+    padding: 5px;
+    padding-left: 14px;
+}
+
+.backToProfA{
+    text-decoration: none;
+}
+.backToProfA:hover{
+    animation: movIzq 1.2s ease infinite alternate;
+}
+@keyframes movIzq {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-10px);
+    }
+  }
+
+.submitA{
+    display: flex;
+    align-self: flex-end;
+
+    font-family: sans-serif;
+    font-size: 0.8em;
+
+    text-decoration: none;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+
+    color: black;
+    background-color: lightgrey;
+
+    transition: transform 0.1s ease-in-out;
+}
+.submitA:hover{
+    color: white;
+    background-color: rgb(158, 158, 158);
+    border: 1px solid rgba(0, 0, 0, 0.664);
+}
+.submitA:active {
+    transform: scale(0.90);
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(214, 212, 212, 0.55);
+}
