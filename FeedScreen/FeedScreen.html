@@ -10,6 +10,31 @@
     <h1>Feed</h1>
     <div id="listPost"></div>
 
+    <div class="modal" id="modalAdd">
+      <div class="modal-container">
+        <div class="close-modal" id="closeModalBtn">X</div>
+        <div class="flex-container">
+          <div class="left-column">
+            <h2 id="user">usuario</h2>
+            <div id="idPost" class="post">
+              <img class="img-post" />
+            </div>
+          </div>
+          <div class="right-column">
+            <div id="idComment" class="comentarios"></div>
+            <input
+              id="inputComment"
+              class="styled-input"
+              type="text"
+              placeholder="¡Agrega tu comentario!"
+            />
+            <button class="btnAddComment" id="btnAddComment">
+              Agregar comentario
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="FeedScreen.js"></script>
   </body>
 </html>
