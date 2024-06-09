@@ -136,9 +136,9 @@ const post = [
 const changeImgLiked = (post) => {
   let isLike = post.memeLikes.some((like) => like.memeLikePK.userID === 2);
   if (isLike) {
-    return "../Assets/heart-red-icon.svg";
+    return "../Assets/ja.png";
   } else {
-    return "../Assets/heart-icon.svg";
+    return "../Assets/jajaja.png";
   }
 };
 const isLiked = (post) => {
@@ -195,8 +195,12 @@ post.forEach((elemento) => {
   btnLike.addEventListener("click", function () {
     console.log("Like button clicked for post", elemento.postID);
     const newImgSrc = isLiked(elemento)
-      ? "../Assets/heart-icon.svg"
-      : "../Assets/heart-red-icon.svg";
-    btnLike.src = newImgSrc;
+      ? "../Assets/jajaja.png"
+      : "../Assets/ja.png";
+    btnLike.classList.add("like");
+    setTimeout(() => {
+      btnLike.src = newImgSrc;
+      btnLike.classList.remove("like");
+    }, 300);
   });
 });
