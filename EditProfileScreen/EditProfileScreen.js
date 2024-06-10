@@ -24,7 +24,7 @@ async function obtenerDatosUsuario(userID) {
 
         // setteo de variables
         var imageURL = document.getElementById('profileImage');
-        imageURL.src = dataUser.avatar;
+        imageURL.src = `http://192.168.56.1:9000/${dataUser.avatar}`;        
 
         var inputUsername = document.getElementById('inputUsername');
         inputUsername.value = dataUser.username;
