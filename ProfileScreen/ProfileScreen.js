@@ -24,7 +24,7 @@ async function obtenerDatosUsuario(userID) {
         usernameH3.textContent = dataUser.username;
 
         var imageURL = document.getElementById('profileImage');
-        imageURL.src = dataUser.avatar;
+        imageURL.src = `http://192.168.56.1:9000/${dataUser.avatar}`;        
 
         // settear posts
         var pinContainer = document.querySelector('.pin_container');
@@ -34,14 +34,15 @@ async function obtenerDatosUsuario(userID) {
 
             var noPosts = document.createElement("div");
             noPosts.textContent = "No hay posts que mostrar :("
-            postContainer.appendChild(noPosts); //FALTA FORMATO
+            postContainer.appendChild(noPosts); //FALTA ESTILO
+            
         }else{
             console.log("Hay posts.");
 
             var postsArray = dataUser.posts;
-            console.log(postsArray);
+            console.log("Array de post:" + postsArray);
 
-            postsArray.forEach( ()=> {
+            postsArray.forEach( (post)=> {
                 var containerPost = document.createElement("div");
                 containerPost.classList.add("card");
 
@@ -57,7 +58,7 @@ async function obtenerDatosUsuario(userID) {
                 pinContainer.appendChild(containerPost);
 
                 var anImage = document.createElement("img");
-                anImage.src = dataUser.avatar;
+                anImage.src = `http://192.168.56.1:9000/${post.media_file}`;
                 anImage.alt = "Imagen de un post";
                 anImage.classList.add("cardImage");
                 containerPost.appendChild(anImage);
@@ -72,4 +73,4 @@ async function obtenerDatosUsuario(userID) {
     }
 }
 
-console.log(obtenerDatosUsuario(1));
+console.log(obtenerDatosUsuario(4));
