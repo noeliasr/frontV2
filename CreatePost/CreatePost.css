@@ -1,15 +1,16 @@
 body{
-    background-color: rgb(244, 244, 244);
-    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     display: flex;
-    min-width: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: rgba(214, 212, 212, 0.55);
 }
 
 .container{
     background-color: white;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 90%;
     padding: 1em;
     max-width: 500px;
