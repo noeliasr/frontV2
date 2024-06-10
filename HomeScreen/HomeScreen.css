@@ -111,18 +111,12 @@ button{
     min-height: calc(100% - 3rem);
 }
 
-@media (max-width: 575.98px) {
-    .modal-wrapper {
-        margin: 0.5rem;
-        min-height: calc(100% - 1rem);
-    }
-}
 
+/* MODALES */
 .modal-content {
     position: relative;
     background-color: var(--bg-color);
     box-shadow: var(--shadow);
-    /* height: 70vh; */
     width: 40vw;
     padding: 4rem;
     border-radius: 50%;
@@ -130,76 +124,129 @@ button{
     overflow: hidden;
     transform: scale(0);
     transition: transform 0.4s ease;
+    background-image: url("../Assets/fondo-modales-home.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .modal-content::after{
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+content: "";
+display: block;
+padding-bottom: 100%;
 }
 
 /* estado del contenido cuando el modal esté abierto */
 .modal.open .modal-content {
-    transform: scale(1);
+transform: scale(1);
 }
 
 .modal-body-login {
-    margin: 2rem 0 3rem;
-    position: absolute;
-    top: -5%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+margin: 2rem 0 3rem;
+position: absolute;
+top: -5%;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center
 }
 
 .modal-head-login{
-    position: absolute;
-    top: 34%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+position: absolute;
+top: 34%;
+left: 0;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center
 }
 
 .modal-foot-login{
-    position: absolute;
-    top: 60%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+position: absolute;
+top: 60%;
+left: 0;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center
 }
 
-.modal-body p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    letter-spacing: 0.8px;
+.modal-body-signin {
+margin: 2rem 0 3rem;
+position: absolute;
+top: -5%;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center
+}
+
+form{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+vertical-align: middle;
+}
+
+.modal-head-signin{
+position: absolute;
+top: 13%;
+left: 0;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center
+}
+
+.modal-foot-signin{
+position: absolute;
+top: 80%;
+left: 0;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center
+}
+
+.modal-body-login p, .modal-body-signin p {
+font-size: 1.2rem;
+line-height: 1.6;
+letter-spacing: 0.8px;
 }
 
 .close-btn {
-    font-size: 1.2rem;
+font-size: 1.2rem;
 }
 
 input{
-    display: block;
-    line-height: 2;
-    color: #212529;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    margin-bottom: 5%;
-    z-index: 100;
+display: block;
+line-height: 2;
+color: #212529;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #ced4da;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+border-radius: 0.25rem;
+transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+margin-bottom: 5%;
+z-index: 100;
+}
+@media (max-width: 575.98px) {
+.modal-wrapper {
+margin: 0.5rem;
+min-height: calc(100% - 1rem);
+}
 }
