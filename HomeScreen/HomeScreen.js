@@ -30,32 +30,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("login-form")
   const errorMessage = document.getElementById("error-message")
 
-  loginForm.addEventListener("submit", function (event) {
+  loginForm.addEventListener("submit", async function (event) {
     event.preventDefault()
 
     const username = document.getElementById("username-login").value
     const password = document.getElementById("password-login").value
 
-    fetch("http://172.20.10.3:9000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `username=${encodeURIComponent(
-        username
-      )}&password=${encodeURIComponent(password)}`,
-      credentials: "include",
-    })
-      .then((response) => {
-        if (response.ok) {
-          window.location.href = "../FeedScreen/FeedScreen.html" //CONSEGUIR EL USUARIO REGISTRADO
-        } else {
-          errorMessage.style.display = "block"
-        }
+    try {
+      const response = await fetch("http://192.168.1.86:9000/memeo/api/hola", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: username, password: password }),
       })
-      .catch((error) => {
-        console.error("Error:", error)
-      })
+      if (!response.ok) {
+        errorMessage.style.display = "block"
+        throw new Error("Network response was not ok " + response.statusText)
+      }
+      const user = await response.json()
+      if (user.userID) {
+        sessionStorage.setItem("user", JSON.stringify(user))
+        window.location.href = "../FeedScreen/FeedScreen.html"
+      } else {
+        errorMessage.style.display = "block"
+      }
+    } catch (error) {
+      console.error("Error getting user:", error)
+    }
   })
 
   // logout

@@ -7,10 +7,13 @@ const comments = document.getElementById("idComment")
 const idLike = document.getElementsByTagName("#idLike")
 const inputComment = document.getElementById("inputComment")
 const btnAddComment = document.getElementById("btnAddComment")
+
+const user = JSON.parse(sessionStorage.getItem("user"))
+
 const getPosts = async () => {
   try {
     const response = await fetch(
-      "http://192.168.1.86:9000/memeo/api/getposts/4"
+      `http://192.168.1.86:9000/memeo/api/getposts/${user.userID}`
     )
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText)
@@ -23,7 +26,9 @@ const getPosts = async () => {
 }
 
 const changeImgLiked = (post) => {
-  let isLike = post.memeLikes.some((like) => like.memeLikePK.userID === 4)
+  let isLike = post.memeLikes.some(
+    (like) => like.memeLikePK.userID === user.userID
+  )
   if (isLike) {
     return "../Assets/like-icon.png"
   } else {
@@ -31,7 +36,7 @@ const changeImgLiked = (post) => {
   }
 }
 const isLiked = (post) => {
-  return post.memeLikes.some((like) => like.memeLikePK.userID === 4)
+  return post.memeLikes.some((like) => like.memeLikePK.userID === user.userID)
 }
 const formatDatePost = (date) => {
   const dateFormat = new Date(date)
@@ -135,7 +140,7 @@ const createMemeLike = async (post) => {
       postID: post.postID,
     },
     user: {
-      userID: 4,
+      userID: user.userID,
     },
   }
   try {
@@ -161,7 +166,7 @@ const createMemeLike = async (post) => {
 const deleteMemeLike = async (postID) => {
   try {
     const response = await fetch(
-      `http://192.168.1.86:9000/memeo/api/deletememelike/${4}/${postID}`,
+      `http://192.168.1.86:9000/memeo/api/deletememelike/${user.userID}/${postID}`,
       {
         method: "DELETE",
       }
@@ -218,8 +223,8 @@ const addComment = async (post) => {
   const comment = {
     text_content: inputComment.value,
     user: {
-      userID: 4,
-      username: "theking",
+      userID: user.userID,
+      username: user.username,
     },
     post: {
       postID: post.postID,
