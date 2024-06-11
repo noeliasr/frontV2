@@ -38,7 +38,7 @@
             <h1 class="heading">LOG IN</h1>
           </div>
           <div class="modal-body-login">
-            <form action="#">
+            <form action="#" id="login-form">
               <input
                 type="text"
                 name="username-login"
@@ -51,10 +51,13 @@
                 id="password-login"
                 placeholder="Password"
                 aria-label="Insert your password" />
+              <div class="modal-foot-login">
+                <input type="submit" value="Go!" class="btn close-btn" />
+              </div>
+              <div id="error-message" style="display: none">
+                <p>Invalid username or password.</p>
+              </div>
             </form>
-          </div>
-          <div class="modal-foot-login">
-            <input type="submit" value="Go!" class="btn close-btn" />
           </div>
         </div>
       </div>
@@ -68,7 +71,7 @@
             <h1 class="heading">SIGN IN</h1>
           </div>
           <div class="modal-body-signin">
-            <form action="#">
+            <form action="#" id="signin-form">
               <input
                 type="text"
                 name="name"
@@ -111,10 +114,10 @@
                 id="avatar"
                 value="Selecciona tu foto de perfil"
                 aria-label="Insert your profile picture" />
+              <div class="modal-foot-signin">
+                <input type="submit" value="Go!" class="btn close-btn" />
+              </div>
             </form>
-          </div>
-          <div class="modal-foot-signin">
-            <input type="submit" value="Go!" class="btn close-btn" />
           </div>
         </div>
       </div>
