@@ -39,7 +39,7 @@ async function obtenerDatosUsuario(userID) {
         inputBirthdate.value = formateoFecha(dataUser.birth_date);
 
         var infoP = document.getElementById('signInDate');
-        // infoP.textContent = "Te registraste en meme-o en" + ${dataUser.signup_date};
+        infoP.textContent = `Te registraste en meme-o en ${formateoFecha(dataUser.signup_date)}`;
 
         // return a consola
         return dataUser;
@@ -49,4 +49,51 @@ async function obtenerDatosUsuario(userID) {
     }
 }
 
-console.log(obtenerDatosUsuario(1));
+console.log(obtenerDatosUsuario(4));
+
+//cuando se pulse guardar se activa el submit
+const saveButtonAct = document.querySelector(".submitA");
+saveButtonAct.addEventListener("click",() => {
+
+    //evento submit
+    const newPicForm = document.getElementById("newProfilePicForm").files[0];
+    newPicForm.addEventListener('submit', async function(event){
+        event.preventDefault();
+    
+        const newPic = document.getElementById("newProfilePic").files[0];
+        if(newPic){
+            const reader = new FileReader();
+            reader.onloadend = function(){
+                // transformación de la imagen en base64
+                const base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+            
+
+                //seleccionamos "el cambio" que vamos a enviar
+                const profile = {
+                    user: {
+                        userID: dataUser.userid,
+                        username: dataUser.username,
+                        avatar: base64String,
+                    }
+                }
+
+                //mandamos el fetch NO ES CREATEPOST ¿¿¿¿¿
+                fetch("http://192.168.56.1:9000/memeo/api/createpost", {
+                    method: "POST",
+                    headers:{
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "http://192.168.56.1:9000",
+                    },
+                    body: JSON.stringify(profile),
+                })
+                .then((response) => response.json())
+                .then((data) => console.log("Success:", data))
+                .catch((error) => console.error("Error:", error))
+            }
+            
+            //inicia la lectura del archivo
+            reader.readAsDataURL(newPic);
+        }
+    });
+
+});
