@@ -8,7 +8,7 @@
 
 
 async function obtenerDatosConversacion(userID) {
-    const url = `http://192.168.56.1:9000/memeo/api/getmessages/${userID}`;
+    const url = `http://192.168.56.1:9000/memeo/api/getconversations/${userID}`;
 
     try {
         const response = await fetch(url);
@@ -20,8 +20,8 @@ async function obtenerDatosConversacion(userID) {
         const dataConversation = await response.json();
 
         // setteo de variables
-        var senderUserH3 = document.querySelector(".senderUserH");
-        senderUserH3.textContent = dataConversation.; // json??
+        var receiverUser = document.querySelector(".receiverUser");
+        receiverUser.textContent = dataConversation.receiverUserID; // json??
 
         // settear mensajes
         var msgContainer = document.querySelector('.messagesContainer');
