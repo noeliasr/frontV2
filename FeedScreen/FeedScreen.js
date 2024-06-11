@@ -10,7 +10,7 @@ const btnAddComment = document.getElementById("btnAddComment")
 const getPosts = async () => {
   try {
     const response = await fetch(
-      "http://192.168.1.59:9000/memeo/api/getposts/4"
+      "http://192.168.1.86:9000/memeo/api/getposts/4"
     )
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText)
@@ -53,7 +53,7 @@ const showPosts = (dataPost) => {
     const postDiv = document.createElement("article")
     postDiv.classList.add("post")
 
-    let imgPost = `http://192.168.1.59:9000/${elemento.media_file}`
+    let imgPost = `http://192.168.1.86:9000/${elemento.media_file}`
 
     const postContent = `
       <figure>
@@ -140,7 +140,7 @@ const createMemeLike = async (post) => {
   }
   try {
     const response = await fetch(
-      `http://192.168.1.59:9000/memeo/api/creatememelike`,
+      `http://192.168.1.86:9000/memeo/api/creatememelike`,
       {
         method: "POST",
         headers: {
@@ -161,7 +161,7 @@ const createMemeLike = async (post) => {
 const deleteMemeLike = async (postID) => {
   try {
     const response = await fetch(
-      `http://192.168.1.59:9000/memeo/api/deletememelike/${4}/${postID}`,
+      `http://192.168.1.86:9000/memeo/api/deletememelike/${4}/${postID}`,
       {
         method: "DELETE",
       }
@@ -182,7 +182,7 @@ const removeChildNodes = (parent) => {
 const openModal = (post) => {
   modalAdd.style.display = "flex"
   username.textContent = post.user.username
-  imagenPost.src = `http://192.168.1.59:9000/${post.media_file}`
+  imagenPost.src = `http://192.168.1.86:9000/${post.media_file}`
   loadComments(post)
 }
 
@@ -199,6 +199,7 @@ let currentAddCommentHandler
 const loadComments = (post) => {
   comments.innerHTML = ""
   post.comments.forEach((comment) => {
+    // comment.style.display = "block"
     const commentSpan = document.createElement("span")
     const commentContent = `<strong>${comment.user.username}</strong> ${comment.text_content}`
     commentSpan.innerHTML = commentContent
@@ -226,7 +227,7 @@ const addComment = async (post) => {
   }
   try {
     const response = await fetch(
-      `http://192.168.1.59:9000/memeo/api/createcomment`,
+      `http://192.168.1.86:9000/memeo/api/createcomment`,
       {
         method: "POST",
         headers: {
