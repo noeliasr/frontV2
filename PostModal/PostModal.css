@@ -64,7 +64,7 @@
   margin-bottom: 10px;
 }
 
-.post {
+.post-modal {
   background: #f4f4f4;
   padding: 1em;
   border-radius: 1em;
@@ -106,4 +106,23 @@
   margin-bottom: 1em;
   border-radius: 1em;
   background: #f4f4f4;
+  /* display: none !important; */
+}
+@media (max-width: 425px) {
+  .modal-container {
+    min-width: 0px !important;
+    max-width: 80% !important;
+  }
+  .flex-container {
+    flex-wrap: wrap;
+    gap: 5comentariospx;
+  }
+  .post-modal {
+    width: 37vh;
+    margin-bottom: 20px !important;
+  }
+  .post-modal .img-post-modal {
+    width: 38vh;
+    height: 50vh;
+  }
 }

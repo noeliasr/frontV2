@@ -1,5 +1,4 @@
 @import url(../reset.css);
-@import url(../PostModal/PostModal.css);
 h1 {
   display: flex;
   justify-content: center;
@@ -16,6 +15,10 @@ h1 {
   width: 50vh;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
   margin-bottom: 50px;
+  background: #f4f4f4;
+  padding: 1em;
+  border-radius: 1em;
+  margin-bottom: 10px;
 }
 .post .img-post {
   width: 50vh;
@@ -59,4 +62,16 @@ h1 {
 }
 .date-span {
   font-size: 12px;
+}
+
+@media (max-width: 425px) {
+  .post {
+    width: 40vh;
+  }
+  .post .img-post {
+    width: 40vh;
+    height: 50vh;
+  }
+}
+@media (max-width: 768px) {
 }
