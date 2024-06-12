@@ -10,6 +10,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const conversationsContainer = document.getElementById('conversations');
 
+    // const user = JSON.parse(sessionStorage.getItem("user"));
+    // if(!user){
+    //     console.error("No se han encontrado datos de sesion de este usuario :(");
+    //     return;
+    // }
+
     const users = {
         4: "blackpanther",
         5: "theking",
@@ -17,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         8: "ironman"
     };
 
-    // Simulated conversations data
+    // Datos simulados temporales
     const simulatedData = [
         {
             conversationPK: { conversationID: 1, receiverUserID: 4, starterUserID: 5 },
@@ -67,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
         conversationDiv.appendChild(messageDiv);
 
         conversationDiv.addEventListener('click', () => {
-            // aqui añadimos la logica para que se despliegue la conversacion
-            console.log(`Conversacion con ${receiverUserName}`);
+            const conversationID=conversation.conversationPK.conversationID;
+            window.location.href = `../SingleConversationScreen/SingleConversationScreen.html?conversationID=${conversationID}`
         });
 
         conversationsContainer.appendChild(conversationDiv);
@@ -78,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     simulatedData.forEach(conversation => displayLastMessage(conversation));
     
     // cuando haya conversaciones hacemos el fetch 
-    // const url = `http://192.168.56.1:9000/memeo/api/getconversations/4`
+    // const url = `http://192.168.56.1:9000/memeo/api/getconversations/${user.userID}`
     // fetch(url)
     //     .then(response => response.json())
     //     .then(data => {
@@ -87,5 +93,3 @@ document.addEventListener('DOMContentLoaded', () => {
     //     .catch(error => console.log(error));
 
 });
-
-

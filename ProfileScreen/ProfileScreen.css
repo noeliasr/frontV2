@@ -107,6 +107,29 @@
     font-size: 2em;
     font-weight: bold;
 }
+.divCount{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.columnCount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+.columnCount h4{
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+.followerCount{
+    font-family: sans-serif;
+}
+.followingCount{
+    font-family: sans-serif;
+}
 
 .editProfileA{
     display: flex;
@@ -135,6 +158,14 @@
 
 #postTitle{
     margin-top: 50px;
+    font-family: sans-serif;
+}
+
+.noPostStyle{
+    width: 100%;
+    margin: 15px 0px 20px;
+    text-align: center;
+
     font-family: sans-serif;
 }
 
@@ -167,7 +198,7 @@ body{
     grid-template-columns: repeat(auto-fill, var(--card_width));
     grid-auto-rows: var(--row_increment);
     justify-content: center;
-
+    
     background-color: white;
 
     /* -webkit-box-shadow: 0px 65px 67px 5px rgba(0,0,0,0.25);
@@ -184,7 +215,7 @@ body{
     transform: translateX(-50%);
 }
 
-.titlePost_container h2{
+.titlePost_container h3{
     font-size: 1.3em;
 }
 
