@@ -1,10 +1,42 @@
 @import url(../reset.css);
 h1 {
-  display: flex;
-  justify-content: center;
   font-size: 50px;
   margin-bottom: 50px;
 }
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.autoComplete {
+  display: inline-block;
+  position: relative;
+}
+
+#dataList {
+  display: none;
+  height: 10vh;
+  overflow: auto;
+  left: 0;
+  border: 1px solid black;
+}
+#dataList option {
+  font-family: arial;
+  font-size: 11.8px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+#dataList option:hover {
+  background-color: #bfddf5;
+}
+
+#dataList.show {
+  display: block;
+  z-index: 999;
+  position: absolute;
+}
+
 #listPost {
   display: flex;
   justify-content: center;

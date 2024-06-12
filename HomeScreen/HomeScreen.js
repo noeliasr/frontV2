@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password-login").value
 
     try {
-      const response = await fetch("http://192.168.1.59:9000/memeo/api/login", {
+      const response = await fetch("http://192.168.1.86:9000/memeo/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.59:9000/memeo/api/signin",
+        "http://192.168.1.86:9000/memeo/api/signin",
         {
           method: "POST",
           headers: {

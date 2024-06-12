@@ -253,5 +253,76 @@ const addComment = async (post) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   closeModalBtn.addEventListener("click", () => closeModal())
+  input.addEventListener("keydown", (event) => findUser(event))
   getPosts()
 })
+
+const input = document.getElementById("autoComplete")
+
+const findUser = async (event) => {
+  try {
+    const response = await fetch(
+      `http://192.168.1.86:9000/memeo/api/findUsernameByUsername/${event.key}`
+    )
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText)
+    }
+    const userList = await response.json()
+    showUserList(userList)
+  } catch (error) {
+    console.error("Error fetching posts:", error)
+  }
+}
+// userList.sort()
+const showUserList = (userList) => {
+  const dataList = document.getElementById("dataList")
+  dataList.innerHTML = ""
+  userList.forEach((item) => {
+    const option = document.createElement("option")
+    option.setAttribute("data-userid", item.userID)
+    option.textContent = item.username
+    dataList.appendChild(option)
+  })
+
+  dataList.querySelectorAll("option").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      console.log(e)
+      input.value = el.value
+    })
+  })
+
+  input.addEventListener("focus", showList)
+
+  input.addEventListener("blur", () => {
+    setTimeout(() => {
+      dataList.classList.remove("show")
+    }, 300)
+  })
+
+  input.addEventListener("keyup", showList)
+
+  function showList() {
+    if (!!input.value) {
+      input.setAttribute("list", "dataList")
+      dataList.classList.remove("show")
+    } else {
+      input.removeAttribute("list")
+      dataList.classList.add("show")
+    }
+  }
+  const autoCompleteInput = document.getElementById("autoComplete")
+  autoCompleteInput.addEventListener("input", function (event) {
+    const inputValue = event.target.value
+    const selectedOption = Array.from(
+      document.querySelectorAll("#dataList option")
+    ).find((option) => option.value === inputValue)
+
+    if (selectedOption) {
+      console.log("Selected description:", selectedOption.textContent)
+      console.log(
+        "Selected userid:",
+        selectedOption.getAttribute("data-userid")
+      )
+    }
+  })
+}

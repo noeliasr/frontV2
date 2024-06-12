@@ -8,7 +8,15 @@
     <link rel="stylesheet" type="text/css" href="../PostModal/PostModal.css" />
   </head>
   <body>
-    <h1>Feed</h1>
+    <div class="container">
+      <input
+        type="text"
+        id="autoComplete"
+        placeholder="sector"
+        autocomplete="off"
+      />
+      <datalist id="dataList" />
+    </div>
     <div id="listPost"></div>
 
     <div class="modal" id="modalAdd">
