@@ -10,11 +10,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const conversationsContainer = document.getElementById('conversations');
 
-    const user = JSON.parse(sessionStorage.getItem("user"));
-    if(!user){
-        console.error("No se han encontrado datos de sesion de este usuario :(");
-        return;
-    }
+    // const user = JSON.parse(sessionStorage.getItem("user"));
+    // if(!user){
+    //     console.error("No se han encontrado datos de sesion de este usuario :(");
+    //     return;
+    // }
 
     const users = {
         4: "blackpanther",
