@@ -304,10 +304,8 @@ const showUserList = (userList) => {
   function showList() {
     if (!!input.value) {
       input.setAttribute("list", "dataList")
-      dataList.classList.remove("show")
     } else {
       input.removeAttribute("list")
-      dataList.classList.add("show")
     }
   }
   const autoCompleteInput = document.getElementById("autoComplete")
@@ -316,13 +314,10 @@ const showUserList = (userList) => {
     const selectedOption = Array.from(
       document.querySelectorAll("#dataList option")
     ).find((option) => option.value === inputValue)
-
     if (selectedOption) {
-      console.log("Selected description:", selectedOption.textContent)
-      console.log(
-        "Selected userid:",
-        selectedOption.getAttribute("data-userid")
-      )
+      window.location.href = `../ProfileScreen/ProfileScreen.html?userID=${selectedOption.getAttribute(
+        "data-userid"
+      )}`
     }
   })
 }
