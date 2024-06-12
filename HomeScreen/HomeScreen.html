@@ -104,8 +104,8 @@
                 aria-label="Insert your password" />
               <input
                 type="date"
-                name="birthday"
-                id="birthday"
+                name="birth_date"
+                id="birth_date"
                 aria-label="Insert your birth date" />
               <label for="avatar">Insert your profile picture</label>
               <input
@@ -116,6 +116,9 @@
                 aria-label="Insert your profile picture" />
               <div class="modal-foot-signin">
                 <input type="submit" value="Go!" class="btn close-btn" />
+              </div>
+              <div id="error-message" style="display: none">
+                <p>That username already exists.</p>
               </div>
             </form>
           </div>

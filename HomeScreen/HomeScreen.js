@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // login
   const loginForm = document.getElementById("login-form")
-  const errorMessage = document.getElementById("error-message")
+  const loginError = document.getElementById("error-message")
 
   loginForm.addEventListener("submit", async function (event) {
     event.preventDefault()
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password-login").value
 
     try {
-      const response = await fetch("http://192.168.1.86:9000/memeo/api/hola", {
+      const response = await fetch("http://192.168.1.59:9000/memeo/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ username: username, password: password }),
       })
       if (!response.ok) {
-        errorMessage.style.display = "block"
+        loginError.style.display = "block"
         throw new Error("Network response was not ok " + response.statusText)
       }
       const user = await response.json()
@@ -53,10 +53,74 @@ document.addEventListener("DOMContentLoaded", () => {
         sessionStorage.setItem("user", JSON.stringify(user))
         window.location.href = "../FeedScreen/FeedScreen.html"
       } else {
-        errorMessage.style.display = "block"
+        loginError.style.display = "block"
       }
     } catch (error) {
       console.error("Error getting user:", error)
+    }
+  })
+
+  //sign in
+  const signinForm = document.getElementById("signin-form")
+  const signinError = document.getElementById("error-message")
+
+  signinForm.addEventListener("submit", async function (event) {
+    event.preventDefault()
+
+    const name = document.getElementById("name").value
+    const surname = document.getElementById("surname").value
+    const email = document.getElementById("email").value
+    const username = document.getElementById("username-signin").value
+    const password = document.getElementById("password-signin").value
+    const birth_date = document.getElementById("birth_date").value
+
+    const avatar = document.getElementById("avatar")
+    const avatarBase64 = ""
+    const file = avatar.files[0]
+    const reader = new FileReader()
+
+    reader.onloadend = function () {
+      avatarBase64 = reader.result.replace("data:", "").replace(/^.+,/, "")
+    }
+
+    reader.readAsDataURL(file)
+
+    const request = {
+      user: {
+        name: name,
+        surname: surname,
+        email: email,
+        username: username,
+        birth_date: birth_date,
+        avatar: avatarBase64,
+      },
+      password: password,
+    }
+
+    try {
+      const response = await fetch(
+        "http://192.168.1.59:9000/memeo/api/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(request),
+        }
+      )
+      if (!response.ok) {
+        signinError.style.display = "block"
+        throw new Error("Network response was not ok " + response.statusText)
+      }
+      const user = await response.json()
+      if (user.userID) {
+        sessionStorage.setItem("user", JSON.stringify(user))
+        window.location.href = "../FeedScreen/FeedScreen.html"
+      } else {
+        signinError.style.display = "block"
+      }
+    } catch (error) {
+      console.error("That username already exists:", error)
     }
   })
 
