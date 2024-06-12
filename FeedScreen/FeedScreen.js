@@ -7,10 +7,13 @@ const comments = document.getElementById("idComment")
 const idLike = document.getElementsByTagName("#idLike")
 const inputComment = document.getElementById("inputComment")
 const btnAddComment = document.getElementById("btnAddComment")
+
+const user = JSON.parse(sessionStorage.getItem("user"))
+
 const getPosts = async () => {
   try {
     const response = await fetch(
-      "http://192.168.1.59:9000/memeo/api/getposts/4"
+      `http://192.168.1.86:9000/memeo/api/getposts/${user.userID}`
     )
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText)
@@ -23,7 +26,9 @@ const getPosts = async () => {
 }
 
 const changeImgLiked = (post) => {
-  let isLike = post.memeLikes.some((like) => like.memeLikePK.userID === 4)
+  let isLike = post.memeLikes.some(
+    (like) => like.memeLikePK.userID === user.userID
+  )
   if (isLike) {
     return "../Assets/like-icon.png"
   } else {
@@ -31,7 +36,7 @@ const changeImgLiked = (post) => {
   }
 }
 const isLiked = (post) => {
-  return post.memeLikes.some((like) => like.memeLikePK.userID === 4)
+  return post.memeLikes.some((like) => like.memeLikePK.userID === user.userID)
 }
 const formatDatePost = (date) => {
   const dateFormat = new Date(date)
@@ -53,7 +58,7 @@ const showPosts = (dataPost) => {
     const postDiv = document.createElement("article")
     postDiv.classList.add("post")
 
-    let imgPost = `http://192.168.1.59:9000/${elemento.media_file}`
+    let imgPost = `http://192.168.1.86:9000/${elemento.media_file}`
 
     const postContent = `
       <figure>
@@ -135,12 +140,12 @@ const createMemeLike = async (post) => {
       postID: post.postID,
     },
     user: {
-      userID: 4,
+      userID: user.userID,
     },
   }
   try {
     const response = await fetch(
-      `http://192.168.1.59:9000/memeo/api/creatememelike`,
+      `http://192.168.1.86:9000/memeo/api/creatememelike`,
       {
         method: "POST",
         headers: {
@@ -161,7 +166,7 @@ const createMemeLike = async (post) => {
 const deleteMemeLike = async (postID) => {
   try {
     const response = await fetch(
-      `http://192.168.1.59:9000/memeo/api/deletememelike/${4}/${postID}`,
+      `http://192.168.1.86:9000/memeo/api/deletememelike/${user.userID}/${postID}`,
       {
         method: "DELETE",
       }
@@ -182,7 +187,7 @@ const removeChildNodes = (parent) => {
 const openModal = (post) => {
   modalAdd.style.display = "flex"
   username.textContent = post.user.username
-  imagenPost.src = `http://192.168.1.59:9000/${post.media_file}`
+  imagenPost.src = `http://192.168.1.86:9000/${post.media_file}`
   loadComments(post)
 }
 
@@ -199,6 +204,7 @@ let currentAddCommentHandler
 const loadComments = (post) => {
   comments.innerHTML = ""
   post.comments.forEach((comment) => {
+    // comment.style.display = "block"
     const commentSpan = document.createElement("span")
     const commentContent = `<strong>${comment.user.username}</strong> ${comment.text_content}`
     commentSpan.innerHTML = commentContent
@@ -217,8 +223,8 @@ const addComment = async (post) => {
   const comment = {
     text_content: inputComment.value,
     user: {
-      userID: 4,
-      username: "theking",
+      userID: user.userID,
+      username: user.username,
     },
     post: {
       postID: post.postID,
@@ -226,7 +232,7 @@ const addComment = async (post) => {
   }
   try {
     const response = await fetch(
-      `http://192.168.1.59:9000/memeo/api/createcomment`,
+      `http://192.168.1.86:9000/memeo/api/createcomment`,
       {
         method: "POST",
         headers: {
