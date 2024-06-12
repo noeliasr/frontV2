@@ -1,9 +1,12 @@
+@import url(../reset.css);
+@import url(../header.css);
+
 body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     height: 100vh;
     margin: 0;
 }
@@ -14,12 +17,20 @@ body {
     width: 90%;
     padding: 1em;
     max-width: 500px;
-    /* display: flex;
+
+    display: flex;
     flex-direction: column;
-    align-items: center; */
+    align-self: center;
+    
     -webkit-box-shadow: 10px 10px 20px -1px rgba(237,206,237,1);
     -moz-box-shadow: 10px 10px 20px -1px rgba(237,206,237,1);
     box-shadow: 10px 10px 20px -1px rgba(237,206,237,1);
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
