@@ -67,7 +67,6 @@ saveButtonAct.addEventListener("click",() => {
                 // transformación de la imagen en base64
                 const base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
             
-
                 //seleccionamos "el cambio" que vamos a enviar
                 const profile = {
                     user: {

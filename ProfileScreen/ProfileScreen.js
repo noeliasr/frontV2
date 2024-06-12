@@ -28,15 +28,23 @@ async function obtenerDatosUsuario(userID) {
         var imageURL = document.getElementById('profileImage');
         imageURL.src = `http://192.168.56.1:9000/${dataUser.avatar}`;        
 
+        var followerCount = document.querySelector(".followerCount");
+        followerCount.textContent = `${dataUser.followers.length}`;
+
+        var followingCount = document.querySelector(".followingCount");
+        followingCount.textContent = `${dataUser.following.length}`;
+        
         // settear posts
         var pinContainer = document.querySelector('.pin_container');
+        var titlePin_container = document.querySelector('.titlePin_container');
 
         if(!dataUser.posts){
             console.log("No hay posts.");
 
-            var noPosts = document.createElement("div");
-            noPosts.textContent = "No hay posts que mostrar :("
-            postContainer.appendChild(noPosts); //FALTA ESTILO
+            var noPosts = document.createElement("p");
+            noPosts.classList.add("noPostStyle");
+            noPosts.innerHTML = "We're so sorry! There are no posts here... :( <br><br> Atte: meme-o team <3";
+            titlePin_container.appendChild(noPosts);
             
         }else{
             console.log("Hay posts.");
