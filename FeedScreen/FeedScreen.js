@@ -262,7 +262,7 @@ const input = document.getElementById("autoComplete")
 const findUser = async (event) => {
   try {
     const response = await fetch(
-      `http://localhost:9000/memeo/api/findUsernameByUsername/${event.key}`
+      `http://localhost:9000/memeo/api/searchusers/${event.key}`
     )
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText)
