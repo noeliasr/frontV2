@@ -1,7 +1,7 @@
-// // para asegurarnos de que carga antes de tirar el evento
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     obtenerDatosUsuario(1);
-// });
+// para asegurarnos de que carga antes de tirar el evento
+document.addEventListener('DOMContentLoaded', (event) => {
+    obtenerDatosUsuario(4);
+});
 
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -9,8 +9,8 @@ function randomIntFromInterval(min, max) { // min and max included
 
 async function obtenerDatosUsuario(userID) {
     const loggedUser = JSON.parse(sessionStorage.getItem("user"))
-    // const url = `http://192.168.56.1:9000/memeo/api/getuser/${loggedUser.userID}`;
-    const url = `http://192.168.56.1:9000/memeo/api/getuser/${userID}`;
+    // const url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`;
+    const url = `http://localhost:9000/memeo/api/getuser/${userID}`;
 
     try {
         const response = await fetch(url);
@@ -26,7 +26,7 @@ async function obtenerDatosUsuario(userID) {
         usernameH3.textContent = dataUser.username;
 
         var imageURL = document.getElementById('profileImage');
-        imageURL.src = `http://192.168.56.1:9000/${dataUser.avatar}`;        
+        imageURL.src = `http://localhost:9000/${dataUser.avatar}`;        
 
         var followerCount = document.querySelector(".followerCount");
         followerCount.textContent = `${dataUser.followers.length}`;
@@ -68,7 +68,7 @@ async function obtenerDatosUsuario(userID) {
                 pinContainer.appendChild(containerPost);
 
                 var anImage = document.createElement("img");
-                anImage.src = `http://192.168.56.1:9000/${post.media_file}`;
+                anImage.src = `http://localhost:9000/${post.media_file}`;
                 anImage.alt = "Imagen de un post";
                 anImage.classList.add("cardImage");
                 containerPost.appendChild(anImage);
@@ -82,5 +82,3 @@ async function obtenerDatosUsuario(userID) {
         console.error('ERROR REQUEST FETCH:', error);
     }
 }
-
-console.log(obtenerDatosUsuario(4));

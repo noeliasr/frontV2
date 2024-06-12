@@ -11,7 +11,7 @@ function formateoFecha(fecha) {
 }
 
 async function obtenerDatosUsuario(userID) {
-    const url = `http://192.168.56.1:9000/memeo/api/getuser/${userID}`;
+    const url = `http://localhost:9000/memeo/api/getuser/${userID}`;
 
     try {
         const response = await fetch(url);
@@ -24,7 +24,7 @@ async function obtenerDatosUsuario(userID) {
 
         // setteo de variables
         var imageURL = document.getElementById('profileImage');
-        imageURL.src = `http://192.168.56.1:9000/${dataUser.avatar}`;        
+        imageURL.src = `http://localhost:9000/${dataUser.avatar}`;        
 
         var inputUsername = document.getElementById('inputUsername');
         inputUsername.value = dataUser.username;
@@ -77,11 +77,11 @@ saveButtonAct.addEventListener("click",() => {
                 }
 
                 //mandamos el fetch NO ES CREATEPOST ¿¿¿¿¿
-                fetch("http://192.168.56.1:9000/memeo/api/createpost", {
+                fetch("http://localhost:9000/memeo/api/createpost", {
                     method: "POST",
                     headers:{
                         "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": "http://192.168.56.1:9000",
+                        "Access-Control-Allow-Origin": "http://localhost:9000",
                     },
                     body: JSON.stringify(profile),
                 })

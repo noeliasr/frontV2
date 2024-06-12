@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                 },
                 media_file: base64String,
             }
-            fetch("http://192.168.56.1:9000/memeo/api/createpost", {
+            fetch("http://localhost:9000/memeo/api/createpost", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "http://192.168.56.1:9000",
+                    "Access-Control-Allow-Origin": "http://localhost:9000",
                 },
                 body: JSON.stringify(post),
             })

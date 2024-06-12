@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password-login").value
 
     try {
-      const response = await fetch("http://192.168.1.86:9000/memeo/api/login", {
+      const response = await fetch("http://localhost:9000/memeo/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.86:9000/memeo/api/signin",
+        "http://localhost:9000/memeo/api/signin",
         {
           method: "POST",
           headers: {
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // const logoutButton = document.getElementById("logout-button")
 
   // logoutButton.addEventListener("click", function () {
-  //   fetch("http://192.168.1.59:9000/logout", {
+  //   fetch("http://localhost:9000/logout", {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/x-www-form-urlencoded",

@@ -13,7 +13,7 @@ const user = JSON.parse(sessionStorage.getItem("user"))
 const getPosts = async () => {
   try {
     const response = await fetch(
-      `http://192.168.1.86:9000/memeo/api/getposts/${user.userID}`
+      `http://localhost:9000/memeo/api/getposts/${user.userID}`
     )
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText)
@@ -58,7 +58,7 @@ const showPosts = (dataPost) => {
     const postDiv = document.createElement("article")
     postDiv.classList.add("post")
 
-    let imgPost = `http://192.168.1.86:9000/${elemento.media_file}`
+    let imgPost = `http://localhost:9000/${elemento.media_file}`
 
     const postContent = `
       <figure>
@@ -145,7 +145,7 @@ const createMemeLike = async (post) => {
   }
   try {
     const response = await fetch(
-      `http://192.168.1.86:9000/memeo/api/creatememelike`,
+      `http://localhost:9000/memeo/api/creatememelike`,
       {
         method: "POST",
         headers: {
@@ -166,7 +166,7 @@ const createMemeLike = async (post) => {
 const deleteMemeLike = async (postID) => {
   try {
     const response = await fetch(
-      `http://192.168.1.86:9000/memeo/api/deletememelike/${user.userID}/${postID}`,
+      `http://localhost:9000/memeo/api/deletememelike/${user.userID}/${postID}`,
       {
         method: "DELETE",
       }
@@ -187,7 +187,7 @@ const removeChildNodes = (parent) => {
 const openModal = (post) => {
   modalAdd.style.display = "flex"
   username.textContent = post.user.username
-  imagenPost.src = `http://192.168.1.86:9000/${post.media_file}`
+  imagenPost.src = `http://localhost:9000/${post.media_file}`
   loadComments(post)
 }
 
@@ -232,7 +232,7 @@ const addComment = async (post) => {
   }
   try {
     const response = await fetch(
-      `http://192.168.1.86:9000/memeo/api/createcomment`,
+      `http://localhost:9000/memeo/api/createcomment`,
       {
         method: "POST",
         headers: {
@@ -262,7 +262,7 @@ const input = document.getElementById("autoComplete")
 const findUser = async (event) => {
   try {
     const response = await fetch(
-      `http://192.168.1.86:9000/memeo/api/findUsernameByUsername/${event.key}`
+      `http://localhost:9000/memeo/api/findUsernameByUsername/${event.key}`
     )
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText)

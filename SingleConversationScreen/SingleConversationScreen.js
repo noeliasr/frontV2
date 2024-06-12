@@ -1,14 +1,14 @@
-// // para asegurarnos de que carga antes de tirar el evento
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     obtenerDatosConversacion(1);
-// });
+// para asegurarnos de que carga antes de tirar el evento
+document.addEventListener('DOMContentLoaded', (event) => {
+    obtenerDatosConversacion(4);
+});
 
 
 async function obtenerDatosConversacion(userID) {
     const loggedUser = JSON.parse(sessionStorage.getItem("user"))
-    // const url = `http://192.168.56.1:9000/memeo/api/getconversations/${loggedUser.userID}`;
+    // const url = `http://localhost:9000/memeo/api/getconversations/${loggedUser.userID}`;
 
-    const url = `http://192.168.56.1:9000/memeo/api/getconversations/${userID}`;
+    const url = `http://localhost:9000/memeo/api/getconversations/${userID}`;
 
     //qué conversación es?
     // const params = new URLSearchParams(window.location.search);
@@ -39,7 +39,7 @@ async function obtenerDatosConversacion(userID) {
             // if(dataConversation[conversationID].conversationPK.starterUserID == loggedUser.userID){ // userID del usuario loggeado
             if(dataConversation[conversationID].conversationPK.starterUserID == 4){ // hardcoded
                 try {
-                    const response = await fetch(`http://192.168.56.1:9000/memeo/api/getuser/${dataConversation[conversationID].conversationPK.receiverUserID}`);
+                    const response = await fetch(`http://localhost:9000/memeo/api/getuser/${dataConversation[conversationID].conversationPK.receiverUserID}`);
                     
                     if (!response.ok) {
                         throw new Error(`Error en la solicitud: ${response.status}`);
@@ -55,7 +55,7 @@ async function obtenerDatosConversacion(userID) {
             } else{
                 console.log("debería de salir si si")
                 try {
-                    const response = await fetch(`http://192.168.56.1:9000/memeo/api/getuser/${dataConversation[conversationID].conversationPK.starterUserID}`);
+                    const response = await fetch(`http://localhost:9000/memeo/api/getuser/${dataConversation[conversationID].conversationPK.starterUserID}`);
                     
                     if (!response.ok) {
                         throw new Error(`Error en la solicitud: ${response.status}`);
@@ -86,7 +86,7 @@ async function obtenerDatosConversacion(userID) {
             console.log("Hay mensajes.");
 
             try {
-                const response = await fetch(`http://192.168.56.1:9000/memeo/api/getdms/${conversationID}`);
+                const response = await fetch(`http://localhost:9000/memeo/api/getdms/${conversationID}`);
 
                 if (!response.ok) {
                     throw new Error(`Error en la solicitud: ${response.status}`);
@@ -124,5 +124,3 @@ async function obtenerDatosConversacion(userID) {
         console.error('ERROR REQUEST FETCH:', error);
     }
 }
-
-console.log(obtenerDatosConversacion(4));

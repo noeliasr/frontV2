@@ -1,7 +1,7 @@
 // // /getconversations/{userID}
 
-// // const url = `http://192.168.56.1:9000/memeo/api/getconversations/${userID}`
-// const url = `http://192.168.56.1:9000/memeo/api/getconversations/4`
+// // const url = `http://localhost:9000/memeo/api/getconversations/${userID}`
+// const url = `http://localhost:9000/memeo/api/getconversations/4`
 // fetch(url)
 //     .then(response => response.json())
 //     .then(data => console.log(data))
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     simulatedData.forEach(conversation => displayLastMessage(conversation));
     
     // cuando haya conversaciones hacemos el fetch 
-    // const url = `http://192.168.56.1:9000/memeo/api/getconversations/${user.userID}`
+    // const url = `http://localhost:9000/memeo/api/getconversations/${user.userID}`
     // fetch(url)
     //     .then(response => response.json())
     //     .then(data => {
