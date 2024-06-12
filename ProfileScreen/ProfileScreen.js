@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
 
             const dataUser = await response.json();
+            console.log(dataUser);
 
             // setteo de variables
             var usernameH3 = document.getElementById('usernameHeader');
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             var pinContainer = document.querySelector('.pin_container');
             var titlePin_container = document.querySelector('.titlePin_container');
 
-            if(!dataUser.posts){
+            if(dataUser.posts.length == 0){
                 console.log("No hay posts.");
 
                 var noPosts = document.createElement("p");

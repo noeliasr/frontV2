@@ -115,6 +115,13 @@
     margin-bottom: 30px;
 }
 
+#newProfilePicForm{
+    display: flex;
+    flex-direction: column;
+
+    width: 75%;
+}
+
 .inputsList{
     align-self: center;
 

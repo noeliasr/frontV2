@@ -55,23 +55,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //cuando se pulse guardar se activa el submit
     const saveButtonAct = document.querySelector(".submitA");
     saveButtonAct.addEventListener("submit", async function (event) {
-        event.preventDefault();
-        
-        // seleccionamos las variables
-        const avatar = document.getElementById("avatar");
-        const avatarBase64 = "";
-        const file = avatar.files[0];
-        const reader = new FileReader();
+      event.preventDefault();
+      
+      // seleccionamos las variables
+      const avatar = document.getElementById("avatar");
+      const avatarBase64 = "";
+      const file = avatar.files[0];
+      const reader = new FileReader();
 
-        reader.onloadend = function () {
+      reader.onloadend = async function () {
         avatarBase64 = reader.result.replace("data:", "").replace(/^.+,/, "")
+        const user = {
+          name: name,
+          surname: surname,
+          email: email,
+          username: username,
+          birth_date: birth_date,
+          avatar: avatarBase64,
         }
 
-        reader.readAsDataURL(file);
-
-        // mandamos la request con el nuevo avatar
-        
-
+        try {
+          const response = await fetch(`http://localhost:9000/memeo/api/updateuser/${loggedUser.userID}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          })
+          if (!response.ok) {
+            signinError.style.display = "block"
+            throw new Error("Network response was not ok " + response.statusText)
+          }
+          const user = await response.json()
+          if (user.userID) {
+            sessionStorage.setItem("user", JSON.stringify(user))
+            window.location.href = "../ProfileScreen/ProfileScreen.html"
+          } else {
+            signinError.style.display = "block"
+          }
+        } catch (error) {
+          console.error("Last catch error:", error)
+        }
+      }
+      reader.readAsDataURL(file);        
     });
 
     fetchUserData();
