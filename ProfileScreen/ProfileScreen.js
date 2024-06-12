@@ -8,6 +8,8 @@ function randomIntFromInterval(min, max) { // min and max included
   }
 
 async function obtenerDatosUsuario(userID) {
+    const loggedUser = JSON.parse(sessionStorage.getItem("user"))
+    // const url = `http://192.168.56.1:9000/memeo/api/getuser/${loggedUser.userID}`;
     const url = `http://192.168.56.1:9000/memeo/api/getuser/${userID}`;
 
     try {
