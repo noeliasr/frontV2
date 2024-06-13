@@ -3,7 +3,9 @@
 @import url(../footer.css);
 
 body{
-  background-image: url("../Assets/fondo-modales-home.png");}
+  background-image: url("../Assets/seamless-bg.png");
+  background-size: cover;
+}
 
 h1 {
   font-size: 50px;
@@ -106,5 +108,64 @@ h1 {
     height: 50vh;
   }
 }
+
 @media (max-width: 768px) {
+}
+
+#create-post {
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  background-color: rebeccapurple;
+  padding: 2em;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+}
+
+.btn-create-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rebeccapurple;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+}
+
+@media (max-width: 1024px) {
+  #create-post {
+    top: auto;
+    bottom: 5%;
+    right: 50%;
+    transform: translate(50%, 0);
+    padding: 3em;
+    width: 4em;
+    height: 4em;
+  }
+  .btn-create-post {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  #create-post {
+    top: auto;
+    bottom: 5%;
+    right: 50%;
+    transform: translate(50%, 0);
+    padding: 1em;
+    width: 2em;
+    height: 2em;
+  }
+  .btn-create-post {
+    font-size: 0.8em;
+  }
 }
