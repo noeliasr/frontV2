@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }else{
             try {
-                const response = await fetch(`http://192.168.56.1:9000/memeo/api/getuser/${conversation.conversationPK.receiverID}`);
+                const response = await fetch(`http://192.168.56.1:9000/memeo/api/getuser/${conversation.conversationPK.receiverUserID}`);
                 
                 if (!response.ok) {
                     throw new Error(`Error en la solicitud: ${response.status}`);
