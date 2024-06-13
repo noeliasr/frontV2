@@ -20,11 +20,15 @@
 
     <main>
       <div class="container">
-        <input
-          type="text"
-          id="autoComplete"
-          placeholder="Search user"
-          autocomplete="off" />
+        <div class="container-img-input">
+          <img src="../Assets/buscar.png" />
+          <input
+            type="text"
+            id="autoComplete"
+            placeholder="Search user"
+            autocomplete="off"
+          />
+        </div>
         <datalist id="dataList" />
       </div>
 
@@ -47,7 +51,8 @@
                 id="inputComment"
                 class="styled-input"
                 type="text"
-                placeholder="¡Agrega tu comentario!" />
+                placeholder="¡Agrega tu comentario!"
+              />
               <button class="btnAddComment" id="btnAddComment">
                 Agregar comentario
               </button>
@@ -80,7 +85,8 @@
     </footer>
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script src="FeedScreen.js"></script>
   </body>
 </html>

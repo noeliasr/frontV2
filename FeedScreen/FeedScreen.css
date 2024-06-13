@@ -2,7 +2,7 @@
 @import url(../header.css);
 @import url(../footer.css);
 
-body{
+body {
   background-image: url("../Assets/seamless-bg.png");
   background-size: cover;
 }
@@ -16,10 +16,30 @@ h1 {
   justify-content: center;
   margin-bottom: 20px;
 }
-
-.autoComplete {
+.container-img-input {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 350px;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 25px;
+}
+.container-img-input img {
+  width: 20px;
+  height: 20px;
+}
+#autoComplete {
   display: inline-block;
   position: relative;
+  padding: 10px;
+  background-color: transparent;
+  border: 0px;
+  width: 300px;
+}
+#autoComplete:focus {
+  border: none;
+  outline: none;
 }
 
 #dataList {
