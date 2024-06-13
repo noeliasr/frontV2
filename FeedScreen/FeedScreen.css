@@ -16,15 +16,15 @@ h1 {
   display: inline-block;
   position: relative;
 }
-
-#create-post{
+#create-post {
   text-align: center;
   vertical-align: middle;
   justify-content: center;
   display: flex;
-  position: absolute;
-  top: 45%;
-  right: 25%;
+  position: fixed;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
   background-color: rebeccapurple;
   padding: 2em;
   border-radius: 50%;
@@ -39,6 +39,30 @@ h1 {
   padding: 10px;
   border-radius: 10px;
   text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  #create-post {
+    top: auto;
+    bottom: 5%;
+    right: 50%;
+    transform: translate(50%, 0);
+    /* padding: 2em;
+    width: 3em;
+    height: 3em; */
+  }
+}
+
+@media (max-width: 768px) {
+  #create-post {
+    top: auto;
+    bottom: 5%;
+    right: 50%;
+    transform: translate(50%, 0);
+    /* padding: 1em;
+    width: 2em;
+    height: 2em; */
+  }
 }
 
 #dataList {
