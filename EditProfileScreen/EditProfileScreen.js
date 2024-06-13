@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
 
     function formateoFecha(fecha) {
         var date = new Date(fecha);
@@ -12,8 +12,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return `${dia}-${mes}-${año}`;
     }
 
+    //usuario loggeado
+    const loggedUser = JSON.parse(sessionStorage.getItem("user"))
+
+    // setteo de variables
+    var imageURL = document.getElementById('profileImage');
+    var inputUsername = document.getElementById('inputUsername');
+    var inputName = document.getElementById('inputName');
+    var inputSurname = document.getElementById('inputSurname');
+    var inputBirthdate = document.getElementById('inputBirthdate');
+    var infoP = document.getElementById('signInDate');
+
     async function fetchUserData() {
-        const loggedUser = JSON.parse(sessionStorage.getItem("user"))
         const url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`;
 
         try {
@@ -26,22 +36,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const dataUser = await response.json();
 
             // setteo de variables
-            var imageURL = document.getElementById('profileImage');
             imageURL.src = `http://localhost:9000/${dataUser.avatar}`;        
-
-            var inputUsername = document.getElementById('inputUsername');
             inputUsername.value = dataUser.username;
-
-            var inputName = document.getElementById('inputName');
+            // en orden de input iría password
             inputName.value = dataUser.name;
-            
-            var inputSurname = document.getElementById('inputSurname');
             inputSurname.value = dataUser.surname;
-
-            var inputBirthdate = document.getElementById('inputBirthdate');
             inputBirthdate.value = formateoFecha(dataUser.birth_date);
-
-            var infoP = document.getElementById('signInDate');
             infoP.textContent = `Te registraste en meme-o en ${formateoFecha(dataUser.signup_date)}`;
 
             // return a consola
@@ -54,50 +54,61 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     //cuando se pulse guardar se activa el submit
     const saveButtonAct = document.querySelector(".submitA");
-    saveButtonAct.addEventListener("submit", async function (event) {
+    saveButtonAct.addEventListener("click", async function (event) {
       event.preventDefault();
-      
-      // seleccionamos las variables
-      const avatar = document.getElementById("avatar");
-      const avatarBase64 = "";
-      const file = avatar.files[0];
-      const reader = new FileReader();
+
+      const avatar = document.getElementById("avatar")
+
+      // cogemos los datos en session
+      const userID = loggedUser.userID
+      const username = loggedUser.username
+      const name = loggedUser.name
+      const surname = loggedUser.surname
+      const email = loggedUser.email
+      const birth_date = loggedUser.birth_date
+      const signup_date = loggedUser.signup_date
+
+
+      let avatarBase64 = ""
+      var file = avatar.files[0]
+      var reader = new FileReader()
+
 
       reader.onloadend = async function () {
         avatarBase64 = reader.result.replace("data:", "").replace(/^.+,/, "")
+
         const user = {
+          userID: userID,
+          username: username,
           name: name,
           surname: surname,
           email: email,
-          username: username,
+          signup_date: signup_date,
           birth_date: birth_date,
           avatar: avatarBase64,
         }
 
         try {
-          const response = await fetch(`http://localhost:9000/memeo/api/updateuser/${loggedUser.userID}`, {
-            method: "POST",
+          const response = await fetch(`http://localhost:9000/memeo/api/updateuser/${userID}`, {
+            method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(user),
           })
+
           if (!response.ok) {
-            signinError.style.display = "block"
+            // signinError.style.display = "block"
             throw new Error("Network response was not ok " + response.statusText)
-          }
-          const user = await response.json()
-          if (user.userID) {
-            sessionStorage.setItem("user", JSON.stringify(user))
+          } else{
             window.location.href = "../ProfileScreen/ProfileScreen.html"
-          } else {
-            signinError.style.display = "block"
           }
+
         } catch (error) {
           console.error("Last catch error:", error)
         }
       }
-      reader.readAsDataURL(file);        
+      reader.readAsDataURL(file);
     });
 
     fetchUserData();
