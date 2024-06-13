@@ -2,7 +2,7 @@
 @import url(../header.css);
 @import url(../footer.css);
 
-body{
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -11,71 +11,131 @@ body{
     align-items: center;
     background-color: rgba(214, 212, 212, 0.55);
 }
-.conversationContainer{
-    margin-top: 20vh;
-    padding: 10px;
 
-    /* border: 1px solid red; */
-}
-
-.senderUser{
+.conversationContainer {
+    width: 90vw;
+    max-width: 800px;
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    padding-top: 10px;
     background-color: white;
-    /* border: 1px solid yellow; */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.senderUserH{
+
+.backToConvA {
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.backToConvA:hover {
+    animation: movIzq 1.2s ease infinite alternate;
+}
+
+@keyframes movIzq {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-10px);
+    }
+}
+
+.senderUser {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    background-color: white;
+}
+
+.senderUser h3 {
+    margin: 0;
     font-size: 1.2em;
     font-family: sans-serif;
 }
 
-
-.messagesContainer{
-    /* border: 1px solid blue; */
-
-    margin: 0 auto;
-    padding: 0;
-    width: 80vw;
-    position: relative;
-
+.messagesContainer {
+    flex: 1;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-
-    background-color: white;
 }
 
-.inputContainer{
+.inputContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
 }
-#inputMessage{
+
+#inputMessage {
     width: 100%;
-    border: none; /*??*/
+    border: none;
     padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.received{
-    align-self: flex-start;
-    padding: 25px 25px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
+.received, .sent {
+    padding: 10px 15px;
+    margin: 10px 0;
     border: 1px solid black;
     border-radius: 25px;
+}
+
+.received {
+    align-self: flex-start;
     background-color: lightblue;
 }
 
-.sent{
+.sent {
     align-self: flex-end;
-    padding: 25px 25px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    border: 1px solid black;
-    border-radius: 25px;
     background-color: lightcoral;
 }
+/* Pie de pagina */
+
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 0; 
+    background-color: rgb(239, 183, 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+.footer-menu-container{
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    color: rgb(42, 4, 52);
+    font-size: 16px;
+}
+.menu-item{
+    margin: 1rem 1.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.menu-item:hover{
+    opacity: 1;
+}
+.copyright{
+    width: 100%;
+    display: block;
+    font-size: 14px;
+    color: rgb(44, 4, 82);
+    opacity: 0.5;
+    text-align: center;
+} 

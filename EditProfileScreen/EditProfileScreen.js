@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
           })
 
           if (!response.ok) {
-            // signinError.style.display = "block"
             throw new Error("Network response was not ok " + response.statusText)
           } else{
             window.location.href = "../ProfileScreen/ProfileScreen.html"

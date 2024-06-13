@@ -1,26 +1,37 @@
 // para asegurarnos de que carga antes de tirar el evento
-document.addEventListener("DOMContentLoaded", (event) => {
-  //   const params = new URLSearchParams(window.location.search)
-  //   const userID = params.get("userID")
+document.addEventListener("DOMContentLoaded", () => {
+  // función para elegir los tamaños de los posts
   function randomIntFromInterval(min, max) {
-    // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
   }
 
+
+  const params = new URLSearchParams(window.location.search)
+  const receiverUserID = params.get("userID")
+
   async function fetchUserData() {
+    // usuario loggeado
     const loggedUser = JSON.parse(sessionStorage.getItem("user"))
-    const url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-    // let url = "http://localhost:9000/memeo/api/getuser/"
-    // if (userID === sessionStorage.getItem("user")) {
-    //   url += loggedUser.userID
-    // } else {
-    //     url += userID
-    //     button.style.display="none" --> hacerlo bien
-    // }
+
 
     try {
-      const response = await fetch(url)
+      if(receiverUserID == null) { //valoramos null y ponemos el loggeado
+        var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
 
+      } else if(receiverUserID === loggedUser.userID) { // si el userID recibido es el del logged
+        var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
+
+      } else{
+        var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
+        const editProfileButton = document.querySelector(".editProfileA");
+        editProfileButton.style.display = "none"
+
+        console.log("no es nuestro perfil, seguimos loggeados? : " + loggedUser.usename) //PROBLEMA!!!!!
+      }
+
+      console.log(url)
+
+      const response = await fetch(url)
       if (!response.ok) {
         throw new Error(`Error en la solicitud: ${response.status}`)
       }
@@ -57,7 +68,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         console.log("Hay posts.")
 
         var postsArray = dataUser.posts
-        console.log("Array de post:" + postsArray)
+        console.log("Comprobación: Número de posts" + postsArray.length)
 
         postsArray.forEach((post) => {
           var containerPost = document.createElement("div")
