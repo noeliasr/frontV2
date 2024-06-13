@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // usuario loggeado
     const loggedUser = JSON.parse(sessionStorage.getItem("user"))
 
-
     try {
       if(receiverUserID == null) { //valoramos null y ponemos el loggeado
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const editProfileButton = document.querySelector(".editProfileA");
         editProfileButton.style.display = "none"
 
-        console.log("no es nuestro perfil, seguimos loggeados? : " + loggedUser.usename) //PROBLEMA!!!!!
+        console.log("no es nuestro perfil, seguimos loggeados? : " + loggedUser.username)
       }
 
       console.log(url)
