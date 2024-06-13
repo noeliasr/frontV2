@@ -2,6 +2,9 @@
 @import url(../header.css);
 @import url(../footer.css);
 
+body{
+  background-image: url("../Assets/fondo-modales-home.png");}
+
 h1 {
   font-size: 50px;
   margin-bottom: 50px;

@@ -17,8 +17,9 @@
     overflow: hidden;
     padding: 20px 10px;
     margin-bottom: 20px;
-    background-color: #f1f1f1;
+    /* background-color: #e5c7ff; */
     text-align: center;
+    background-image: linear-gradient(to bottom, #e5c7ff, rgba(229, 199, 255, 0));
 }
 
 .header a {
@@ -28,7 +29,7 @@
     text-decoration: none;
     font-family: sans-serif;
     font-size: 1em;
-    color: black;
+    color: white;
     border-radius: 25px;
 }
 
@@ -36,17 +37,20 @@
     font-family: "DreamyBubble";
     font-size: 30px;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.7);
+    /* text-shadow: 2px 2px 4px rgb(128, 128, 128); */
+
+    -webkit-text-stroke-width: 0.15px;
+    -webkit-text-stroke-color: black;
 }
 
 .header a:hover {
-    background-color: rgb(239, 183, 241);
+    background-color: #9F58F9;
     color: white;
 }
 
 .header a.logo:hover {
     background-color: transparent;
-    color: black;
+    color: white;
 }
 
 .header-right {
