@@ -86,6 +86,7 @@ const showPosts = (dataPost) => {
     }</span>
           <div class="comments-section">
             ${elemento.comments
+              .slice(0, 3)
               .map(
                 (comentario) => `
               <span>${comentario.user.username}: ${comentario.text_content}</span>
@@ -202,6 +203,12 @@ const closeModal = () => {
 let currentAddCommentHandler
 
 const loadComments = (post) => {
+  debugger
+  if (post.comments.length === 0) {
+    comments.style.display = "none"
+    return
+  }
+  comments.style.display = "flex"
   comments.innerHTML = ""
   post.comments.forEach((comment) => {
     // comment.style.display = "block"
