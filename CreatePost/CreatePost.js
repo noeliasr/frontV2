@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }
 
         const reader = new FileReader();
-        reader.onloadend = function () {
+        reader.onloadend = async function () {
             const base64String = reader.result
                 .replace("data:", "")
                 .replace(/^.+,/, "")
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                 },
                 media_file: base64String,
             }
-            fetch("http://localhost:9000/memeo/api/createpost", {
+            await fetch("http://localhost:9000/memeo/api/createpost", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "http://localhost:9000",
+                    // "Access-Control-Allow-Origin": "http://localhost:9000",
                 },
                 body: JSON.stringify(post),
             })
