@@ -124,3 +124,24 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* helvetica para todos los elementos */
+body,
+button,
+input,
+select,
+textarea,
+p,
+span,
+a,
+label
+{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* helvetica negrita y en mayúsculas para los encabezados h1 a h6 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
