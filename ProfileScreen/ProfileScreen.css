@@ -87,8 +87,33 @@
     border: 1px solid rgba(0, 0, 0, 0.664);
 }
 .editProfileA:active {
-    transform: scale(0.90); /* Reduce ligeramente el tamaño del botón cuando se hace clic */
-  }
+    transform: scale(0.90);
+}
+
+.followButton{
+    display: flex;
+    padding: 0.6em;
+
+    font-family: sans-serif;
+    font-size: 0.8em;
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 25px;
+
+    /* color: black;
+    background-color: lightgrey; */
+
+    transition: transform 0.1s ease-in-out;
+}
+/* .followButton:hover{
+    color: white;
+    background-color: rgb(158, 158, 158);
+    border: 1px solid rgba(0, 0, 0, 0.664);
+}
+.followButton:active {
+    transform: scale(0.90);
+} */
 
 #postTitle{
     margin-top: 50px;

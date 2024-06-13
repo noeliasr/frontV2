@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
   }
 
-
   const params = new URLSearchParams(window.location.search)
   const receiverUserID = params.get("userID")
 
@@ -14,18 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedUser = JSON.parse(sessionStorage.getItem("user"))
 
     try {
+      const editProfileButton = document.querySelector(".editProfileA");
+      const followButton = document.querySelector(".followButtonA");
+      
       if(receiverUserID == null) { //valoramos null y ponemos el loggeado
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-
+        editProfileButton.style.display = "flex"
+        followButton.style.display = "none"
       } else if(receiverUserID === loggedUser.userID) { // si el userID recibido es el del logged
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-
+        editProfileButton.style.display = "flex"
+        followButton.style.display = "none"
       } else{
         var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
-        const editProfileButton = document.querySelector(".editProfileA");
         editProfileButton.style.display = "none"
-
-        console.log("no es nuestro perfil, seguimos loggeados? : " + loggedUser.username)
+        followButton.style.display = "flex"
       }
 
       console.log(url)
@@ -37,6 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const dataUser = await response.json()
       console.log(dataUser)
+
+      // set botón de seguir/seguido/siguiendo
+      
+
 
       // setteo de variables
       var usernameH3 = document.getElementById("usernameHeader")
