@@ -40,13 +40,102 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(loggedUser)
 
+        var contador = 0
+        var followingUserFromUser = null
+        var followingUserToUser = null
+
+        console.log(loggedUser.following)
+
         loggedUser.following.forEach(followingUser => {
-          if(followingUser.to_user == receiverUserID){
-            console.log("SÍ followingUser.followerID = " + followingUser.to_user  + " -- receiverUserID = " + receiverUserID)
+          if(followingUser.toUser == receiverUserID){
+            contador++
+            followingUserFromUser = followingUser.fromUser
+            followingUserToUser = followingUser.toUser
+
+            // console.log("SÍ followingUser.toUser = " + followingUser.toUser  + " -- receiverUserID = " + receiverUserID)
           } else{
-            console.log("JAJ followingUser.followerID = " + followingUser.to_user  + " -- receiverUserID = " + receiverUserID)
+            // console.log("NO followingUser.toUser = " + followingUser.toUser  + " -- receiverUserID = " + receiverUserID)
           }
         });
+
+        if(contador == 1){ // si se siguen: botón en following
+          followButton.textContent = "FOLLOWING"
+          followButton.classList.add('followingState')
+
+          followButton.addEventListener("click", async () => {
+            // DELETE FOLLOWING RELATION -> /deletefollower/{fromUserID}/{toUserID}
+            try {
+              const response = await fetch(`http://localhost:9000/memeo/api/deletefollower/${followingUserFromUser}/${followingUserToUser}`, {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                }
+              })
+              
+              if (!response.ok) {
+                throw new Error("Network response was not ok " + response.statusText)
+              } else{
+                window.location.href = "../ProfileScreen/ProfileScreen.html"
+              }
+    
+            } catch (error) {
+              console.error("Last catch error:", error)
+            }
+            
+            // updateamos en session eliminado
+            const updateFollowing = loggedUser.following.filter(fo => fo.toUser != followingUserToUser)
+            loggedUser.following = updateFollowing
+            sessionStorage.setItem("user", JSON.stringify(loggedUser))
+
+            followButton.textContent = "FOLLOW"
+            followButton.classList.add('followState')
+          })
+        } else{ //si no se siguen: botón en follow
+          followButton.textContent = "FOLLOW"
+          followButton.classList.add('followState')
+          
+          followButton.addEventListener("click", async () => {
+            // CREATE FOLLOWING RELATION -> POST
+            const follower = {
+             "fromUser" : {
+              "userID" : loggedUser.userID,
+             },
+             "toUser" : {
+              "userID" : receiverUserID,
+             }
+            }
+    
+            try {
+              const response = await fetch(`http://localhost:9000/memeo/api/createfollower`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(follower),
+              })
+    
+              if (!response.ok) {
+                throw new Error("Network response was not ok " + response.statusText)
+              } else{
+                window.location.href = "../ProfileScreen/ProfileScreen.html"
+              }
+    
+            } catch (error) {
+              console.error("Last catch error:", error)
+            }
+
+            // updateamos en session añadido
+            const userFollowed = await response.json()
+
+            const updateFollowing = loggedUser.following.push(userFollowed)
+            loggedUser.following = updateFollowing
+            sessionStorage.setItem("user", JSON.stringify(loggedUser))
+
+            followButton.textContent = "FOLLOWING"
+            followButton.classList.add('followingState')
+          })
+        }
+
       }
 
       // funcionalidad al botón de logout
@@ -93,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Hay posts.")
 
         var postsArray = dataUser.posts
-        console.log("Comprobación: Número de posts" + postsArray.length)
+        console.log("Comprobación: Nº de posts " + postsArray.length)
 
         postsArray.forEach((post) => {
           var containerPost = document.createElement("div")
