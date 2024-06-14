@@ -115,6 +115,10 @@
     transform: scale(0.90);
 } */
 
+.hidden{ /* for the button visibility following-edit prof*/
+    display: none !important;
+}
+
 #postTitle{
     margin-top: 50px;
     font-family: sans-serif;

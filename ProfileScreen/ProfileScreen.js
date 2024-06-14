@@ -15,20 +15,44 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const editProfileButton = document.querySelector(".editProfileA");
       const followButton = document.querySelector(".followButtonA");
+      const logOutButton = document.querySelector(".logOutButtonA");
       
       if(receiverUserID == null) { //valoramos null y ponemos el loggeado
+
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-        editProfileButton.style.display = "flex"
-        followButton.style.display = "none"
+        editProfileButton.classList.remove('hidden');
+        followButton.classList.add('hidden');
+        logOutButton.classList.remove('hidden')
+      
       } else if(receiverUserID === loggedUser.userID) { // si el userID recibido es el del logged
+        
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-        editProfileButton.style.display = "flex"
-        followButton.style.display = "none"
+        editProfileButton.classList.remove('hidden');
+        followButton.classList.add('hidden');
+        logOutButton.classList.remove('hidden')
+
       } else{
+        
         var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
-        editProfileButton.style.display = "none"
-        followButton.style.display = "flex"
+        editProfileButton.classList.add('hidden');
+        followButton.classList.remove('hidden');
+        logOutButton.classList.add('hidden')
+
+        console.log(loggedUser)
+
+        loggedUser.following.forEach(followingUser => {
+          if(followingUser.to_user == receiverUserID){
+            console.log("SÍ followingUser.followerID = " + followingUser.to_user  + " -- receiverUserID = " + receiverUserID)
+          } else{
+            console.log("JAJ followingUser.followerID = " + followingUser.to_user  + " -- receiverUserID = " + receiverUserID)
+          }
+        });
       }
+
+      // funcionalidad al botón de logout
+      // logOutButton.addEventListener("click", async function () {
+      //   //
+      // })
 
       console.log(url)
 
@@ -39,10 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const dataUser = await response.json()
       console.log(dataUser)
-
-      // set botón de seguir/seguido/siguiendo
-      
-
 
       // setteo de variables
       var usernameH3 = document.getElementById("usernameHeader")
@@ -99,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // return a consola
       return dataUser
+
     } catch (error) {
       console.error("ERROR REQUEST FETCH:", error)
     }

@@ -1,6 +1,7 @@
 const modalAdd = document.querySelector("#modalAdd")
 const closeModalBtn = document.querySelector("#closeModalBtn")
 const idPost = document.getElementById("idPost")
+const loader = document.querySelector(".loader")
 const imagenPost = idPost.querySelector("img")
 const username = document.getElementById("user")
 const comments = document.getElementById("idComment")
@@ -53,6 +54,8 @@ const formatDatePost = (date) => {
 }
 const showPosts = (dataPost) => {
   const lista = document.getElementById("listPost")
+  lista.style.display = "flex"
+  loader.style.display = "none"
   removeChildNodes(lista)
   dataPost.forEach(async (elemento) => {
     const postDiv = document.createElement("article")
@@ -203,7 +206,6 @@ const closeModal = () => {
 let currentAddCommentHandler
 
 const loadComments = (post) => {
-  debugger
   if (post.comments.length === 0) {
     comments.style.display = "none"
     return
@@ -257,12 +259,6 @@ const addComment = async (post) => {
   post.comments.push(comment)
   loadComments(post)
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  closeModalBtn.addEventListener("click", () => closeModal())
-  input.addEventListener("keydown", (event) => findUser(event))
-  getPosts()
-})
 
 const input = document.getElementById("autoComplete")
 
@@ -328,3 +324,31 @@ const showUserList = (userList) => {
     }
   })
 }
+
+/*BTN SCROLL TO TOP */
+let mybutton = document.getElementById("circularBtnScroll")
+window.onscroll = function () {
+  scrollFunction()
+}
+
+const scrollFunction = () => {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block"
+  } else {
+    mybutton.style.display = "none"
+  }
+}
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+}
+/*HOOK DOM LOADED*/
+document.addEventListener("DOMContentLoaded", () => {
+  closeModalBtn.addEventListener("click", () => closeModal())
+  input.addEventListener("keydown", (event) => findUser(event))
+  mybutton.addEventListener("click", () => scrollToTop())
+  getPosts()
+})
