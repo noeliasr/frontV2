@@ -2,36 +2,38 @@
 @import url(../header.css);
 @import url(../footer.css);
 
-body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    height: 100vh;
-    margin: 0;
+html {
+    height: 100%;
 }
 
-.container {
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    background-color: rgba(214, 212, 212, 0.55);
+}
+
+.container{
     background-color: white;
     border-radius: 20px;
     width: 90%;
     padding: 1em;
     max-width: 500px;
-
+    /* height: 100%; */
+    flex: 1;
+    /* esto hace que se ponga en el medio (importante) */
+    margin: auto auto;
     display: flex;
     flex-direction: column;
-    align-self: center;
-    
+    align-items: center;
+    justify-content: center;
+    grid-row: 2 / 3;
     -webkit-box-shadow: 10px 10px 20px -1px rgba(237,206,237,1);
     -moz-box-shadow: 10px 10px 20px -1px rgba(237,206,237,1);
     box-shadow: 10px 10px 20px -1px rgba(237,206,237,1);
-}
-
-.center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 h1 {
@@ -57,4 +59,16 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+.spacer {
+    grid-row: 3 / 4;
+    height: calc(100vh - (var(--footer-height) + var(--container-height)));
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    padding: 0.5rem 0; 
+    grid-row: 4 / 5;
 }
