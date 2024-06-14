@@ -24,7 +24,7 @@ span{
 
 /*variables disponibles en todo el html*/
 :root {
-    --bg-color: #ffffff;
+    --bg-color: #c8a8ff;
     --grad-color-1: #F1A1FF;
     --grad-color-2: #BA70FB;
     --gradient: linear-gradient(90deg, var(--grad-color-1) 0%, var(--grad-color-2) 100%);
@@ -114,7 +114,6 @@ button{
     min-height: calc(100% - 3rem);
 }
 
-
 /* MODALES */
 .modal-content {
     position: relative;
@@ -134,122 +133,217 @@ button{
 }
 
 .modal-content::after{
-content: "";
-display: block;
-padding-bottom: 100%;
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
 
 /* estado del contenido cuando el modal esté abierto */
 .modal.open .modal-content {
-transform: scale(1);
+    transform: scale(1);
 }
 
 .modal-body-login {
-margin: 2rem 0 3rem;
-position: absolute;
-top: -5%;
-left: 0;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+    margin: 2rem 0 3rem;
+    position: absolute;
+    top: -5%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .modal-head-login{
-position: absolute;
-top: 34%;
-left: 0;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+    position: absolute;
+    top: 34%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .modal-foot-login{
-position: absolute;
-top: 60%;
-left: 0;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+    position: absolute;
+    top: 60%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .modal-body-signin {
-margin: 2rem 0 3rem;
-position: absolute;
-top: -5%;
-left: 0;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+    margin: 2rem 0 3rem;
+    position: absolute;
+    top: -5%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 form{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 .modal-head-signin{
-position: absolute;
-top: 13%;
-left: 0;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+    position: absolute;
+    top: 13%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .modal-foot-signin{
-position: absolute;
-top: 80%;
-left: 0;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .modal-body-login p, .modal-body-signin p {
-font-size: 1.2rem;
-line-height: 1.6;
-letter-spacing: 0.8px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 0.8px;
 }
 
 .close-btn {
-font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 input{
-display: block;
-line-height: 2;
-color: #212529;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid #ced4da;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-border-radius: 0.25rem;
-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-margin-bottom: 5%;
-z-index: 100;
+    display: block;
+    line-height: 2;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 5%;
+    z-index: 100;
 }
+
 @media (max-width: 575.98px) {
-.modal-wrapper {
-margin: 0.5rem;
-min-height: calc(100% - 1rem);
+    .modal-wrapper {
+        margin: 0.5rem;
+        min-height: calc(100% - 1rem);
+    }
 }
+
+hr {
+    height: 20px;
+    border: none;
+    margin: 4em 0;
+    position: relative;
+}
+  
+hr::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    background-image: radial-gradient(#fff 0%, rgba(255, 255, 255, 0) 70%, transparent 50%, transparent 100%);
+    background-size: 20px 20px;
+}
+
+@font-face {
+    font-family: 'DreamyBubble';
+    src: url('Fonts/DreamyBubbleDemoDemo-nRVxV.ttf') format('truetype');
+}
+
+h1{
+    font-family: "DreamyBubble", "Universe", Helvetica, Arial, sans-serif;
+    font-size: 5em;
+    font-weight: bold;
+    text-transform:none;
+    padding-left: 2em;
+    margin-bottom: 1.5em;
+    color: #fff;
+    -webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: black;
+}
+
+.main-section h2{
+    padding-left: 2.6em;
+    color: #fff;
+}
+
+.div-modal{
+    background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    border-radius: 20px;
+    padding: 2.5em;
+    width: 60%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    justify-content:left;
+}
+
+.div-modal span{
+    width: fit-content;
+    height: fit-content;
+}
+
+button {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  margin-left: 20%;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:after {
+  content: "";
+  background-color: #833FF7;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+button:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0.5em 2em;
+  }
 }
