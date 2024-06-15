@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
-        editProfileButton.tabindex = 0
+        //editProfileButton.tabindex = 0
 
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
-        editProfileButton.tabindex = 0
+        //editProfileButton.tabindex = 0
 
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // si se siguen: botón en following
           followButton.textContent = "FOLLOWING"
           followButton.classList.add("followingState")
-          followButton.tabindex = 0
+          //followButton.tabindex = 0
 
           followButton.addEventListener("click", async () => {
             // DELETE FOLLOWING RELATION -> /deletefollower/{fromUserID}/{toUserID}

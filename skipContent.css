@@ -1,21 +1,23 @@
 .enlaceSaltarContenido {
-  font-size: 1.1rem;
+  font-size: 1em !important;
   position: fixed;
   z-index: 1000;
   position: fixed;
   padding: 8px 16px;
   top: 10px;
   left: 10px;
-  background-color: #9f58f9;
-  font-weight: bold;
+  background-color: #9f58f9 !important;
+  color: #000 !important;
+  font-weight: bolder !important;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
+  border: 1px solid black !important;
 }
 
 .enlaceSaltarContenido:focus,
 .enlaceSaltarContenido:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: #000 !important;
+  color: #fff !important;
   cursor: pointer;
 }

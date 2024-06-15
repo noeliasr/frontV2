@@ -101,6 +101,12 @@ h1 {
 .btn-incons-post {
   background: none;
   border: none;
+  padding: 0.5em;
+}
+.btn-incons-post:hover,
+.btn-incons-post:focus {
+  background-color: #e5c7ff;
+  border-radius: 50%;
 }
 .count-likes,
 .count-comments {

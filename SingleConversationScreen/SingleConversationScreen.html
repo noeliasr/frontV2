@@ -12,42 +12,44 @@
   </head>
   <body>
     <!-- CUERPO -->
-    <div class="conversationContainer">
-      <div class="senderUser">
-        <a
-          class="backToConvA"
-          href="../Conversations/Conversations.html"
-          aria-label="back to conversation screen button"
-          tabindex="1"
-          ><img src="../Assets/atras.png" alt="go back" style="width: 30%"
-        /></a>
-        <h3 class="conversationWith"></h3>
-      </div>
+    <main>
+      <div class="conversationContainer">
+        <div class="senderUser">
+          <a
+            class="backToConvA"
+            href="../Conversations/Conversations.html"
+            aria-label="back to conversation screen button"
+            tabindex="1"
+            ><img src="../Assets/atras.png" alt="go back" style="width: 30%"
+          /></a>
+          <h3 class="conversationWith"></h3>
+        </div>
 
-      <!-- contenedor de los mensajes -->
-      <div class="messagesContainer"></div>
+        <!-- contenedor de los mensajes -->
+        <div class="messagesContainer"></div>
 
-      <!-- contenedor de la barra de enviar mensajes -->
-      <div class="inputContainer">
-        <form action="">
-          <input
-            id="inputMessage"
-            type="text"
-            name="messageToSent"
-            placeholder="Write here"
-            aria-placeholder="Write your content message"
-            value=""
-            required
-            aria-label="direct message input space"
-            tabindex="2" />
-          <input
-            class="submitInput"
-            type="submit"
-            aria-label="send the direct message button"
-            tabindex="3" />
-        </form>
+        <!-- contenedor de la barra de enviar mensajes -->
+        <div class="inputContainer">
+          <form action="">
+            <input
+              id="inputMessage"
+              type="text"
+              name="messageToSent"
+              placeholder="Write here"
+              aria-placeholder="Write your content message"
+              value=""
+              required
+              aria-label="direct message input space"
+              tabindex="2" />
+            <input
+              class="submitInput"
+              type="submit"
+              aria-label="send the direct message button"
+              tabindex="3" />
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"

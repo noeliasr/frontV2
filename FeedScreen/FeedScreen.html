@@ -12,13 +12,13 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-      <button
+      <a
         tabindex="1"
         class="enlaceSaltarContenido"
         href="#content"
-        aria-label="link to main content">
+        aria-label="go to main content">
         Go to main content
-      </button>
+      </a>
       <a
         href="../FeedScreen/FeedScreen.html"
         class="logo"
@@ -53,13 +53,14 @@
       </div>
     </header>
 
-    <main>
+    <main id="content">
       <div class="container">
         <div class="container-img-input">
           <img src="../Assets/buscar.png" />
           <input
             type="text"
             id="autoComplete"
+            tabindex="0"
             placeholder="Search user"
             aria-placeholder="here you can search users by username"
             autocomplete="off"
