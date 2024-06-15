@@ -7,36 +7,40 @@
     <link rel="stylesheet" href="CreatePost.css" />
   </head>
   <body>
-    <div class="container">
-      <a tabindex="1" class="backToConvA" href="../FeedScreen/FeedScreen.html"
-        ><img src="../Assets/atras.png" alt="go back" style="width: 5%"
-      /></a>
-      <h1>Publish something!</h1>
-      <form action="" class="styledFormPost" id="postForm">
-        <textarea
-          tabindex="2"
-          id="postText"
-          class="styledPost"
-          placeholder="Tell us something!"
-          aria-placeholder="here you can write the caption for your post"
-          aria-label="input for text content for the post"></textarea>
-        <input
-          tabindex="3"
-          type="file"
-          id="postImg"
-          class="styledPost"
-          accept="image/*"
-          aria-label="attach your image to the post" />
-        <button
-          tabindex="4"
-          id="publishBtn"
-          type="submit"
-          class="btnPublish"
-          aria-label="button for publishing the post">
-          Publish
-        </button>
-      </form>
+    <div class="main-container">
+        <div class="gradient-header"></div>
+        <div class="container">
+            <a tabindex="1" class="backToConvA" href="../FeedScreen/FeedScreen.html"
+                ><img src="../Assets/atras.png" alt="go back" style="width: 5%"
+            /></a>
+            <h1>Publish something!</h1>
+            <form action="" class="styledFormPost" id="postForm">
+                <textarea
+                tabindex="2"
+                id="postText"
+                class="styledPost"
+                placeholder="Tell us something!"
+                aria-placeholder="here you can write the caption for your post"
+                aria-label="input for text content for the post"></textarea>
+                <input
+                tabindex="3"
+                type="file"
+                id="postImg"
+                class="styledPost"
+                accept="image/*"
+                aria-label="attach your image to the post" />
+                <button
+                tabindex="4"
+                id="publishBtn"
+                type="submit"
+                class="btnPublish"
+                aria-label="button for publishing the post">
+                Publish
+                </button>
+            </form>
+        </div>
     </div>
+    
 
     <footer>
       <div class="footerContainer">

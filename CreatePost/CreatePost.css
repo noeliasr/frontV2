@@ -16,6 +16,16 @@ body {
   background-image: url("../Assets/seamless-bg.png");
   background-size: cover;
 }
+.main-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.gradient-header {
+  width: 100%;
+  height: 150px; /* Puedes ajustar la altura según necesites */
+  background: linear-gradient(to bottom, #e5c7ff, rgba(229, 199, 255, 0));
+}
 
 .container {
   background-color: white;
@@ -45,7 +55,8 @@ h1 {
   margin-right: 10px;
 }
 
-.backToConvA:hover {
+.backToConvA:hover,
+.backToConvA:focus {
   animation: movIzq 1.2s ease infinite alternate;
 }
 @keyframes movIzq {
@@ -85,6 +96,7 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.btnPublish:hover {
+.btnPublish:hover,
+.btnPublish:focus {
   background-color: rgb(208, 109, 228);
 }
