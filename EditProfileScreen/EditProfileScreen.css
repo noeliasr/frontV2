@@ -113,20 +113,18 @@
 .submitA {
   display: flex;
   align-self: flex-end;
-
   font-family: sans-serif;
   font-size: 0.8em;
-
   text-decoration: none;
   padding: 10px 10px;
   margin-top: 10px;
   border: 1px solid black;
   border-radius: 25px;
-
   color: black;
   background-color: lightgrey;
-
   transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  cursor: pointer;
 }
 .submitA:hover {
   color: white;
