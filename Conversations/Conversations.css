@@ -74,3 +74,23 @@ footer {
     padding: 0.5rem 0; 
     grid-row: 4 / 5;
 }
+.enlaceSaltarContenido{ 
+    font-size: 1.1rem;
+    position: fixed;
+    z-index: 1000;
+    position: fixed; 
+    padding: 8px 16px;
+    top: 10px; 
+    left: 10px;
+    background-color: rgb(167, 85, 239);
+    font-weight: bold;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.enlaceSaltarContenido:focus,
+.enlaceSaltarContenido:hover{
+    background-color: rgb(108, 4, 156);
+    color: rgb(243, 197, 247);
+} 
