@@ -35,19 +35,26 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         media_file: base64String,
       }
-      await fetch("http://localhost:9000/memeo/api/createpost", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "http://localhost:9000",
-        },
-        body: JSON.stringify(post),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log("Success:", data))
-        .catch((error) => console.error("Error:", error))
+      try {
+        const response = await fetch(
+          "http://localhost:9000/memeo/api/createpost",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              // "Access-Control-Allow-Origin": "http://localhost:9000",
+            },
+            body: JSON.stringify(post),
+          }
+        )
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText)
+        }
+        window.location.href = "../ProfileScreen/ProfileScreen.html"
+      } catch (error) {
+        console.error("Error:", error)
+      }
     }
     reader.readAsDataURL(postImg)
-    window.location.href = "../ProfileScreen/ProfileScreen.html"
   })
 })

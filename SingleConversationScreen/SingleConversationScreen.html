@@ -11,16 +11,6 @@
       href="SingleConversationScreen.css" />
   </head>
   <body>
-    <!-- HEADER -->
-    <!-- <header class="header">
-        <a href="../FeedScreen/FeedScreen.html" class="logo">meme-o</a>
-        <div class="header-right">
-          <a href="../FeedScreen/FeedScreen.html">Feed</a>
-          <a href="../ProfileScreen/ProfileScreen.html">Profile</a>
-          <a href="">Reload</a>
-        </div>
-    </header> -->
-
     <!-- CUERPO -->
     <div class="conversationContainer">
       <div class="senderUser">
@@ -28,6 +18,7 @@
           class="backToConvA"
           href="../Conversations/Conversations.html"
           aria-label="back to conversation screen button"
+          tabindex="1"
           ><img src="../Assets/atras.png" alt="go back" style="width: 30%"
         /></a>
         <h3 class="conversationWith"></h3>
@@ -47,11 +38,13 @@
             aria-placeholder="Write your content message"
             value=""
             required
-            aria-label="direct message input space" />
+            aria-label="direct message input space"
+            tabindex="2" />
           <input
             class="submitInput"
             type="submit"
-            aria-label="send the direct message button" />
+            aria-label="send the direct message button"
+            tabindex="3" />
         </form>
       </div>
     </div>

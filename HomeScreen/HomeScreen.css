@@ -2,313 +2,322 @@
 @import url(../header.css);
 @import url(../footer.css);
 
-
-body{
-    align-items: center;
+body {
+  align-items: center;
 }
 
-span{
-    display: block;
+span {
+  display: block;
 }
 
-.main{
-    display: flex;
-    align-items: center;
-    height: 100vh;
+.main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 /*para dividir la pantalla por el medio*/
-.main-section{
-    width: 50%;
+.main-section {
+  width: 50%;
 }
 
 /*variables disponibles en todo el html*/
 :root {
-    --bg-color: #c8a8ff;
-    --grad-color-1: #F1A1FF;
-    --grad-color-2: #BA70FB;
-    --gradient: linear-gradient(90deg, var(--grad-color-1) 0%, var(--grad-color-2) 100%);
-    --shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5);
+  --bg-color: #c8a8ff;
+  --grad-color-1: #f1a1ff;
+  --grad-color-2: #ba70fb;
+  --gradient: linear-gradient(
+    90deg,
+    var(--grad-color-1) 0%,
+    var(--grad-color-2) 100%
+  );
+  --shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5);
 }
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: var(--bg-color);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: var(--bg-color);
 }
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
 .close-btn {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
 }
 
-.heading{
-    background: linear-gradient(to right, #F1A1FF, #BA70FB);
-    background-size: cover;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+.heading {
+  background: linear-gradient(to right, #f1a1ff, #ba70fb);
+  background-size: cover;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .btn {
-    background-image: var(--gradient);
-    color: #fff;
-    font-size: 1rem;
-    padding: 0.6rem 1.8rem;
-    border-radius: 50px;
-    transition: transform 0.2s ease;
+  background-image: var(--gradient);
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  transition: transform 0.2s ease;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .btn:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .modal {
-    background-color: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.2s ease;
 }
 
 /* cuando el modal tiene la clase open */
 .modal.open {
-    pointer-events: all;
-    opacity: 1;
-    visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5rem;
-    min-height: calc(100% - 3rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem;
+  min-height: calc(100% - 3rem);
 }
 
 /* MODALES */
 .modal-content {
-    position: relative;
-    background-color: var(--bg-color);
-    box-shadow: var(--shadow);
-    width: 40vw;
-    padding: 4rem;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transform: scale(0);
-    transition: transform 0.4s ease;
-    background-image: url("../Assets/fondo-modales-home.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  position: relative;
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow);
+  width: 40vw;
+  padding: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.4s ease;
+  background-image: url("../Assets/fondo-modales-home.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.modal-content::after{
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+.modal-content::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
 /* estado del contenido cuando el modal esté abierto */
 .modal.open .modal-content {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 .modal-body-login {
-    margin: 2rem 0 3rem;
-    position: absolute;
-    top: -5%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+  margin: 2rem 0 3rem;
+  position: absolute;
+  top: -5%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-head-login{
-    position: absolute;
-    top: 34%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+.modal-head-login {
+  position: absolute;
+  top: 34%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-foot-login{
-    position: absolute;
-    top: 60%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+.modal-foot-login {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-body-signin {
-    margin: 2rem 0 3rem;
-    position: absolute;
-    top: -5%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+  margin: 2rem 0 3rem;
+  position: absolute;
+  top: -5%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 
-.modal-head-signin{
-    position: absolute;
-    top: 13%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+.modal-head-signin {
+  position: absolute;
+  top: 13%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-foot-signin{
-    position: absolute;
-    top: 80%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+.modal-foot-signin {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-body-login p, .modal-body-signin p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    letter-spacing: 0.8px;
+.modal-body-login p,
+.modal-body-signin p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: 0.8px;
 }
 
 .close-btn {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
-input{
-    display: block;
-    line-height: 2;
-    color: #212529;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    margin-bottom: 5%;
-    z-index: 100;
+input {
+  display: block;
+  line-height: 2;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 5%;
+  z-index: 100;
 }
 
 @media (max-width: 575.98px) {
-    .modal-wrapper {
-        margin: 0.5rem;
-        min-height: calc(100% - 1rem);
-    }
+  .modal-wrapper {
+    margin: 0.5rem;
+    min-height: calc(100% - 1rem);
+  }
 }
 
 hr {
-    height: 20px;
-    border: none;
-    margin: 4em 0;
-    position: relative;
+  height: 20px;
+  border: none;
+  margin: 4em 0;
+  position: relative;
 }
-  
+
 hr::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 20px;
-    background-image: radial-gradient(#fff 0%, rgba(255, 255, 255, 0) 70%, transparent 50%, transparent 100%);
-    background-size: 20px 20px;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  background-image: radial-gradient(
+    #fff 0%,
+    rgba(255, 255, 255, 0) 70%,
+    transparent 50%,
+    transparent 100%
+  );
+  background-size: 20px 20px;
 }
 
 @font-face {
-    font-family: 'DreamyBubble';
-    src: url('Fonts/DreamyBubbleDemoDemo-nRVxV.ttf') format('truetype');
+  font-family: "DreamyBubble";
+  src: url("Fonts/DreamyBubbleDemoDemo-nRVxV.ttf") format("truetype");
 }
 
-h1{
-    font-family: "DreamyBubble", "Universe", Helvetica, Arial, sans-serif;
-    font-size: 5em;
-    font-weight: bold;
-    text-transform:none;
-    padding-left: 2em;
-    margin-bottom: 1.5em;
-    color: #fff;
-    -webkit-text-stroke-width: 0.3px;
-    -webkit-text-stroke-color: black;
+h1 {
+  font-family: "DreamyBubble", "Universe", Helvetica, Arial, sans-serif;
+  font-size: 5em;
+  font-weight: bold;
+  text-transform: none;
+  padding-left: 2em;
+  margin-bottom: 1.5em;
+  color: #fff;
+  -webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: black;
 }
 
-.main-section h2{
-    padding-left: 2.6em;
-    color: #fff;
+.main-section h2 {
+  padding-left: 2.6em;
+  color: #fff;
 }
 
-.div-modal{
-    background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
-    border-radius: 20px;
-    padding: 2.5em;
-    width: 60%;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    vertical-align: middle;
-    justify-content:left;
+.div-modal {
+  background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  border-radius: 20px;
+  padding: 2.5em;
+  width: 60%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: left;
 }
 
-.div-modal span{
-    width: fit-content;
-    height: fit-content;
+.div-modal span {
+  width: fit-content;
+  height: fit-content;
 }
 
 button {
@@ -327,7 +336,7 @@ button {
 
 button:after {
   content: "";
-  background-color: #833FF7;
+  background-color: #833ff7;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -337,7 +346,8 @@ button:after {
   transition: 0.2s;
 }
 
-button:hover:after {
+button:hover:after,
+button:focus:after {
   top: 0px;
   left: 0px;
 }

@@ -1,6 +1,7 @@
 @import url(../reset.css);
 @import url(../header.css);
 @import url(../footer.css);
+@import url(../skipContent.css);
 
 body {
   background-image: url("../Assets/seamless-bg.png");
@@ -168,7 +169,7 @@ h1 {
   top: 50%;
   right: 15%;
   transform: translateY(-50%);
-  background-color: rebeccapurple;
+  background-color: #9f58f9;
   padding: 2em;
   border-radius: 50%;
   width: 3em;
@@ -179,13 +180,18 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rebeccapurple;
-  color: white;
+  background-color: #9f58f9;
+  color: #000;
   text-decoration: none;
   width: 100%;
   height: 100%;
   font-size: 1em;
 }
+
+.btn-create-post:hover {
+  color: #fff;
+}
+
 #perfil-details {
   text-align: center;
   vertical-align: middle;

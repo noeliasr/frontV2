@@ -16,7 +16,15 @@
   <body>
     <!-- HEADER -->
     <header class="header">
+      <button
+        tabindex="1"
+        class="enlaceSaltarContenido"
+        href="#content"
+        aria-label="link to main content">
+        Go to main content
+      </button>
       <a
+        tabindex="2"
         href="../FeedScreen/FeedScreen.html"
         class="logo"
         aria-label="logo to feed"
@@ -24,6 +32,7 @@
       >
       <div class="header-right">
         <a
+          tabindex="3"
           href="../Conversations/Conversations.html"
           aria-label="button to conversations"
           ><img
@@ -31,18 +40,23 @@
             alt="conversations"
             style="width: 50%"
         /></a>
-        <a href="../FeedScreen/FeedScreen.html" aria-label="button to feed"
+        <a
+          tabindex="4"
+          href="../FeedScreen/FeedScreen.html"
+          aria-label="button to feed"
           ><img
             src="../Assets/flecha-circular-apuntando-a-la-derecha.png"
             alt="refresh"
             style="width: 50%"
         /></a>
         <a
+          tabindex="5"
           href="../ProfileScreen/ProfileScreen.html"
           aria-label="button to profile"
           ><img src="../Assets/usuario.png" alt="avatar" style="width: 50%"
         /></a>
         <a
+          tabindex="6"
           href="../HomeScreen/HomeScreen.html"
           class="logOutButtonA"
           aria-label="logout button"
@@ -68,16 +82,17 @@
         </div>
       </div>
       <a
+        tabindex="7"
         class="editProfileA"
         href="../EditProfileScreen/EditProfileScreen.html"
         aria-label="go to dit profile"
         >Edit profile</a
       >
       <a
+        tabindex="7"
         class="followButtonA"
         href="#"
-        aria-label="follow or unfollow button"
-      ></a>
+        aria-label="follow or unfollow button"></a>
     </div>
 
     <!-- contenedor de pines (titulo post y contenedor de pin-post)-->
@@ -112,20 +127,19 @@
               type="text"
               placeholder="Add your comment"
               aria-placeholder="here you can add your comment"
-              aria-label="input for creation of comments"
-            />
+              aria-label="input for creation of comments" />
             <button
               class="btnAddComment"
               id="btnAddComment"
-              aria-label="publish comment button"
-            >
+              aria-label="publish comment button">
               Agregar comentario
             </button>
           </div>
         </div>
       </div>
     </div>
-    <div id="circularBtnScroll">
+
+    <div id="circularBtnScroll" tabindex="8">
       <img src="../Assets/arrow-top-black.png" alt="arrow back" />
     </div>
 
@@ -144,8 +158,7 @@
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="ProfileScreen.js"></script>
   </body>
 </html>

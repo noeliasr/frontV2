@@ -69,7 +69,7 @@ const showPosts = (dataPost) => {
           elemento.postID
         }" src="${imgPost}" alt="Imagen de ${
       elemento.user.username
-    } con titulo ${elemento.text_content}">
+    } con titulo ${elemento.text_content}" tabindex="0">
       </figure>
       <div>
         <div class="span-icons">

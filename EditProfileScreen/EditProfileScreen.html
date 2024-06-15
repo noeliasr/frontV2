@@ -11,7 +11,10 @@
     <!-- CUERPO -->
     <div class="container">
       <div class="profileChange">
-        <a class="backToProfA" href="../ProfileScreen/ProfileScreen.html"
+        <a
+          tabindex="1"
+          class="backToProfA"
+          href="../ProfileScreen/ProfileScreen.html"
           ><img
             src="../Assets/atras.png"
             alt="ir hacia atrás"
@@ -21,12 +24,12 @@
 
         <form class="newProfilePic" id="newProfilePicForm" action="#">
           <input
+            tabindex="2"
             class="newProfilePic"
             id="avatar"
             type="file"
             accept="image/*"
-            required
-          />
+            required />
           <br />
           <input
             class="inputsList"
@@ -34,51 +37,47 @@
             name="inputUsername"
             type="text"
             value=""
-            readonly
-          />
+            readonly />
           <input
             class="inputsList"
             id="inputPass"
             name="inputPass"
             type="password"
             value="password123"
-            readonly
-          />
+            readonly />
           <input
             class="inputsList"
             id="inputName"
             name="inputName"
             type="text"
             value=""
-            readonly
-          />
+            readonly />
           <input
             class="inputsList"
             id="inputSurname"
             name="inputSurname"
             type="text"
             value=""
-            readonly
-          />
+            readonly />
           <input
             class="inputsList"
             id="inputBirthdate"
             name="inputSurname"
             type="text"
             value=""
-            readonly
-          />
+            readonly />
 
           <p id="signInDate"></p>
 
           <input
+            tabindex="3"
             class="submitA"
             type="submit"
-            aria-label="button for saving changes"
-          />
+            aria-label="button for saving changes" />
         </form>
       </div>
     </div>
+
     <!-- FOOTER -->
     <footer>
       <div class="footerContainer">
@@ -88,16 +87,13 @@
           <li class="menu-item fa fa-twitter"></li>
           <li class="menu-item fa fa-youtube"></li>
         </ul>
-        <span class="copyright"
-          >&copy;2024 Meme-o. Todos los derechos reservados.</span
-        >
+        <span class="copyright">&copy;2024 Meme-o. All rights reserved.</span>
       </div>
     </footer>
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="EditProfileScreen.js"></script>
   </body>
 </html>

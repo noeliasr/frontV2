@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
+        editProfileButton.tabindex = 0
+
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
       } else if (receiverUserID === loggedUser.userID) {
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
+        editProfileButton.tabindex = 0
+
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
       } else {
@@ -51,10 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
             contador++
             followingUserFromUser = followingUser.fromUser
             followingUserToUser = followingUser.toUser
-
-            // console.log("SÍ followingUser.toUser = " + followingUser.toUser  + " -- receiverUserID = " + receiverUserID)
-          } else {
-            // console.log("NO followingUser.toUser = " + followingUser.toUser  + " -- receiverUserID = " + receiverUserID)
           }
         })
 
@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // si se siguen: botón en following
           followButton.textContent = "FOLLOWING"
           followButton.classList.add("followingState")
+          followButton.tabindex = 0
 
           followButton.addEventListener("click", async () => {
             // DELETE FOLLOWING RELATION -> /deletefollower/{fromUserID}/{toUserID}
@@ -198,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         postsArray.reverse().forEach((post) => {
           var containerPost = document.createElement("div")
           containerPost.classList.add("card")
+          containerPost.tabIndex = 0
 
           var aleatorio = randomIntFromInterval(1, 3)
           if (aleatorio === 1) {
@@ -242,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalAdd.style.display = "flex"
     username.textContent = loggedUser.username
     imagenPost.src = `http://localhost:9000/${post.media_file}`
+
     loadComments(post)
   }
 

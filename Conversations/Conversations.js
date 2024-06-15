@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const conversationDiv = document.createElement("div")
     conversationDiv.classList.add("conversation")
+    conversationDiv.tabIndex = 0
 
     let titleNameConversation = ""
 

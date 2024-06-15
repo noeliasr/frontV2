@@ -44,11 +44,13 @@
   font-weight: bold;
 }
 
-.header a:hover {
+.header a:hover,
+.header a:focus {
   background-color: #9f58f9;
   color: white;
 }
-.header a.logo:hover {
+.header a.logo:hover,
+.header a.logo:focus {
   background-color: transparent;
   color: black;
 }
@@ -183,7 +185,8 @@
   transition: transform 0.1s ease-in-out;
   cursor: pointer;
 }
-.submitA:hover {
+.submitA:hover,
+.submitA:focus {
   color: white;
   background-color: rgb(158, 158, 158);
   border: 1px solid rgba(0, 0, 0, 0.664);
