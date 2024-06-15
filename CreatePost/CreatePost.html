@@ -9,18 +9,28 @@
   <body>
     <div class="container">
       <a class="backToConvA" href="../FeedScreen/FeedScreen.html"
-        ><img src="../Assets/atras.png" alt="ir hacia atrás" style="width: 5%"
+        ><img src="../Assets/atras.png" alt="go back" style="width: 5%"
       /></a>
-      <h1>¡Publica algo!</h1>
+      <h1>Publish something!</h1>
       <form action="" class="styledFormPost" id="postForm">
         <textarea
           id="postText"
           class="styledPost"
-          placeholder="¿Qué nos cuentas?"
-        ></textarea>
-        <input type="file" id="postImg" class="styledPost" accept="image/*" />
-        <button id="publishBtn" type="submit" class="btnPublish">
-          Publicar
+          placeholder="Tell us something!"
+          aria-placeholder="here you can write the caption for your post"
+          aria-label="input for text content for the post"></textarea>
+        <input
+          type="file"
+          id="postImg"
+          class="styledPost"
+          accept="image/*"
+          aria-label="attach your image to the post" />
+        <button
+          id="publishBtn"
+          type="submit"
+          class="btnPublish"
+          aria-label="button for publishing the post">
+          Publish
         </button>
       </form>
     </div>
@@ -33,16 +43,13 @@
           <li class="menu-item fa fa-twitter"></li>
           <li class="menu-item fa fa-youtube"></li>
         </ul>
-        <span class="copyright"
-          >&copy;2024 Meme-o. Todos los derechos reservados.</span
-        >
+        <span class="copyright">&copy;2024 Meme-o. All rights reserved.</span>
       </div>
     </footer>
 
     <script src="CreatePost.js"></script>
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </body>
 </html>

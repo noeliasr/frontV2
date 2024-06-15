@@ -1,3 +1,7 @@
+<script type="text/javascript">
+  history.forward()
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,31 +15,37 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-      <a href="../FeedScreen/FeedScreen.html" class="logo">meme-o</a>
+      <a
+        href="../FeedScreen/FeedScreen.html"
+        class="logo"
+        aria-label="logo to feed"
+        >meme-o</a
+      >
       <div class="header-right">
-        <a href="../Conversations/Conversations.html"
+        <a
+          href="../Conversations/Conversations.html"
+          aria-label="button to conversations"
           ><img
             src="../Assets/sobre.png"
-            alt="acceso a conversaciones"
+            alt="conversations"
             style="width: 50%"
         /></a>
-        <a href="../FeedScreen/FeedScreen.html"
+        <a href="../FeedScreen/FeedScreen.html" aria-label="button to feed"
           ><img
             src="../Assets/flecha-circular-apuntando-a-la-derecha.png"
-            alt="recargar feed"
+            alt="refresh"
             style="width: 50%"
         /></a>
-        <a href="../ProfileScreen/ProfileScreen.html"
-          ><img
-            src="../Assets/usuario.png"
-            alt="avatar del usuario"
-            style="width: 50%"
+        <a
+          href="../ProfileScreen/ProfileScreen.html"
+          aria-label="button to profile"
+          ><img src="../Assets/usuario.png" alt="avatar" style="width: 50%"
         /></a>
-        <a href="../HomeScreen/HomeScreen.html" class="logOutButtonA"
-          ><img
-            src="../Assets/apagar.png"
-            alt="cerrar sesión"
-            style="width: 50%"
+        <a
+          href="../HomeScreen/HomeScreen.html"
+          class="logOutButtonA"
+          aria-label="logout button"
+          ><img src="../Assets/apagar.png" alt="logout" style="width: 50%"
         /></a>
       </div>
     </header>
@@ -43,7 +53,7 @@
     <!-- CUERPO -->
     <!-- header del perfil-->
     <div class="profileHead">
-      <img id="profileImage" alt="Foto de perfil del usuario" />
+      <img id="profileImage" alt="users' avatar" />
       <br />
       <h2 id="usernameHeader"></h2>
       <div class="divCount">
@@ -56,10 +66,16 @@
           <p class="followingCount"></p>
         </div>
       </div>
-      <a class="editProfileA" href="../EditProfileScreen/EditProfileScreen.html"
+      <a
+        class="editProfileA"
+        href="../EditProfileScreen/EditProfileScreen.html"
+        aria-label="go to dit profile"
         >Edit profile</a
       >
-      <a class="followButtonA" href="#"></a>
+      <a
+        class="followButtonA"
+        href="#"
+        aria-label="follow or unfollow button"></a>
     </div>
 
     <!-- contenedor de pines (titulo post y contenedor de pin-post)-->
@@ -77,8 +93,9 @@
       </div>
     </div>
     <div id="circularBtnScroll">
-      <img src="../Assets/arrow-top-black.png" />
+      <img src="../Assets/arrow-top-black.png" alt="arrow back" />
     </div>
+
     <!-- FOOTER -->
     <footer>
       <div class="footerContainer">
@@ -88,19 +105,13 @@
           <li class="menu-item fa fa-twitter"></li>
           <li class="menu-item fa fa-youtube"></li>
         </ul>
-        <span class="copyright"
-          >&copy;2024 Meme-o. Todos los derechos reservados.</span
-        >
+        <span class="copyright">&copy;2024 Meme-o. All rights reserved.</span>
       </div>
     </footer>
+
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
-
+      crossorigin="anonymous"></script>
     <script src="ProfileScreen.js"></script>
-    <script type="text/javascript">
-      history.forward()
-    </script>
   </body>
 </html>

@@ -24,11 +24,11 @@
     <!-- CUERPO -->
     <div class="conversationContainer">
       <div class="senderUser">
-        <a class="backToConvA" href="../Conversations/Conversations.html"
-          ><img
-            src="../Assets/atras.png"
-            alt="ir hacia atrás"
-            style="width: 30%"
+        <a
+          class="backToConvA"
+          href="../Conversations/Conversations.html"
+          aria-label="back to conversation screen button"
+          ><img src="../Assets/atras.png" alt="go back" style="width: 30%"
         /></a>
         <h3 class="conversationWith"></h3>
       </div>
@@ -44,25 +44,17 @@
             type="text"
             name="messageToSent"
             placeholder="Write here"
+            aria-placeholder="Write your content message"
             value=""
-            required/>
-          <input class="submitInput" type="submit" />
+            required
+            aria-label="direct message input space" />
+          <input
+            class="submitInput"
+            type="submit"
+            aria-label="send the direct message button" />
         </form>
       </div>
     </div>
-
-    <!-- FOOTER -->
-    <!-- <footer>
-        <div class="footerContainer">
-            <ul class="footer-menu-container">
-                <li class="menu-item fa fa-facebook"></li>
-                <li class="menu-item fa fa-instagram"></li>
-                <li class="menu-item fa fa-twitter"></li>
-                <li class="menu-item fa fa-youtube"></li>
-            </ul>
-            <span class="copyright">&copy;2024 Meme-o. Todos los derechos reservados.</span>
-        </div>
-    </footer> -->
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"

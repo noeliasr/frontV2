@@ -18,18 +18,28 @@
       <section class="main-section">
         <div class="div-modal">
           <span>Already in?</span>
-          <button type="button" class="toggle-btn">Log in!</button>
+          <button
+            type="button"
+            class="toggle-btn"
+            aria-label="button for sign in">
+            Log in!
+          </button>
         </div>
         <hr />
         <div class="div-modal">
           <span>Wanna join?</span>
-          <button type="button" class="toggle-btn">Sign in!</button>
+          <button
+            type="button"
+            class="toggle-btn"
+            aria-label="button for log in">
+            Sign in!
+          </button>
         </div>
       </section>
     </main>
 
     <!-- MODAL LOGIN -->
-    <div class="modal">
+    <div class="modal" aria-modal="true">
       <div class="modal-wrapper">
         <div class="modal-content">
           <div class="modal-head-login">
@@ -42,13 +52,15 @@
                 name="username-login"
                 id="username-login"
                 placeholder="Username"
-                aria-label="Insert your username" />
+                aria-placeholder="input username"
+                aria-label="input name" />
               <input
                 type="password"
                 name="password-login"
                 id="password-login"
                 placeholder="Password"
-                aria-label="Insert your password" />
+                aria-placeholder="insert youur password"
+                aria-label="input password" />
               <div class="modal-foot-login">
                 <input type="submit" value="Go!" class="btn close-btn" />
               </div>
@@ -62,7 +74,7 @@
     </div>
 
     <!-- MODAL SIGN IN -->
-    <div class="modal">
+    <div class="modal" aria-modal="true">
       <div class="modal-wrapper">
         <div class="modal-content">
           <div class="modal-head-signin">
@@ -75,43 +87,48 @@
                 name="name"
                 id="name"
                 placeholder="Name"
-                aria-label="Insert your name" />
+                aria-placeholder="insert your name"
+                aria-label="input name" />
               <input
                 type="text"
                 name="surname"
                 id="surname"
                 placeholder="Surname"
-                aria-label="Insert your surname" />
+                aria-placeholder="insert your surname"
+                aria-label="input surname" />
               <input
                 type="text"
                 name="email"
                 id="email"
                 placeholder="Email"
-                aria-label="Insert your email" />
+                aria-placeholder="write your email for log in in"
+                aria-label="input email" />
               <input
                 type="text"
                 name="username-signin"
                 id="username-signin"
                 placeholder="Username"
-                aria-label="Insert your username" />
+                aria-placeholder="write your username for log in in"
+                aria-label="input username" />
               <input
                 type="password"
                 name="password-signin"
                 id="password-signin"
                 placeholder="Password"
-                aria-label="Insert your password" />
+                aria-placeholder="write your password for log in in"
+                aria-label="input password" />
               <input
                 type="date"
                 name="birth_date"
                 id="birth_date"
-                aria-label="Insert your birth date" />
-              <label for="avatar">Insert your profile picture</label>
+                aria-label="input birth date" />
+              <label for="avatar">Insert profile picture</label>
               <input
                 type="file"
                 name="avatar"
                 id="avatar"
-                value="Selecciona tu foto de perfil"
-                aria-label="Insert your profile picture" />
+                value="insert profile picture"
+                aria-label="input profile picture" />
               <div class="modal-foot-signin">
                 <input type="submit" value="Go!" class="btn close-btn" />
               </div>
@@ -131,9 +148,7 @@
           <li class="menu-item fa fa-twitter"></li>
           <li class="menu-item fa fa-youtube"></li>
         </ul>
-        <span class="copyright"
-          >&copy;2024 Meme-o. Todos los derechos reservados.</span
-        >
+        <span class="copyright">&copy;2024 Meme-o. All rights reserved.</span>
       </div>
     </footer>
     <script

@@ -188,12 +188,14 @@ h1 {
 }
 #perfil-details {
   text-align: center;
+  vertical-align: middle;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
   position: fixed;
-  top: 56%;
-  right: 78%;
+  top: 50%;
+  left: 13%;
   transform: translateY(-50%);
   border: 1px solid rebeccapurple;
   background-color: white;

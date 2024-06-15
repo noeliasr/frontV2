@@ -11,9 +11,9 @@
     <!-- CUERPO -->
     <div class="profileChange">
       <a class="backToProfA" href="../ProfileScreen/ProfileScreen.html"
-        ><img src="../Assets/atras.png" alt="ir hacia atrás" style="width: 5%"
+        ><img src="../Assets/atras.png" alt="go back" style="width: 5%"
       /></a>
-      <img id="profileImage" alt="Foto de perfil del usuario" />
+      <img id="profileImage" alt="user's profile" />
 
       <form class="newProfilePic" id="newProfilePicForm" action="#">
         <input
@@ -21,8 +21,8 @@
           id="avatar"
           type="file"
           accept="image/*"
-          required
-        />
+          aria-label="input for choosing a new avatar"
+          required />
         <br />
         <input
           class="inputsList"
@@ -31,7 +31,7 @@
           type="text"
           value=""
           readonly
-        />
+          aria-disabled="true" />
         <input
           class="inputsList"
           id="inputPass"
@@ -39,7 +39,7 @@
           type="password"
           value="password123"
           readonly
-        />
+          aria-disabled="true" />
         <input
           class="inputsList"
           id="inputName"
@@ -47,7 +47,7 @@
           type="text"
           value=""
           readonly
-        />
+          aria-disabled="true" />
         <input
           class="inputsList"
           id="inputSurname"
@@ -55,7 +55,7 @@
           type="text"
           value=""
           readonly
-        />
+          aria-disabled="true" />
         <input
           class="inputsList"
           id="inputBirthdate"
@@ -63,31 +63,33 @@
           type="text"
           value=""
           readonly
-        />
+          aria-disabled="true" />
 
         <p id="signInDate"></p>
 
-        <input class="submitA" type="submit" />
+        <input
+          class="submitA"
+          type="submit"
+          aria-label="button for saving changes" />
       </form>
     </div>
 
     <!-- FOOTER -->
-    <!-- <footer>
-        <div class="footerContainer">
-            <ul class="footer-menu-container">
-                <li class="menu-item fa fa-facebook"></li>
-                <li class="menu-item fa fa-instagram"></li>
-                <li class="menu-item fa fa-twitter"></li>
-                <li class="menu-item fa fa-youtube"></li>
-            </ul>
-            <span class="copyright">&copy;2024 Meme-o. Todos los derechos reservados.</span>
-        </div>
-    </footer> -->
+    <footer>
+      <div class="footerContainer">
+        <ul class="footer-menu-container">
+          <li class="menu-item fa fa-facebook"></li>
+          <li class="menu-item fa fa-instagram"></li>
+          <li class="menu-item fa fa-twitter"></li>
+          <li class="menu-item fa fa-youtube"></li>
+        </ul>
+        <span class="copyright">&copy;2024 Meme-o. All rights reserved.</span>
+      </div>
+    </footer>
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="EditProfileScreen.js"></script>
   </body>
 </html>
