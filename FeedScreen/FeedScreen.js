@@ -67,7 +67,9 @@ const showPosts = (dataPost) => {
       <figure>
         <img class="img-post" id="post-${
           elemento.postID
-        }" src="${imgPost}" alt="Imagen de ${elemento.user.username}">
+        }" src="${imgPost}" alt="Imagen de ${
+      elemento.user.username
+    } con titulo ${elemento.text_content}">
       </figure>
       <div>
         <div class="span-icons">
@@ -208,17 +210,17 @@ let currentAddCommentHandler
 const loadComments = (post) => {
   if (post.comments.length === 0) {
     comments.style.display = "none"
-    return
+  } else {
+    comments.style.display = "flex"
+    comments.innerHTML = ""
+    post.comments.forEach((comment) => {
+      // comment.style.display = "block"
+      const commentSpan = document.createElement("span")
+      const commentContent = `<strong>${comment.user.username}</strong> ${comment.text_content}`
+      commentSpan.innerHTML = commentContent
+      comments.appendChild(commentSpan)
+    })
   }
-  comments.style.display = "flex"
-  comments.innerHTML = ""
-  post.comments.forEach((comment) => {
-    // comment.style.display = "block"
-    const commentSpan = document.createElement("span")
-    const commentContent = `<strong>${comment.user.username}</strong> ${comment.text_content}`
-    commentSpan.innerHTML = commentContent
-    comments.appendChild(commentSpan)
-  })
   inputComment.value = ""
   // eliminar el event listener anterior si existe
   if (currentAddCommentHandler) {
@@ -229,6 +231,7 @@ const loadComments = (post) => {
 }
 
 const addComment = async (post) => {
+  comments.style.display = "flex"
   const comment = {
     text_content: inputComment.value,
     user: {
@@ -256,6 +259,7 @@ const addComment = async (post) => {
   } catch (error) {
     console.error("Error fetching posts:", error)
   }
+
   post.comments.push(comment)
   loadComments(post)
 }
@@ -324,6 +328,26 @@ const showUserList = (userList) => {
     }
   })
 }
+
+/*perfil details */
+const imgProfile = document.getElementById("img-perfil-details")
+const usernameProfile = document.getElementById("username-perfil-details")
+const countFollowers = document.getElementById("followers-perfil-details")
+const countFollowing = document.getElementById("following-perfil-details")
+const countPosts = document.getElementById("number-post-perfil-details")
+const countMemeLike = document.getElementById("number-like-perfil-details")
+imgProfile.src = `http://localhost:9000/${user.avatar}`
+imgProfile.alt = "Avatar de mi usuario"
+usernameProfile.textContent = user.username
+countFollowers.textContent = `Follower: ${user.followers.length}`
+countFollowing.textContent = `Following: ${user.following.length}`
+countPosts.textContent = `Posts: ${user.posts.length}`
+
+let totalMemeLikes = 0
+user.posts.forEach((post) => {
+  totalMemeLikes += post.memeLikes.length
+})
+countMemeLike.textContent = `Likes: ${totalMemeLikes}`
 
 /*BTN SCROLL TO TOP */
 let mybutton = document.getElementById("circularBtnScroll")

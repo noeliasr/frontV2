@@ -1,5 +1,7 @@
 // para asegurarnos de que carga antes de tirar el evento
 document.addEventListener("DOMContentLoaded", () => {
+  let mybutton = document.getElementById("circularBtnScroll")
+  mybutton.addEventListener("click", () => scrollToTop())
   // función para elegir los tamaños de los posts
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
@@ -224,4 +226,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchUserData()
+
+  /*BTN SCROLL TO TOP */
+
+  window.onscroll = function () {
+    scrollFunction()
+  }
+
+  const scrollFunction = () => {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block"
+    } else {
+      mybutton.style.display = "none"
+    }
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
 })

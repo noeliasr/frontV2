@@ -1,7 +1,3 @@
-<script type="text/javascript">
-  history.forward()
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +6,7 @@
     <title>Screen Profile</title>
 
     <link rel="stylesheet" type="text/css" href="ProfileScreen.css" />
+    <link rel="stylesheet" type="text/css" href="../btn-toTop.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -46,7 +43,7 @@
     <!-- CUERPO -->
     <!-- header del perfil-->
     <div class="profileHead">
-      <img id="profileImage" src="" alt="Foto de perfil del usuario" />
+      <img id="profileImage" alt="Foto de perfil del usuario" />
       <br />
       <h2 id="usernameHeader"></h2>
       <div class="divCount">
@@ -79,7 +76,9 @@
         <!-- aquí van los posts/CARDS -->
       </div>
     </div>
-
+    <div id="circularBtnScroll">
+      <img src="../Assets/arrow-top-black.png" />
+    </div>
     <!-- FOOTER -->
     <footer>
       <div class="footerContainer">
@@ -96,8 +95,12 @@
     </footer>
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
 
     <script src="ProfileScreen.js"></script>
+    <script type="text/javascript">
+      history.forward()
+    </script>
   </body>
 </html>
