@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="ProfileScreen.css" />
     <link rel="stylesheet" type="text/css" href="../btn-toTop.css" />
+    <link rel="stylesheet" type="text/css" href="../PostModal.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -75,7 +76,8 @@
       <a
         class="followButtonA"
         href="#"
-        aria-label="follow or unfollow button"></a>
+        aria-label="follow or unfollow button"
+      ></a>
     </div>
 
     <!-- contenedor de pines (titulo post y contenedor de pin-post)-->
@@ -90,6 +92,37 @@
       <!-- contenedor de pines-posts -->
       <div class="pin_container">
         <!-- aquí van los posts/CARDS -->
+      </div>
+    </div>
+    <div class="modal" id="modalAdd" aria-modal="true">
+      <div class="modal-container">
+        <div class="close-modal" id="closeModalBtn">X</div>
+        <div class="flex-container">
+          <div class="left-column">
+            <h2 id="user"></h2>
+            <div id="idPost" class="post-modal">
+              <img class="img-post-modal" />
+            </div>
+          </div>
+          <div class="right-column">
+            <div id="idComment" class="comentarios"></div>
+            <input
+              id="inputComment"
+              class="styled-input"
+              type="text"
+              placeholder="Add your comment"
+              aria-placeholder="here you can add your comment"
+              aria-label="input for creation of comments"
+            />
+            <button
+              class="btnAddComment"
+              id="btnAddComment"
+              aria-label="publish comment button"
+            >
+              Agregar comentario
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div id="circularBtnScroll">
@@ -111,7 +144,8 @@
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script src="ProfileScreen.js"></script>
   </body>
 </html>

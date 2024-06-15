@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let mybutton = document.getElementById("circularBtnScroll")
   mybutton.addEventListener("click", () => scrollToTop())
+
   // función para elegir los tamaños de los posts
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
@@ -9,11 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const params = new URLSearchParams(window.location.search)
   const receiverUserID = params.get("userID")
-
+  // usuario loggeado
+  const loggedUser = JSON.parse(sessionStorage.getItem("user"))
   async function fetchUserData() {
-    // usuario loggeado
-    const loggedUser = JSON.parse(sessionStorage.getItem("user"))
-
     try {
       const editProfileButton = document.querySelector(".editProfileA")
       const followButton = document.querySelector(".followButtonA")
@@ -215,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
           anImage.alt = "Imagen de un post"
           anImage.classList.add("cardImage")
           containerPost.appendChild(anImage)
+          containerPost.addEventListener("click", () => openModal(post))
         })
       }
 
@@ -226,6 +226,89 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchUserData()
+
+  /** MODAL */
+
+  const modalAdd = document.querySelector("#modalAdd")
+  const closeModalBtn = document.querySelector("#closeModalBtn")
+  const idPost = document.getElementById("idPost")
+  const imagenPost = idPost.querySelector("img")
+  const username = document.getElementById("user")
+  const comments = document.getElementById("idComment")
+  const inputComment = document.getElementById("inputComment")
+  const btnAddComment = document.getElementById("btnAddComment")
+  closeModalBtn.addEventListener("click", () => closeModal())
+  const openModal = (post) => {
+    modalAdd.style.display = "flex"
+    username.textContent = loggedUser.username
+    imagenPost.src = `http://localhost:9000/${post.media_file}`
+    loadComments(post)
+  }
+
+  const addCommentHandler = (post) => () => addComment(post)
+
+  const closeModal = () => {
+    modalAdd.style.display = "none"
+  }
+
+  //para guardar el evento cuando se crea
+  let currentAddCommentHandler
+
+  const loadComments = (post) => {
+    if (post.comments.length === 0) {
+      comments.style.display = "none"
+    } else {
+      comments.style.display = "flex"
+      comments.innerHTML = ""
+      post.comments.forEach((comment) => {
+        const commentSpan = document.createElement("span")
+        const commentContent = `<strong>${comment.user.username}</strong> ${comment.text_content}`
+        commentSpan.innerHTML = commentContent
+        comments.appendChild(commentSpan)
+      })
+    }
+    inputComment.value = ""
+    // eliminar el event listener anterior si existe
+    if (currentAddCommentHandler) {
+      btnAddComment.removeEventListener("click", currentAddCommentHandler)
+    }
+    currentAddCommentHandler = addCommentHandler(post)
+    btnAddComment.addEventListener("click", currentAddCommentHandler)
+  }
+
+  const addComment = async (post) => {
+    comments.style.display = "flex"
+    const comment = {
+      text_content: inputComment.value,
+      user: {
+        userID: loggedUser.userID,
+        username: loggedUser.username,
+      },
+      post: {
+        postID: post.postID,
+      },
+    }
+    try {
+      const response = await fetch(
+        `http://localhost:9000/memeo/api/createcomment`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(comment),
+        }
+      )
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText)
+      }
+    } catch (error) {
+      console.error("Error fetching posts:", error)
+    }
+
+    post.comments.push(comment)
+    loadComments(post)
+  }
 
   /*BTN SCROLL TO TOP */
 
