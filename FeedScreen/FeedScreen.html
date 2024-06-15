@@ -12,24 +12,35 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-      <a href="../FeedScreen/FeedScreen.html" class="logo">meme-o</a>
+      <a
+        href="../FeedScreen/FeedScreen.html"
+        class="logo"
+        aria-label="logo for reloading feed"
+        >meme-o</a
+      >
       <div class="header-right">
-        <a href="../Conversations/Conversations.html"
+        <a
+          href="../Conversations/Conversations.html"
+          aria-label="button to conversations"
           ><img
             src="../Assets/sobre.png"
-            alt="acceso a conversaciones"
+            alt="acess to conversations"
             style="width: 50%"
         /></a>
-        <a href="../FeedScreen/FeedScreen.html"
+        <a
+          href="../FeedScreen/FeedScreen.html"
+          aria-label="button for reloading feed"
           ><img
             src="../Assets/flecha-circular-apuntando-a-la-derecha.png"
-            alt="recargar feed"
+            alt="reloading feed"
             style="width: 50%"
         /></a>
-        <a href="../ProfileScreen/ProfileScreen.html"
+        <a
+          href="../ProfileScreen/ProfileScreen.html"
+          aria-label="button to profile"
           ><img
             src="../Assets/usuario.png"
-            alt="avatar del usuario"
+            alt="user's avatar"
             style="width: 50%"
         /></a>
       </div>
@@ -43,23 +54,24 @@
             type="text"
             id="autoComplete"
             placeholder="Search user"
+            aria-placeholder="here you can search users by username"
             autocomplete="off"
-          />
+            aria-label="search for user input" />
         </div>
         <datalist id="dataList" />
       </div>
-      <div class="loader">
+      <div class="loader" aria-busy="true">
         <span></span>
       </div>
       <!-- POSTS -->
       <div id="listPost"></div>
 
-      <div class="modal" id="modalAdd">
+      <div class="modal" id="modalAdd" aria-modal="true">
         <div class="modal-container">
           <div class="close-modal" id="closeModalBtn">X</div>
           <div class="flex-container">
             <div class="left-column">
-              <h2 id="user">usuario</h2>
+              <h2 id="user"></h2>
               <div id="idPost" class="post-modal">
                 <img class="img-post-modal" />
               </div>
@@ -70,9 +82,13 @@
                 id="inputComment"
                 class="styled-input"
                 type="text"
-                placeholder="¡Agrega tu comentario!"
-              />
-              <button class="btnAddComment" id="btnAddComment">
+                placeholder="Add your comment"
+                aria-placeholder="here you can add your comment"
+                aria-label="input for creation of comments" />
+              <button
+                class="btnAddComment"
+                id="btnAddComment"
+                aria-label="publish comment button">
                 Agregar comentario
               </button>
             </div>
@@ -82,12 +98,17 @@
 
       <!-- BOTÓN CREAR POST -->
       <div id="create-post">
-        <a href="../CreatePost/CreatePost.html" class="btn-create-post"
+        <a
+          href="../CreatePost/CreatePost.html"
+          class="btn-create-post"
+          aria-label="new post button"
           >let's meme!</a
         >
       </div>
       <aside id="perfil-details">
-        <a href="../ProfileScreen/ProfileScreen.html"
+        <a
+          href="../ProfileScreen/ProfileScreen.html"
+          aria-label="go to profile from aside"
           ><img id="img-perfil-details"
         /></a>
         <span id="username-perfil-details"></span>
@@ -98,7 +119,7 @@
       </aside>
     </main>
     <div id="circularBtnScroll">
-      <img src="../Assets/arrow-top-black.png" />
+      <img src="../Assets/arrow-top-black.png" alt="Button back to top" />
     </div>
 
     <!-- FOOTER -->
@@ -110,15 +131,12 @@
           <li class="menu-item fa fa-twitter"></li>
           <li class="menu-item fa fa-youtube"></li>
         </ul>
-        <span class="copyright"
-          >&copy;2024 Meme-o. Todos los derechos reservados.</span
-        >
+        <span class="copyright">&copy;2024 Meme-o. All rights reserved.</span>
       </div>
     </footer>
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="FeedScreen.js"></script>
   </body>
 </html>
