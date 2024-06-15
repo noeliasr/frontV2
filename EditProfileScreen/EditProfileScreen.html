@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Screen Profile</title>
 
-    <link rel="stylesheet" type="text/css" href="EditProfileScreen.css">
-</head>
-<body>
-
+    <link rel="stylesheet" type="text/css" href="EditProfileScreen.css" />
+  </head>
+  <body>
     <!-- CUERPO -->
     <div class="profileChange">
-        <a class="backToProfA" href="../ProfileScreen/ProfileScreen.html">🡨</a>
-        <img id="profileImage" src="" alt="Foto de perfil del usuario">
-        
-        <form class="newProfilePic" id="newProfilePicForm" action="#">
-            <input class="newProfilePic" id="avatar" type="file" accept="image/*" required>
-            <br>
-            <input class="inputsList" id="inputUsername" name="inputUsername" type="text" value="" readonly>
-            <input class="inputsList" id="inputPass" name="inputPass" type="password" value="password123" readonly>
-            <input class="inputsList" id="inputName" name="inputName" type="text" value="" readonly>
-            <input class="inputsList" id="inputSurname" name="inputSurname" type="text" value="" readonly>
-            <input class="inputsList" id="inputBirthdate" name="inputSurname" type="text" value="" readonly>
+      <a class="backToProfA" href="../ProfileScreen/ProfileScreen.html"
+        ><img src="../Assets/atras.png" alt="ir hacia atrás" style="width: 5%"
+      /></a>
+      <img id="profileImage" src="" alt="Foto de perfil del usuario" />
 
-            <p id="signInDate"></p>
+      <form class="newProfilePic" id="newProfilePicForm" action="#">
+        <input
+          class="newProfilePic"
+          id="avatar"
+          type="file"
+          accept="image/*"
+          required />
+        <br />
+        <input
+          class="inputsList"
+          id="inputUsername"
+          name="inputUsername"
+          type="text"
+          value=""
+          readonly />
+        <input
+          class="inputsList"
+          id="inputPass"
+          name="inputPass"
+          type="password"
+          value="password123"
+          readonly />
+        <input
+          class="inputsList"
+          id="inputName"
+          name="inputName"
+          type="text"
+          value=""
+          readonly />
+        <input
+          class="inputsList"
+          id="inputSurname"
+          name="inputSurname"
+          type="text"
+          value=""
+          readonly />
+        <input
+          class="inputsList"
+          id="inputBirthdate"
+          name="inputSurname"
+          type="text"
+          value=""
+          readonly />
 
-            <input class="submitA" type="submit">
-        </form>
+        <p id="signInDate"></p>
 
+        <input class="submitA" type="submit" />
+      </form>
     </div>
 
     <!-- FOOTER -->
@@ -43,7 +78,9 @@
         </div>
     </footer> -->
 
-    <script src="https://kit.fontawesome.com/e02fcbdbf9.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e02fcbdbf9.js"
+      crossorigin="anonymous"></script>
     <script src="EditProfileScreen.js"></script>
-</body>
+  </body>
 </html>

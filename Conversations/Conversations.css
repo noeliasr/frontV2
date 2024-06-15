@@ -13,7 +13,8 @@ body{
     min-height: 100%;
     display: grid;
     grid-template-rows: auto auto 1fr auto;
-    background-color: rgba(214, 212, 212, 0.55);
+    background-image: url("../Assets/seamless-bg.png");
+    background-size: cover;
 }
 
 .container{
@@ -39,6 +40,7 @@ body{
 h1 {
     text-align: center;
     color: #333;
+    margin: 1em 0;
 }
 
 .conversation {

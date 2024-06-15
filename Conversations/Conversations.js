@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (conversation.conversationPK.receiverUserID === user.userID) {
       try {
         const response = await fetch(
-          `http://192.168.56.1:9000/memeo/api/getuser/${conversation.conversationPK.starterUserID}`
+          `http://localhost:9000/memeo/api/getuser/${conversation.conversationPK.starterUserID}`
         )
 
         if (!response.ok) {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       try {
         const response = await fetch(
-          `http://192.168.56.1:9000/memeo/api/getuser/${conversation.conversationPK.receiverUserID}`
+          `http://localhost:9000/memeo/api/getuser/${conversation.conversationPK.receiverUserID}`
         )
 
         if (!response.ok) {
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // simulatedData.forEach(conversation => displayLastMessage(conversation));
 
   // cuando haya conversaciones hacemos el fetch
-  const url = `http://192.168.56.1:9000/memeo/api/getconversations/${user.userID}`
+  const url = `http://localhost:9000/memeo/api/getconversations/${user.userID}`
   fetch(url)
     .then((response) => response.json())
     .then((data) => {

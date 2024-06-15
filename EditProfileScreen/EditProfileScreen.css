@@ -199,5 +199,6 @@ body{
     /* display: flex;
     justify-content: center; */
     align-items: center;
-    background-color: rgba(214, 212, 212, 0.55);
+    background-image: url("../Assets/seamless-bg.png");
+    background-size: cover;
 }

@@ -1,78 +1,103 @@
 <script type="text/javascript">
-    history.forward();
+  history.forward()
 </script>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Screen Profile</title>
 
-    <link rel="stylesheet" type="text/css" href="ProfileScreen.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="ProfileScreen.css" />
+  </head>
+  <body>
     <!-- HEADER -->
     <header class="header">
-        <a href="../FeedScreen/FeedScreen.html" class="logo">meme-o</a>
-        <div class="header-right">
-          <a href="../FeedScreen/FeedScreen.html">Feed</a>
-          <a href="../ProfileScreen/ProfileScreen.html">Profile</a>
-          <a href="../Conversations/Conversations.html">Conversations</a>
-          <a class="logOutButtonA" href="../HomeScreen/HomeScreen.html">Log out</a>
-        </div>
+      <a href="../FeedScreen/FeedScreen.html" class="logo">meme-o</a>
+      <div class="header-right">
+        <a href="../Conversations/Conversations.html"
+          ><img
+            src="../Assets/sobre.png"
+            alt="acceso a conversaciones"
+            style="width: 50%"
+        /></a>
+        <a href="../FeedScreen/FeedScreen.html"
+          ><img
+            src="../Assets/flecha-circular-apuntando-a-la-derecha.png"
+            alt="recargar feed"
+            style="width: 50%"
+        /></a>
+        <a href="../ProfileScreen/ProfileScreen.html"
+          ><img
+            src="../Assets/usuario.png"
+            alt="avatar del usuario"
+            style="width: 50%"
+        /></a>
+        <a href="../HomeScreen/HomeScreen.html" class="logOutButtonA"
+          ><img
+            src="../Assets/apagar.png"
+            alt="cerrar sesión"
+            style="width: 50%"
+        /></a>
+      </div>
     </header>
-    
+
     <!-- CUERPO -->
     <!-- header del perfil-->
     <div class="profileHead">
-        <img id="profileImage" src="" alt="Foto de perfil del usuario">
-        <br>
-        <h2 id="usernameHeader"></h2>
-        <div class="divCount">
-            <div class="columnCount">
-                <h4>Followers</h4>
-                <p class="followerCount"></p>
-            </div>
-            <div class="columnCount">
-                <h4>Following</h4>
-                <p class="followingCount"></p>
-            </div>
+      <img id="profileImage" src="" alt="Foto de perfil del usuario" />
+      <br />
+      <h2 id="usernameHeader"></h2>
+      <div class="divCount">
+        <div class="columnCount">
+          <h4>Followers</h4>
+          <p class="followerCount"></p>
         </div>
-        <a class="editProfileA" href="../EditProfileScreen/EditProfileScreen.html">Edit profile</a>
-        <a class="followButtonA" href="#"></a>
+        <div class="columnCount">
+          <h4>Following</h4>
+          <p class="followingCount"></p>
+        </div>
+      </div>
+      <a class="editProfileA" href="../EditProfileScreen/EditProfileScreen.html"
+        >Edit profile</a
+      >
+      <a class="followButtonA" href="#"></a>
     </div>
 
     <!-- contenedor de pines (titulo post y contenedor de pin-post)-->
     <div class="titlePin_container">
-        <!-- header de posts -->
-        <div class="titlePost_container">
-            <h3 id="postTitle">Posts</h3>
-        </div>
-        
-        <hr>
+      <!-- header de posts -->
+      <div class="titlePost_container">
+        <h3 id="postTitle">Posts</h3>
+      </div>
 
-        <!-- contenedor de pines-posts -->
-        <div class="pin_container">
-            <!-- aquí van los posts/CARDS -->
-        </div>
+      <hr />
+
+      <!-- contenedor de pines-posts -->
+      <div class="pin_container">
+        <!-- aquí van los posts/CARDS -->
+      </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footerContainer">
-            <ul class="footer-menu-container">
-                <li class="menu-item fa fa-facebook"></li>
-                <li class="menu-item fa fa-instagram"></li>
-                <li class="menu-item fa fa-twitter"></li>
-                <li class="menu-item fa fa-youtube"></li>
-            </ul>
-            <span class="copyright">&copy;2024 Meme-o. Todos los derechos reservados.</span>
-        </div>
+      <div class="footerContainer">
+        <ul class="footer-menu-container">
+          <li class="menu-item fa fa-facebook"></li>
+          <li class="menu-item fa fa-instagram"></li>
+          <li class="menu-item fa fa-twitter"></li>
+          <li class="menu-item fa fa-youtube"></li>
+        </ul>
+        <span class="copyright"
+          >&copy;2024 Meme-o. Todos los derechos reservados.</span
+        >
+      </div>
     </footer>
-    <script src="https://kit.fontawesome.com/e02fcbdbf9.js" crossorigin="anonymous"></script>
-
+    <script
+      src="https://kit.fontawesome.com/e02fcbdbf9.js"
+      crossorigin="anonymous"></script>
 
     <script src="ProfileScreen.js"></script>
-</body>
+  </body>
 </html>

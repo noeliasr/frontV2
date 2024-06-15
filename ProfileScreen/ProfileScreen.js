@@ -13,30 +13,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedUser = JSON.parse(sessionStorage.getItem("user"))
 
     try {
-      const editProfileButton = document.querySelector(".editProfileA");
-      const followButton = document.querySelector(".followButtonA");
-      const logOutButton = document.querySelector(".logOutButtonA");
-      
-      if(receiverUserID == null) { //valoramos null y ponemos el loggeado
+      const editProfileButton = document.querySelector(".editProfileA")
+      const followButton = document.querySelector(".followButtonA")
+      const logOutButton = document.querySelector(".logOutButtonA")
+
+      if (receiverUserID == null) {
+        //valoramos null y ponemos el loggeado
 
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-        editProfileButton.classList.remove('hidden');
-        followButton.classList.add('hidden');
-        logOutButton.classList.remove('hidden')
-      
-      } else if(receiverUserID === loggedUser.userID) { // si el userID recibido es el del logged
-        
-        var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
-        editProfileButton.classList.remove('hidden');
-        followButton.classList.add('hidden');
-        logOutButton.classList.remove('hidden')
+        editProfileButton.classList.remove("hidden")
+        followButton.classList.add("hidden")
+        logOutButton.classList.remove("hidden")
+      } else if (receiverUserID === loggedUser.userID) {
+        // si el userID recibido es el del logged
 
-      } else{
-        
+        var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
+        editProfileButton.classList.remove("hidden")
+        followButton.classList.add("hidden")
+        logOutButton.classList.remove("hidden")
+      } else {
         var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
-        editProfileButton.classList.add('hidden');
-        followButton.classList.remove('hidden');
-        logOutButton.classList.add('hidden')
+        editProfileButton.classList.add("hidden")
+        followButton.classList.remove("hidden")
+        logOutButton.classList.add("hidden")
 
         console.log(loggedUser)
 
@@ -46,80 +45,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(loggedUser.following)
 
-        loggedUser.following.forEach(followingUser => {
-          if(followingUser.toUser == receiverUserID){
+        loggedUser.following.forEach((followingUser) => {
+          if (followingUser.toUser == receiverUserID) {
             contador++
             followingUserFromUser = followingUser.fromUser
             followingUserToUser = followingUser.toUser
 
             // console.log("SÍ followingUser.toUser = " + followingUser.toUser  + " -- receiverUserID = " + receiverUserID)
-          } else{
+          } else {
             // console.log("NO followingUser.toUser = " + followingUser.toUser  + " -- receiverUserID = " + receiverUserID)
           }
-        });
+        })
 
-        if(contador == 1){ // si se siguen: botón en following
+        if (contador == 1) {
+          // si se siguen: botón en following
           followButton.textContent = "FOLLOWING"
-          followButton.classList.add('followingState')
+          followButton.classList.add("followingState")
 
           followButton.addEventListener("click", async () => {
             // DELETE FOLLOWING RELATION -> /deletefollower/{fromUserID}/{toUserID}
             try {
-              const response = await fetch(`http://localhost:9000/memeo/api/deletefollower/${followingUserFromUser}/${followingUserToUser}`, {
-                method: "DELETE",
-                headers: {
-                  "Content-Type": "application/json",
+              const response = await fetch(
+                `http://localhost:9000/memeo/api/deletefollower/${followingUserFromUser}/${followingUserToUser}`,
+                {
+                  method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
                 }
-              })
-              
+              )
+
               if (!response.ok) {
-                throw new Error("Network response was not ok " + response.statusText)
-              } else{
+                throw new Error(
+                  "Network response was not ok " + response.statusText
+                )
+              } else {
                 window.location.href = "../ProfileScreen/ProfileScreen.html"
               }
-    
             } catch (error) {
               console.error("Last catch error:", error)
             }
-            
+
             // updateamos en session eliminado
-            const updateFollowing = loggedUser.following.filter(fo => fo.toUser != followingUserToUser)
+            const updateFollowing = loggedUser.following.filter(
+              (fo) => fo.toUser != followingUserToUser
+            )
             loggedUser.following = updateFollowing
             sessionStorage.setItem("user", JSON.stringify(loggedUser))
 
             followButton.textContent = "FOLLOW"
-            followButton.classList.add('followState')
+            followButton.classList.add("followState")
           })
-        } else{ //si no se siguen: botón en follow
+        } else {
+          //si no se siguen: botón en follow
           followButton.textContent = "FOLLOW"
-          followButton.classList.add('followState')
-          
+          followButton.classList.add("followState")
+
           followButton.addEventListener("click", async () => {
             // CREATE FOLLOWING RELATION -> POST
             const follower = {
-             "fromUser" : {
-              "userID" : loggedUser.userID,
-             },
-             "toUser" : {
-              "userID" : receiverUserID,
-             }
+              fromUser: {
+                userID: loggedUser.userID,
+              },
+              toUser: {
+                userID: receiverUserID,
+              },
             }
-    
+
             try {
-              const response = await fetch(`http://localhost:9000/memeo/api/createfollower`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(follower),
-              })
-    
+              const response = await fetch(
+                `http://localhost:9000/memeo/api/createfollower`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(follower),
+                }
+              )
+
               if (!response.ok) {
-                throw new Error("Network response was not ok " + response.statusText)
-              } else{
+                throw new Error(
+                  "Network response was not ok " + response.statusText
+                )
+              } else {
                 window.location.href = "../ProfileScreen/ProfileScreen.html"
               }
-    
             } catch (error) {
               console.error("Last catch error:", error)
             }
@@ -132,10 +143,9 @@ document.addEventListener("DOMContentLoaded", () => {
             sessionStorage.setItem("user", JSON.stringify(loggedUser))
 
             followButton.textContent = "FOLLOWING"
-            followButton.classList.add('followingState')
+            followButton.classList.add("followingState")
           })
         }
-
       }
 
       // funcionalidad al botón de logout
@@ -184,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var postsArray = dataUser.posts
         console.log("Comprobación: Nº de posts " + postsArray.length)
 
-        postsArray.forEach((post) => {
+        postsArray.reverse().forEach((post) => {
           var containerPost = document.createElement("div")
           containerPost.classList.add("card")
 
@@ -208,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // return a consola
       return dataUser
-
     } catch (error) {
       console.error("ERROR REQUEST FETCH:", error)
     }

@@ -5,17 +5,20 @@
 body {
   background-image: url("../Assets/seamless-bg.png");
   background-size: cover;
+  height: 100vh;
 }
 
 h1 {
   font-size: 50px;
   margin-bottom: 50px;
 }
+
 .container {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
+
 .container-img-input {
   display: flex;
   align-items: center;
@@ -25,10 +28,12 @@ h1 {
   border: 2px solid black;
   border-radius: 25px;
 }
+
 .container-img-input img {
   width: 20px;
   height: 20px;
 }
+
 #autoComplete {
   display: inline-block;
   position: relative;
@@ -37,6 +42,7 @@ h1 {
   border: 0px;
   width: 300px;
 }
+
 #autoComplete:focus {
   border: none;
   outline: none;
@@ -49,6 +55,7 @@ h1 {
   left: 0;
   border: 1px solid black;
 }
+
 #dataList option {
   font-family: arial;
   font-size: 11.8px;
@@ -56,6 +63,7 @@ h1 {
   padding: 5px 10px;
   font-weight: bold;
 }
+
 #dataList option:hover {
   background-color: #bfddf5;
 }
@@ -66,6 +74,7 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
+
 .post {
   width: 50vh;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
@@ -75,18 +84,22 @@ h1 {
   border-radius: 1em;
   margin-bottom: 10px;
 }
+
 .post .img-post {
   width: 50vh;
   height: 50vh;
 }
+
 .heart-icon {
   width: 25px;
   height: 25px;
   transition: transform 0.3s ease;
 }
+
 .heart-icon.like {
   animation: like-animation 0.3s ease forwards;
 }
+
 @keyframes like-animation {
   0% {
     transform: scale(1);
@@ -98,23 +111,27 @@ h1 {
     transform: scale(1);
   }
 }
+
 .span-icons {
   display: flex;
   justify-content: center;
   gap: 50px;
 }
+
 .details-section,
 #idComment {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
+
 .comments-section {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 .date-span {
   font-size: 12px;
 }

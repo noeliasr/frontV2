@@ -4,7 +4,8 @@
 
 html {
     height: 100%;
-  }
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -12,8 +13,8 @@ body{
     min-height: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
-    background-color: rgba(214, 212, 212, 0.55);
-}
+    background-image: url("../Assets/seamless-bg.png");
+    background-size: cover;}
 
 .container{
     background-color: white;
@@ -36,6 +37,7 @@ h1{
     color: rgb(70, 38, 76);
     margin-bottom: 5px;
 }
+
 .backToConvA {
     text-decoration: none;
     font-size: 1.5em;
@@ -61,12 +63,14 @@ h1{
     font-size: 16px;
     border-radius: 20px;
 }
+
 .styledPost:focus{
     border-color: rgb(239, 199, 239);
     box-shadow: 0 0 5px rgba(210, 97, 210, 0.5);
     outline: none;
 }
-.btnPublish{
+
+.btnPublish {
     width: 100%;
     padding: 1em;
     font-size: 16px;
@@ -79,6 +83,7 @@ h1{
     border:1px solid #b362e6;
     transition: background-color 0.3s ease;
 }
+
 .btnPublish:hover {
     background-color: rgb(208, 109, 228);
 }

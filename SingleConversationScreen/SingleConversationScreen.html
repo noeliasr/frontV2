@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Single Conversation Screen</title>
 
-    <link rel="stylesheet" type="text/css" href="SingleConversationScreen.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="SingleConversationScreen.css" />
+  </head>
+  <body>
     <!-- HEADER -->
     <!-- <header class="header">
         <a href="../FeedScreen/FeedScreen.html" class="logo">meme-o</a>
@@ -17,25 +20,34 @@
           <a href="">Reload</a>
         </div>
     </header> -->
-    
+
     <!-- CUERPO -->
     <div class="conversationContainer">
-        <div class="senderUser">
-            <a class="backToConvA" href="../Conversations/Conversations.html">🡨</a>
-            <h3 class="conversationWith"></h3>
-        </div>
+      <div class="senderUser">
+        <a class="backToConvA" href="../Conversations/Conversations.html"
+          ><img
+            src="../Assets/atras.png"
+            alt="ir hacia atrás"
+            style="width: 30%"
+        /></a>
+        <h3 class="conversationWith"></h3>
+      </div>
 
-        <!-- contenedor de los mensajes -->
-        <div class="messagesContainer">
-        </div>
+      <!-- contenedor de los mensajes -->
+      <div class="messagesContainer"></div>
 
-        <!-- contenedor de la barra de enviar mensajes -->
-        <div class="inputContainer">
-            <form action="">
-                <input id="inputMessage" type="text" name="messageToSent" placeholder="Write here" value="">
-                <input class="submitInput" type="submit">
-            </form>
-        </div>
+      <!-- contenedor de la barra de enviar mensajes -->
+      <div class="inputContainer">
+        <form action="">
+          <input
+            id="inputMessage"
+            type="text"
+            name="messageToSent"
+            placeholder="Write here"
+            value="" />
+          <input class="submitInput" type="submit" />
+        </form>
+      </div>
     </div>
 
     <!-- FOOTER -->
@@ -51,7 +63,9 @@
         </div>
     </footer> -->
 
-    <script src="https://kit.fontawesome.com/e02fcbdbf9.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e02fcbdbf9.js"
+      crossorigin="anonymous"></script>
     <script src="SingleConversationScreen.js"></script>
-</body>
+  </body>
 </html>
