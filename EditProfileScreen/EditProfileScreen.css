@@ -14,7 +14,6 @@
   src: url("../Fonts/DreamyBubbleDemoDemo-nRVxV.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-<<<<<<< HEAD
 }
 
 /*HEADER HEADER*/
@@ -76,11 +75,6 @@
   align-items: center;
   height: 100vh;
 }
-=======
-}
-
-/*PROFILE HEAD*/
->>>>>>> 601a457cb027d04015fff16727db6b4f1601013d
 .profileChange {
   margin: 0 auto;
   padding: 30px 20px;
@@ -93,10 +87,6 @@
 
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-=======
-  /* align-items: center; */
->>>>>>> 601a457cb027d04015fff16727db6b4f1601013d
 
   -webkit-box-shadow: 0px 10px 37px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 10px 37px 0px rgba(0, 0, 0, 0.3);
@@ -180,33 +170,17 @@
 .submitA {
   display: flex;
   align-self: flex-end;
-<<<<<<< HEAD
-
   font-family: sans-serif;
   font-size: 0.8em;
-
-=======
-  font-family: sans-serif;
-  font-size: 0.8em;
->>>>>>> 601a457cb027d04015fff16727db6b4f1601013d
   text-decoration: none;
   padding: 10px 10px;
   margin-top: 10px;
   border: 1px solid black;
   border-radius: 25px;
-<<<<<<< HEAD
-
-  color: black;
-  background-color: lightgrey;
-
-  transition: transform 0.1s ease-in-out;
-
-=======
   color: black;
   background-color: lightgrey;
   transition: transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out;
->>>>>>> 601a457cb027d04015fff16727db6b4f1601013d
   cursor: pointer;
 }
 .submitA:hover {
