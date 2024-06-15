@@ -73,20 +73,22 @@ const showPosts = (dataPost) => {
       </figure>
       <div>
         <div class="span-icons">
-          <span>
-            <img class="heart-icon" id="btnLike-${
+          <button class="btn-incons-post">
+            <img class="icons-post" id="btnLike-${
               elemento.postID
-            }" src="${changeImgLiked(elemento)}"/> ${elemento.memeLikes.length}
-          </span>
-          <span>
-            ${elemento.comments.length}
-            <img class="heart-icon" id="comment-post-${
+            }" src="${changeImgLiked(elemento)}"/> <span class="count-likes">${
+      elemento.memeLikes.length
+    }</span>
+          </button>
+          <button class="btn-incons-post">
+            <span class="count-comments">${elemento.comments.length}</span>
+            <img class="icons-post" id="comment-post-${
               elemento.postID
             }" src="../Assets/comments-icon.svg"/>
-          </span>
+          </button>
         </div>
         <div class="details-section">
-          <span><strong>${elemento.user.username}</strong>: ${
+          <span><strong>${elemento.user.username}</strong> ${
       elemento.text_content
     }</span>
           <div class="comments-section">
@@ -94,7 +96,7 @@ const showPosts = (dataPost) => {
               .slice(0, 3)
               .map(
                 (comentario) => `
-              <span>${comentario.user.username}: ${comentario.text_content}</span>
+              <span><strong>${comentario.user.username}</strong> ${comentario.text_content}</span>
             `
               )
               .join("")}
