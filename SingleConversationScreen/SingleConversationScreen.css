@@ -68,6 +68,11 @@ body {
     flex-direction: column;
 }
 
+form{
+    display: flex;
+    width: 100%;
+}
+
 .inputContainer {
     display: flex;
     justify-content: center;
@@ -75,12 +80,26 @@ body {
     padding: 10px 0;
 }
 
-#inputMessage {
-    width: 100%;
+.submitInput {
     border: none;
+    background-color: #9f58f9;
+    color: white;
     padding: 10px;
     border-radius: 25px;
+    cursor: pointer;
+}
+
+
+#inputMessage {
+    flex-grow: 1;
+
+    border: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 25px;
 }
 
 .received, .sent {
@@ -92,15 +111,15 @@ body {
 
 .received {
     align-self: flex-start;
-    background-color: lightblue;
+    background-color: #ba70fb;
 }
 
 .sent {
     align-self: flex-end;
-    background-color: lightcoral;
+    background-color: #f1a1ff;
 }
-/* Pie de pagina */
 
+/* Pie de pagina */
 footer{
     width: 100%;
     position: absolute;

@@ -1,91 +1,107 @@
-// para asegurarnos de que carga antes de tirar el evento
 document.addEventListener("DOMContentLoaded", () => {
-  const loggedUser = JSON.parse(sessionStorage.getItem("user"))
+  const loggedUser = JSON.parse(sessionStorage.getItem("user"));
+
+  // Function para que al enviar un mensaje "baje"
+  function scrollToBottom() {
+    const msgContainer = document.querySelector(".messagesContainer");
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+  }
 
   // try-catch to fetch and set messages
   async function fetchAndSetMessages(conversationIDReceived) {
     try {
       const response = await fetch(
         `http://localhost:9000/memeo/api/getdms/${conversationIDReceived}`
-      )
+      );
 
       if (!response.ok) {
-        throw new Error(`Error en la solicitud: ${response.status}`)
+        throw new Error(`Error en la solicitud: ${response.status}`);
       }
 
-      const dataMessages = await response.json()
+      const dataMessages = await response.json();
 
-      // settear mensajes
-      const msgContainer = document.querySelector(".messagesContainer")
-      msgContainer.innerHTML = ""
+      // Settear mensajes
+      const msgContainer = document.querySelector(".messagesContainer");
+      msgContainer.innerHTML = "";
 
       dataMessages.forEach((dm) => {
-        //dm es el objeto mensaje
-        if (dm.senderUser.userID === loggedUser.userID) {
-          //se crea y va a la derecha
-          const containerMessage = document.createElement("div")
-          containerMessage.classList.add("sent")
-          containerMessage.textContent = `${dm.text_content}`
-          msgContainer.appendChild(containerMessage)
-        } else {
-          //set conversation title
-          const conversationWithTitle =
-            document.querySelector(".conversationWith")
-          conversationWithTitle.textContent = dm.senderUser.username
+        // dm es el objeto mensaje
+        const containerMessage = document.createElement("div");
+        containerMessage.textContent = `${dm.text_content}`;
 
-          //se crea y va a la izquierda
-          const containerMessage = document.createElement("div")
-          containerMessage.classList.add("received")
-          containerMessage.textContent = `${dm.text_content}`
-          msgContainer.appendChild(containerMessage)
+        if (dm.senderUser.userID === loggedUser.userID) {
+          // Se crea y va a la derecha
+          containerMessage.classList.add("sent");
+        } else {
+          // Set conversation title
+          const conversationWithTitle = document.querySelector(".conversationWith");
+          conversationWithTitle.textContent = dm.senderUser.username;
+
+          // Se crea y va a la izquierda
+          containerMessage.classList.add("received");
         }
-      })
+        msgContainer.appendChild(containerMessage);
+      });
+
+      scrollToBottom();
     } catch (error) {
-      console.error("ERROR REQUEST FETCH:", error)
+      console.error("ERROR REQUEST FETCH:", error);
     }
   }
 
-  async function fetchUserData() {
-    //qué conversación es?
-    const params = new URLSearchParams(window.location.search)
-    const conversationIDReceived = params.get("conversationID")
+  async function sendMessage(conversationIDReceived, messageContent, loggedUser) {
+    const messageData = {
+      text_content: messageContent.value.trim(), // Eliminar espacios en blanco
+      senderUser: {
+        username: loggedUser.username,
+        userID: loggedUser.userID,
+      },
+    };
 
-    // boton submit mensaje
-    const sentMessage = document.querySelector(".submitInput")
-    const messageContent = document.getElementById("inputMessage")
+    if (messageData.text_content === "") {
+      return; // evitar enviar mensaje vacío, además de required
+    }
 
-    sentMessage.addEventListener("click", async (event) => {
-      event.preventDefault()
+    messageContent.value = ""; // Limpiar el campo de mensaje
 
-      const messageData = {
-        text_content: messageContent.value,
-        senderUser: {
-          username: loggedUser.username,
-          userID: loggedUser.userID,
-        },
-      }
-      messageContent.value = ""
-      try {
-        const response = await fetch(
-          `http://localhost:9000/memeo/api/createdm/${conversationIDReceived}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(messageData),
-          }
-        )
-        if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText)
+    try {
+      const response = await fetch(
+        `http://localhost:9000/memeo/api/createdm/${conversationIDReceived}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(messageData),
         }
-      } catch (error) {
-        console.error("Error catch (1)", error)
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
       }
-      // reload to show new message
-      fetchUserData()
-    })
-    fetchAndSetMessages(conversationIDReceived)
+      // Recargar los mensajes después de enviar el nuevo mensaje
+      fetchAndSetMessages(conversationIDReceived);
+    } catch (error) {
+      console.error("Error catch (1)", error);
+    }
   }
-  fetchUserData()
-})
+
+  function setupEventListeners(conversationIDReceived) {
+    const sentMessage = document.querySelector(".submitInput");
+    const messageContent = document.getElementById("inputMessage");
+
+    sentMessage.addEventListener("click", (event) => {
+      event.preventDefault();
+      sendMessage(conversationIDReceived, messageContent, loggedUser);
+    });
+  }
+
+  async function fetchUserData() {
+    const params = new URLSearchParams(window.location.search);
+    const conversationIDReceived = params.get("conversationID");
+
+    setupEventListeners(conversationIDReceived);
+    fetchAndSetMessages(conversationIDReceived);
+  }
+
+  fetchUserData();
+});
