@@ -70,9 +70,9 @@
   transition: transform 0.1s ease-in-out;
 }
 .editProfileA:hover,
-.editProfileA:target {
+.editProfileA:focus {
   color: white;
-  background-color: gray;
+  background-color: black;
   border: 1px solid rgba(0, 0, 0, 0.664);
 }
 .editProfileA:active {
@@ -99,13 +99,13 @@
 .followingState {
   background-color: rgb(255, 208, 215);
 }
-.followingState:hover {
+.followingState:hover, .followingState:focus {
   background-color: rgb(255, 152, 167);
 }
 .followState {
   background-color: rgb(201, 74, 201);
 }
-.followState:hover {
+.followState:hover, .followState:focus {
   background-color: purple;
 }
 

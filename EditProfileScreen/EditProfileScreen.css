@@ -157,7 +157,7 @@
 .backToProfA {
   text-decoration: none;
 }
-.backToProfA:hover {
+.backToProfA:hover, .backToProfA:focus {
   animation: movIzq 1.2s ease infinite alternate;
 }
 @keyframes movIzq {

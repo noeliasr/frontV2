@@ -149,7 +149,7 @@ footer {
   cursor: pointer;
   opacity: 0.6;
 }
-.menu-item:hover {
+.menu-item:hover, .menu-item:focus {
   opacity: 1;
 }
 .copyright {
