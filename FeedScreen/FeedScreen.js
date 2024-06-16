@@ -88,7 +88,7 @@ const showPosts = (dataPost) => {
             <span class="count-comments">${elemento.comments.length}</span>
             <img class="icons-post" id="comment-post-${
               elemento.postID
-            }" src="../Assets/comments-icon.svg"/>
+            }" src="../Assets/comments.png"/>
           </button>
         </div>
         <div class="details-section">

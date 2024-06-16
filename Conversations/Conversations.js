@@ -18,46 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
     conversationDiv.tabIndex = 0
 
     let titleNameConversation = ""
+    let userID =
+      conversation.conversationPK.receiverUserID === user.userID
+        ? conversation.conversationPK.starterUserID
+        : conversation.conversationPK.receiverUserID
+    let urlGetUser = `http://localhost:9000/memeo/api/getuser/${userID}`
+    try {
+      const response = await fetch(urlGetUser)
 
-    if (conversation.conversationPK.receiverUserID === user.userID) {
-      try {
-        const response = await fetch(
-          `http://localhost:9000/memeo/api/getuser/${conversation.conversationPK.starterUserID}`
-        )
-
-        if (!response.ok) {
-          throw new Error(`Error en la solicitud: ${response.status}`)
-        }
-
-        const dataUserTitle = await response.json()
-        titleNameConversation = dataUserTitle.username
-      } catch (error) {
-        console.error(
-          "Error en la petición del dataUserTitle para el título de la conversación (2)"
-        )
-        console.error("ERROR REQUEST FETCH:", error)
+      if (!response.ok) {
+        throw new Error(`Error en la solicitud: ${response.status}`)
       }
-    } else {
-      try {
-        const response = await fetch(
-          `http://localhost:9000/memeo/api/getuser/${conversation.conversationPK.receiverUserID}`
-        )
 
-        if (!response.ok) {
-          throw new Error(`Error en la solicitud: ${response.status}`)
-        }
-
-        const dataUserTitle = await response.json()
-        titleNameConversation = dataUserTitle.username
-      } catch (error) {
-        console.error(
-          "Error en la petición del dataUserTitle para el título de la conversación (2)"
-        )
-        console.error("ERROR REQUEST FETCH:", error)
-      }
+      const dataUserTitle = await response.json()
+      titleNameConversation = dataUserTitle.username
+    } catch (error) {
+      console.error(
+        "Error en la petición del dataUserTitle para el título de la conversación (2)"
+      )
+      console.error("ERROR REQUEST FETCH:", error)
     }
-
-    // const receiverUserName = users[receiverUserID];
 
     const lastMessage =
       conversation.directMessages[conversation.directMessages.length - 1]
