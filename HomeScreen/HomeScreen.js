@@ -117,28 +117,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     reader.readAsDataURL(file)
   })
-
-  // logout
-  //mover a FeedScreen y/o a ProfileScreen
-  // const logoutButton = document.getElementById("logout-button")
-
-  // logoutButton.addEventListener("click", function () {
-  //   fetch("http://localhost:9000/logout", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/x-www-form-urlencoded",
-  //     },
-  //     credentials: "include",
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         window.location.href = "../HomeScreen/HomeScreen.html" // PANTALLA HOME SCREEN
-  //       } else {
-  //         console.error("Logout failed")
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error)
-  //     })
-  // })
 })

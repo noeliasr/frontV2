@@ -282,7 +282,6 @@ const findUser = async (event) => {
     console.error("Error fetching posts:", error)
   }
 }
-// userList.sort()
 const showUserList = (userList) => {
   const dataList = document.getElementById("dataList")
   dataList.innerHTML = ""
@@ -295,7 +294,6 @@ const showUserList = (userList) => {
 
   dataList.querySelectorAll("option").forEach((el) => {
     el.addEventListener("click", (e) => {
-      console.log(e)
       input.value = el.value
     })
   })

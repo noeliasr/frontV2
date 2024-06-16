@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const followButton = document.querySelector(".followButtonA")
       const logOutButton = document.querySelector(".logOutButtonA")
       const conversationButton = document.querySelector(".conversationButtonA")
-      let isNewConversation = false
+      let isNewConversation = true
+      let conversationID = ""
       try {
         const response = await fetch(
           `http://localhost:9000/memeo/api/getconversations/${loggedUser.userID}`
@@ -27,32 +28,36 @@ document.addEventListener("DOMContentLoaded", () => {
           throw new Error("Network response was not ok " + response.statusText)
         }
         const conversationsList = await response.json()
-        isNewConversation = !conversationsList.some(
-          (conver) =>
+        for (const conver of conversationsList) {
+          if (
             conver.conversationPK.receiverUserID === Number(receiverUserID) ||
             conver.conversationPK.starterUserID === Number(receiverUserID)
-        )
+          ) {
+            conversationID = conver.conversationPK.conversationID
+            isNewConversation = false
+            break
+          }
+        }
       } catch (error) {
         console.error("Error fetching posts:", error)
       }
-
-      conversationButton.href = `../SingleConversationScreen/SingleConversationScreen.html?receivedID=${receiverUserID}&isNew=${isNewConversation}`
+      if (isNewConversation) {
+        conversationButton.href = `../SingleConversationScreen/SingleConversationScreen.html?receivedID=${receiverUserID}&isNew=${isNewConversation}`
+      } else {
+        conversationButton.href = `../SingleConversationScreen/SingleConversationScreen.html?conversationID=${conversationID}`
+      }
       if (receiverUserID == null) {
         //valoramos null y ponemos el loggeado
 
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
-        //editProfileButton.tabindex = 0
 
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
         conversationButton.classList.add("hidden")
       } else if (receiverUserID === loggedUser.userID) {
-        // si el userID recibido es el del logged
-
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
-        //editProfileButton.tabindex = 0
 
         followButton.classList.add("hidden")
         conversationButton.classList.add("hidden")
@@ -62,8 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editProfileButton.classList.add("hidden")
         followButton.classList.remove("hidden")
         logOutButton.classList.add("hidden")
-
-        console.log(loggedUser)
 
         var contador = 0
         var followingUserFromUser = null
@@ -164,7 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const dataUser = await response.json()
-      console.log(dataUser)
 
       // setteo de variables
       var usernameH3 = document.getElementById("usernameHeader")
@@ -184,18 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
       var titlePin_container = document.querySelector(".titlePin_container")
 
       if (dataUser.posts.length == 0) {
-        console.log("No hay posts.")
-
         var noPosts = document.createElement("p")
         noPosts.classList.add("noPostStyle")
         noPosts.innerHTML =
           "We're so sorry! There are no posts here... :( <br><br> Atte: meme-o team <3"
         titlePin_container.appendChild(noPosts)
       } else {
-        console.log("Hay posts.")
-
         var postsArray = dataUser.posts
-        console.log("Comprobación: Nº de posts " + postsArray.length)
 
         postsArray.reverse().forEach((post) => {
           var containerPost = document.createElement("div")

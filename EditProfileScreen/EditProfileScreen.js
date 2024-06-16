@@ -11,10 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${dia}-${mes}-${año}`
   }
 
-  //usuario loggeado
   const loggedUser = JSON.parse(sessionStorage.getItem("user"))
 
-  // setteo de variables
   var imageURL = document.getElementById("profileImage")
   var inputUsername = document.getElementById("inputUsername")
   var inputName = document.getElementById("inputName")
@@ -33,11 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const dataUser = await response.json()
-
-      // setteo de variables
       imageURL.src = `http://localhost:9000/${dataUser.avatar}`
       inputUsername.value = dataUser.username
-      // en orden de input iría password
       inputName.value = dataUser.name
       inputSurname.value = dataUser.surname
       inputBirthdate.value = formateoFecha(dataUser.birth_date)
@@ -52,14 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //cuando se pulse guardar se activa el submit
   const saveButtonAct = document.querySelector(".submitA")
   saveButtonAct.addEventListener("click", async function (event) {
     event.preventDefault()
 
     const avatar = document.getElementById("avatar")
 
-    // cogemos los datos en session
     const userID = loggedUser.userID
     const username = loggedUser.username
     const name = loggedUser.name

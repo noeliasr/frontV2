@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     msgContainer.scrollTop = msgContainer.scrollHeight
   }
 
-  // try-catch to fetch and set messages
   async function fetchAndSetMessages(conversationIDReceived) {
     try {
       const response = await fetch(

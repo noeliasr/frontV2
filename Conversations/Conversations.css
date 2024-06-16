@@ -24,7 +24,6 @@ body {
   width: 90%;
   padding: 1em;
   max-width: 500px;
-  /* height: 100%; */
   flex: 1;
   /* esto hace que se ponga en el medio (importante) */
   margin: auto auto;
