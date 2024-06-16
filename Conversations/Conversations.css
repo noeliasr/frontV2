@@ -41,7 +41,9 @@ h1 {
   color: #333;
   margin: 1em 0;
 }
-
+#conversations {
+  width: 90%;
+}
 .conversation {
   margin-bottom: 20px;
   padding: 10px;
