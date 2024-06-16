@@ -17,7 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const editProfileButton = document.querySelector(".editProfileA")
       const followButton = document.querySelector(".followButtonA")
       const logOutButton = document.querySelector(".logOutButtonA")
+      const conversationButton = document.querySelector(".conversationButtonA")
+      let isNewConversation = false
+      try {
+        const response = await fetch(
+          `http://localhost:9000/memeo/api/getconversations/${loggedUser.userID}`
+        )
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText)
+        }
+        const conversationsList = await response.json()
+        isNewConversation = !conversationsList.some(
+          (conver) =>
+            conver.conversationPK.receiverUserID === Number(receiverUserID) ||
+            conver.conversationPK.starterUserID === Number(receiverUserID)
+        )
+      } catch (error) {
+        console.error("Error fetching posts:", error)
+      }
 
+      conversationButton.href = `../SingleConversationScreen/SingleConversationScreen.html?receivedID=${receiverUserID}&isNew=${isNewConversation}`
       if (receiverUserID == null) {
         //valoramos null y ponemos el loggeado
 
@@ -27,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
+        conversationButton.classList.add("hidden")
       } else if (receiverUserID === loggedUser.userID) {
         // si el userID recibido es el del logged
 
@@ -35,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //editProfileButton.tabindex = 0
 
         followButton.classList.add("hidden")
+        conversationButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
       } else {
         var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
