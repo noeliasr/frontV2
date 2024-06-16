@@ -1,16 +1,9 @@
-// para asegurarnos de que carga antes de tirar el evento
 document.addEventListener("DOMContentLoaded", () => {
   let mybutton = document.getElementById("circularBtnScroll")
   mybutton.addEventListener("click", () => scrollToTop())
   const btnDeletePost = document.querySelector(".btnDeletePost")
-  // función para elegir los tamaños de los posts
-  function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
-  }
-
   const params = new URLSearchParams(window.location.search)
   const receiverUserID = params.get("userID")
-  // usuario loggeado
   const loggedUser = JSON.parse(sessionStorage.getItem("user"))
   async function fetchUserData() {
     try {
@@ -46,34 +39,31 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         conversationButton.href = `../SingleConversationScreen/SingleConversationScreen.html?conversationID=${conversationID}`
       }
+      let url = "http://localhost:9000/memeo/api/getuser/"
       if (receiverUserID == null) {
-        //valoramos null y ponemos el loggeado
-
-        var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
+        url += `${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
-
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
         conversationButton.classList.add("hidden")
         btnDeletePost.classList.remove("hidden")
       } else if (receiverUserID === loggedUser.userID) {
-        var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
+        url += `${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
-
         followButton.classList.add("hidden")
         conversationButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
         btnDeletePost.classList.remove("hidden")
       } else {
-        var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
+        url += `${receiverUserID}`
         editProfileButton.classList.add("hidden")
         btnDeletePost.classList.add("hidden")
         followButton.classList.remove("hidden")
         logOutButton.classList.add("hidden")
 
-        var contador = 0
-        var followingUserFromUser = null
-        var followingUserToUser = null
+        let contador = 0
+        let followingUserFromUser = null
+        let followingUserToUser = null
 
         loggedUser.following.forEach((followingUser) => {
           if (followingUser.toUser.userID == receiverUserID) {
@@ -90,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
           //followButton.tabindex = 0
 
           followButton.addEventListener("click", async () => {
-            // DELETE FOLLOWING RELATION -> /deletefollower/{fromUserID}/{toUserID}
             try {
               const response = await fetch(
                 `http://localhost:9000/memeo/api/deletefollower/${followingUserFromUser}/${followingUserToUser}`,
@@ -172,37 +161,37 @@ document.addEventListener("DOMContentLoaded", () => {
       const dataUser = await response.json()
 
       // setteo de variables
-      var usernameH3 = document.getElementById("usernameHeader")
+      let usernameH3 = document.getElementById("usernameHeader")
       usernameH3.textContent = dataUser.username
 
-      var imageURL = document.getElementById("profileImage")
+      let imageURL = document.getElementById("profileImage")
       imageURL.src = `http://localhost:9000/${dataUser.avatar}`
 
-      var followerCount = document.querySelector(".followerCount")
+      let followerCount = document.querySelector(".followerCount")
       followerCount.textContent = `${dataUser.followers.length}`
 
-      var followingCount = document.querySelector(".followingCount")
+      let followingCount = document.querySelector(".followingCount")
       followingCount.textContent = `${dataUser.following.length}`
 
       // settear posts
-      var pinContainer = document.querySelector(".pin_container")
-      var titlePin_container = document.querySelector(".titlePin_container")
+      let pinContainer = document.querySelector(".pin_container")
+      let titlePin_container = document.querySelector(".titlePin_container")
 
       if (dataUser.posts.length == 0) {
-        var noPosts = document.createElement("p")
+        let noPosts = document.createElement("p")
         noPosts.classList.add("noPostStyle")
         noPosts.innerHTML =
           "We're so sorry! There are no posts here... :( <br><br> Atte: meme-o team <3"
         titlePin_container.appendChild(noPosts)
       } else {
-        var postsArray = dataUser.posts
+        let postsArray = dataUser.posts
 
         postsArray.reverse().forEach((post) => {
-          var containerPost = document.createElement("div")
+          let containerPost = document.createElement("div")
           containerPost.classList.add("card")
           containerPost.tabIndex = 0
 
-          var aleatorio = randomIntFromInterval(1, 3)
+          let aleatorio = randomIntFromInterval(1, 3)
           if (aleatorio === 1) {
             containerPost.classList.add("card_small")
           } else if (aleatorio === 2) {
@@ -212,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           pinContainer.appendChild(containerPost)
 
-          var anImage = document.createElement("img")
+          let anImage = document.createElement("img")
           anImage.src = `http://localhost:9000/${post.media_file}`
           anImage.alt = "Imagen de un post"
           anImage.classList.add("cardImage")
@@ -220,14 +209,14 @@ document.addEventListener("DOMContentLoaded", () => {
           containerPost.addEventListener("click", () => openModal(post))
         })
       }
-
-      // return a consola
-      return dataUser
     } catch (error) {
       console.error("ERROR REQUEST FETCH:", error)
     }
   }
-
+  // función para elegir los tamaños de los posts
+  function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
+  }
   fetchUserData()
 
   /** MODAL */
@@ -276,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentAddCommentHandler) {
       btnAddComment.removeEventListener("click", currentAddCommentHandler)
     }
-    currentAddCommentHandler = addCommentHandler(post.postID)
+    currentAddCommentHandler = addCommentHandler(post)
     btnAddComment.addEventListener("click", currentAddCommentHandler)
     btnDeletePost.addEventListener("click", () => deletePost(post.postID))
   }

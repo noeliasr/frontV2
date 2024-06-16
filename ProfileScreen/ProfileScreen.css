@@ -104,7 +104,6 @@
   transition: transform 0.1s ease-in-out;
 }
 .hidden {
-  /* for the button visibility following-edit prof*/
   display: none !important;
 }
 .followingState {
@@ -148,7 +147,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-color: rgba(214, 212, 212, 0.55); */
   background-image: url("../Assets/seamless-bg.png");
   background-size: cover;
 }
@@ -185,10 +183,8 @@ body {
   padding: 0px;
   margin: 15px 10px;
   border-radius: var(--card_border_radius);
-
   background-color: white;
   border: 1px solid black;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,7 +225,7 @@ body {
   width: 35px;
   height: 35px;
 }
-@media (max-width: 575.98px) {
+@media (min-width: 375px) and (max-width: 767px) {
   .btnDeletePost {
     right: -270px;
     top: 5px;
