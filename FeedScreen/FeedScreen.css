@@ -156,6 +156,8 @@ h1 {
   font-size: 12px;
 }
 
+/*button animation create post*/
+
 #create-post {
   text-align: center;
   vertical-align: middle;
@@ -165,7 +167,6 @@ h1 {
   top: 50%;
   right: 15%;
   transform: translateY(-50%);
-  background-color: #9f58f9;
   padding: 2em;
   border-radius: 50%;
   width: 3em;
@@ -173,19 +174,91 @@ h1 {
 }
 
 .btn-create-post {
-  display: flex;
-  justify-content: center;
+  min-width: 5em;
+  min-height: 5em;
+  display: inline-flex;
+  font-family: "DreamyBubble";
+  font-size: 22px;
   align-items: center;
-  background-color: #9f58f9;
-  color: #000;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #9f58f9;
+  background: linear-gradient(
+    90deg,
+    rgba(159, 88, 249, 1) 0%,
+    rgba(159, 88, 249, 1) 100%
+  );
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(159, 88, 249, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
   text-decoration: none;
-  width: 100%;
-  height: 100%;
-  font-size: 1em;
 }
 
-.btn-create-post:hover {
+.btn-create-post::before {
+  content: "";
+  border-radius: 1000px;
+  min-width: calc(5em);
+  min-height: calc(5em);
+  border: 6px solid #9f58f9;
+  box-shadow: 0 0 60px rgba(159, 88, 249, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.btn-create-post:hover,
+.btn-create-post:focus {
   color: #fff;
+  transform: translateY(-6px);
+}
+
+.btn-create-post:hover::before,
+.btn-create-post:focus::before {
+  opacity: 1;
+}
+
+.btn-create-post::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #9f58f9;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 2s infinite;
+}
+
+.btn-create-post:hover::after,
+.btn-create-post:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
 }
 .spacer {
   display: flex;
@@ -231,7 +304,7 @@ h1 {
 @media (min-width: 375px) and (max-width: 767px) {
   #create-post {
     top: auto;
-    bottom: 5%;
+    bottom: 6%;
     right: 50%;
     transform: translate(50%, 0);
     padding: 1em;
@@ -255,7 +328,7 @@ h1 {
 @media (min-width: 768px) and (max-width: 1024px) {
   #create-post {
     top: auto;
-    bottom: 5%;
+    bottom: 8%;
     right: 50%;
     transform: translate(50%, 0);
     padding: 3em;
