@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loggedUser = JSON.parse(sessionStorage.getItem("user"))
-
+  const conversationWithTitle = document.querySelector(".conversationWith")
   // Function para que al enviar un mensaje "baje"
   function scrollToBottom() {
     const msgContainer = document.querySelector(".messagesContainer")
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Settear mensajes
       const msgContainer = document.querySelector(".messagesContainer")
       msgContainer.innerHTML = ""
-
       dataMessages.forEach((dm) => {
         // dm es el objeto mensaje
         const containerMessage = document.createElement("div")
@@ -32,9 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // Se crea y va a la derecha
           containerMessage.classList.add("sent")
         } else {
-          // Set conversation title
-          const conversationWithTitle =
-            document.querySelector(".conversationWith")
           conversationWithTitle.textContent = dm.senderUser.username
 
           // Se crea y va a la izquierda
@@ -121,10 +117,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function setupEventListeners(conversationIDReceived, isNew = false) {
+  async function setupEventListeners(conversationIDReceived, isNew = false) {
     const sentMessage = document.querySelector(".submitInput")
     const messageContent = document.getElementById("inputMessage")
+    if (isNew) {
+      try {
+        const response = await fetch(
+          `http://localhost:9000/memeo/api/getuser/${conversationIDReceived}`
+        )
 
+        if (!response.ok) {
+          throw new Error(`Error en la solicitud: ${response.status}`)
+        }
+        const dataUserTitle = await response.json()
+        conversationWithTitle.textContent = dataUserTitle.username
+      } catch (error) {
+        console.error("Error:", error)
+      }
+    }
     sentMessage.addEventListener("click", (event) => {
       event.preventDefault()
       sendMessage(conversationIDReceived, messageContent, loggedUser, isNew)
