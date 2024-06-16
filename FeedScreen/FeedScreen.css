@@ -156,19 +156,6 @@ h1 {
   font-size: 12px;
 }
 
-@media (max-width: 425px) {
-  .post {
-    width: 40vh;
-  }
-  .post .img-post {
-    width: 40vh;
-    height: 50vh;
-  }
-}
-
-@media (max-width: 768px) {
-}
-
 #create-post {
   text-align: center;
   vertical-align: middle;
@@ -241,7 +228,31 @@ h1 {
   font-weight: bold;
   font-size: 25px;
 }
-@media (max-width: 1024px) {
+@media (min-width: 375px) and (max-width: 767px) {
+  #create-post {
+    top: auto;
+    bottom: 5%;
+    right: 50%;
+    transform: translate(50%, 0);
+    padding: 1em;
+    width: 2em;
+    height: 2em;
+  }
+  .btn-create-post {
+    font-size: 0.8em;
+  }
+  .post {
+    width: 40vh;
+  }
+  .post .img-post {
+    width: 40vh;
+    height: 50vh;
+  }
+  #perfil-details {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
   #create-post {
     top: auto;
     bottom: 5%;
@@ -260,20 +271,5 @@ h1 {
   .spacer h2 {
     font-size: 1em;
     text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  #create-post {
-    top: auto;
-    bottom: 5%;
-    right: 50%;
-    transform: translate(50%, 0);
-    padding: 1em;
-    width: 2em;
-    height: 2em;
-  }
-  .btn-create-post {
-    font-size: 0.8em;
   }
 }

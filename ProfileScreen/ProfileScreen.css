@@ -6,6 +6,9 @@
 @import url(../btn-toTop.css);
 
 /*PROFILE HEAD*/
+#content {
+  height: 100vh;
+}
 .profileHead {
   margin: 0 auto;
   padding: 0;
@@ -149,6 +152,8 @@ body {
   padding: 0;
   background-image: url("../Assets/seamless-bg.png");
   background-size: cover;
+  /* display: grid;
+  grid-template-rows: auto auto 1fr auto; */
 }
 
 .pin_container {
@@ -219,17 +224,28 @@ body {
   font-size: 1.3rem;
   border-radius: 50%;
   position: relative;
-  right: -1090px;
-  top: -45px;
+  right: -1060px;
   cursor: pointer;
 }
 .btnDeletePost img {
   width: 35px;
   height: 35px;
 }
+
+/* footer {
+  grid-row: 4 / 5;
+} */
 @media (min-width: 375px) and (max-width: 767px) {
   .btnDeletePost {
     right: -270px;
-    top: 5px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .btnDeletePost {
+    right: -785px;
+  }
+  .btnDeletePost img {
+    width: 35px;
+    height: 35px;
   }
 }

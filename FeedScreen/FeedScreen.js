@@ -9,7 +9,6 @@ const idLike = document.getElementsByTagName("#idLike")
 const inputComment = document.getElementById("inputComment")
 const btnAddComment = document.getElementById("btnAddComment")
 const spaceNoPost = document.querySelector(".spacer")
-
 const user = JSON.parse(sessionStorage.getItem("user"))
 
 const getPosts = async () => {
@@ -117,9 +116,7 @@ const showPosts = (dataPost) => {
 
     postDiv.innerHTML = postContent
     lista.appendChild(postDiv)
-  })
-  //Lógica darle a like
-  dataPost.forEach((elemento) => {
+    //Lógica darle a like/comentarios
     const btnLike = document.getElementById(`btnLike-${elemento.postID}`)
     const btnImg = document.getElementById(`post-${elemento.postID}`)
     const btnComments = document.getElementById(
@@ -220,7 +217,6 @@ const loadComments = (post) => {
     comments.style.display = "flex"
     comments.innerHTML = ""
     post.comments.forEach((comment) => {
-      // comment.style.display = "block"
       const commentSpan = document.createElement("span")
       const commentContent = `<strong>${comment.user.username}</strong> ${comment.text_content}`
       commentSpan.innerHTML = commentContent
@@ -270,8 +266,8 @@ const addComment = async (post) => {
   loadComments(post)
 }
 
+/* FIND USER*/
 const input = document.getElementById("autoComplete")
-
 const findUser = async (event) => {
   try {
     const response = await fetch(
@@ -333,7 +329,7 @@ const showUserList = (userList) => {
   })
 }
 
-/*perfil details */
+/*PERFIL DETAILS */
 const imgProfile = document.getElementById("img-perfil-details")
 const usernameProfile = document.getElementById("username-perfil-details")
 const countFollowers = document.getElementById("followers-perfil-details")

@@ -6,10 +6,10 @@
   top: 0;
   left: 0;
   position: fixed;
-  padding: 20px;
+  padding: 5px;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 9999;
 }
 .modal-container {
   background: #fff;
@@ -57,7 +57,6 @@
 
 .post-modal {
   background: #f4f4f4;
-  padding: 1em;
   border-radius: 1em;
   margin-bottom: 10px;
 }
@@ -114,18 +113,41 @@
 .post-modal .img-post-modal {
   width: 70vh;
 }
-@media (max-width: 425px) {
+@media (min-width: 375px) and (max-width: 767px) {
   .modal-container {
     min-width: 0px !important;
-    max-width: 80% !important;
+    max-width: 78% !important;
   }
   .flex-container {
     flex-wrap: wrap;
     gap: 1px;
   }
   .post-modal {
-    width: 37vh;
+    width: 33vh;
     margin-bottom: 5px !important;
+  }
+  .post-modal .img-post-modal {
+    width: 34vh;
+    height: 50vh;
+  }
+  .comentarios {
+    padding: 10px;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    background: #f4f4f4;
+    height: fit-content;
+    max-height: 112px;
+    width: 34vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .comentarios span:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modal-container {
+    max-width: 80%;
   }
   .post-modal .img-post-modal {
     width: 38vh;
@@ -138,11 +160,8 @@
     background: #f4f4f4;
     height: fit-content;
     max-height: 112px;
-    width: 38vh;
+    width: 15vh;
     overflow-y: scroll;
     overflow-x: hidden;
-  }
-  .comentarios span:not(:last-of-type) {
-    margin-bottom: 10px;
   }
 }
