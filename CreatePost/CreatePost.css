@@ -33,11 +33,7 @@ body {
   width: 90%;
   padding: 1em;
   max-width: 500px;
-  /* esto hace que se ponga en el medio (importante) */
   margin: auto auto;
-  /* display: flex;
-    flex-direction: column;
-    align-items: center; */
   -webkit-box-shadow: 10px 10px 20px -1px rgba(237, 206, 237, 1);
   -moz-box-shadow: 10px 10px 20px -1px rgba(237, 206, 237, 1);
   box-shadow: 10px 10px 20px -1px rgba(237, 206, 237, 1);
@@ -74,6 +70,7 @@ h1 {
   margin: 10px;
   font-size: 16px;
   border-radius: 20px;
+  resize: none;
 }
 
 .styledPost:focus {

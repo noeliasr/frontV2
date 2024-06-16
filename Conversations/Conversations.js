@@ -33,10 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const dataUserTitle = await response.json()
       titleNameConversation = dataUserTitle.username
     } catch (error) {
-      console.error(
-        "Error en la petición del dataUserTitle para el título de la conversación (2)"
-      )
-      console.error("ERROR REQUEST FETCH:", error)
+      console.error("Error:", error)
     }
 
     const lastMessage =

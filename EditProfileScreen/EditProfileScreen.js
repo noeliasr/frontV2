@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // return a consola
       return dataUser
     } catch (error) {
-      console.error("ERROR REQUEST FETCH:", error)
+      console.error("Error:", error)
     }
   }
 
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "../ProfileScreen/ProfileScreen.html"
         }
       } catch (error) {
-        console.error("Last catch error:", error)
+        console.error("Error:", error)
       }
     }
     reader.readAsDataURL(file)

@@ -21,3 +21,8 @@
   color: #fff !important;
   cursor: pointer;
 }
+@media (min-width: 375px) and (max-width: 767px) {
+  .enlaceSaltarContenido {
+    font-size: 0.5em !important;
+  }
+}

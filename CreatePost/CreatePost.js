@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const publishButton = document.getElementById("publishBtn")
-
   const postForm = document.getElementById("postForm")
 
   postForm.addEventListener("submit", async function (event) {
-    //esta deprecado
     event.preventDefault()
 
     const user = JSON.parse(sessionStorage.getItem("user"))
@@ -17,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const postImg = document.getElementById("postImg").files[0]
 
     if (!postImg) {
-      console.error("Te faltó el meme...")
       return
     }
 
@@ -42,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // "Access-Control-Allow-Origin": "http://localhost:9000",
             },
             body: JSON.stringify(post),
           }
