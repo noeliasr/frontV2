@@ -69,13 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
         var followingUserFromUser = null
         var followingUserToUser = null
 
-        console.log(loggedUser.following)
-
         loggedUser.following.forEach((followingUser) => {
-          if (followingUser.toUser == receiverUserID) {
+          if (followingUser.toUser.userID == receiverUserID) {
             contador++
-            followingUserFromUser = followingUser.fromUser
-            followingUserToUser = followingUser.toUser
+            followingUserFromUser = followingUser.fromUser.userID
+            followingUserToUser = followingUser.toUser.userID
           }
         })
 
@@ -103,21 +101,16 @@ document.addEventListener("DOMContentLoaded", () => {
                   "Network response was not ok " + response.statusText
                 )
               } else {
-                window.location.href = "../ProfileScreen/ProfileScreen.html"
+                const updateFollowing = loggedUser.following.filter(
+                  (fo) => fo.toUser.userID != followingUserToUser
+                )
+                loggedUser.following = updateFollowing
+                sessionStorage.setItem("user", JSON.stringify(loggedUser))
+                window.location.href = `../ProfileScreen/ProfileScreen.html?userID=${receiverUserID}`
               }
             } catch (error) {
               console.error("Last catch error:", error)
             }
-
-            // updateamos en session eliminado
-            const updateFollowing = loggedUser.following.filter(
-              (fo) => fo.toUser != followingUserToUser
-            )
-            loggedUser.following = updateFollowing
-            sessionStorage.setItem("user", JSON.stringify(loggedUser))
-
-            followButton.textContent = "FOLLOW"
-            followButton.classList.add("followState")
           })
         } else {
           //si no se siguen: botón en follow
@@ -152,31 +145,18 @@ document.addEventListener("DOMContentLoaded", () => {
                   "Network response was not ok " + response.statusText
                 )
               } else {
-                window.location.href = "../ProfileScreen/ProfileScreen.html"
+                const userFollowed = await response.json()
+
+                loggedUser.following.push(userFollowed)
+                sessionStorage.setItem("user", JSON.stringify(loggedUser))
+                window.location.href = `../ProfileScreen/ProfileScreen.html?userID=${receiverUserID}`
               }
             } catch (error) {
               console.error("Last catch error:", error)
             }
-
-            // updateamos en session añadido
-            const userFollowed = await response.json()
-
-            const updateFollowing = loggedUser.following.push(userFollowed)
-            loggedUser.following = updateFollowing
-            sessionStorage.setItem("user", JSON.stringify(loggedUser))
-
-            followButton.textContent = "FOLLOWING"
-            followButton.classList.add("followingState")
           })
         }
       }
-
-      // funcionalidad al botón de logout
-      // logOutButton.addEventListener("click", async function () {
-      //   //
-      // })
-
-      console.log(url)
 
       const response = await fetch(url)
       if (!response.ok) {
