@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   function formateoFecha(fecha) {
-    var date = new Date(fecha)
-    var dia = date.getDate()
-    var mes = date.getMonth() + 1
-    var año = date.getFullYear()
+    let date = new Date(fecha)
+    let dia = date.getDate()
+    let mes = date.getMonth() + 1
+    let año = date.getFullYear()
 
     dia = dia < 10 ? "0" + dia : dia
     mes = mes < 10 ? "0" + mes : mes
@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loggedUser = JSON.parse(sessionStorage.getItem("user"))
 
-  var imageURL = document.getElementById("profileImage")
-  var inputUsername = document.getElementById("inputUsername")
-  var inputName = document.getElementById("inputName")
-  var inputSurname = document.getElementById("inputSurname")
-  var inputBirthdate = document.getElementById("inputBirthdate")
-  var infoP = document.getElementById("signInDate")
+  let imageURL = document.getElementById("profileImage")
+  let inputUsername = document.getElementById("inputUsername")
+  let inputName = document.getElementById("inputName")
+  let inputSurname = document.getElementById("inputSurname")
+  let inputBirthdate = document.getElementById("inputBirthdate")
+  let infoP = document.getElementById("signInDate")
 
   async function fetchUserData() {
     const url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
@@ -39,9 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
       infoP.textContent = `You registered on meme-o on ${formateoFecha(
         dataUser.signup_date
       )}`
-
-      // return a consola
-      return dataUser
     } catch (error) {
       console.error("Error:", error)
     }
@@ -62,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const signup_date = loggedUser.signup_date
 
     let avatarBase64 = ""
-    var file = avatar.files[0]
-    var reader = new FileReader()
+    let file = avatar.files[0]
+    let reader = new FileReader()
 
     reader.onloadend = async function () {
       avatarBase64 = reader.result.replace("data:", "").replace(/^.+,/, "")

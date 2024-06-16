@@ -15,7 +15,14 @@
   font-weight: normal;
   font-style: normal;
 }
-
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  align-items: center;
+  background-image: url("../Assets/seamless-bg.png");
+  background-size: cover;
+}
 /*HEADER HEADER*/
 .header {
   overflow: hidden;
@@ -59,18 +66,6 @@
   float: right;
 }
 
-/* utilizamos media para la responsividad */
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
-}
-
 /*PROFILE HEAD*/
 .container {
   display: flex;
@@ -100,12 +95,10 @@
 #profileImage {
   display: flex;
   align-self: center;
-
   margin: 10px;
   margin-top: 25px;
   width: 8em;
   height: 8em;
-
   border-radius: 50%;
 }
 
@@ -116,7 +109,6 @@
 
 #usernameHeader {
   display: flex;
-
   margin: 10px;
   margin-bottom: 30px;
 }
@@ -124,25 +116,20 @@
 #newProfilePicForm {
   display: flex;
   flex-direction: column;
-
   width: 75%;
 }
 
 .inputsList {
   align-self: center;
-
   width: 60%;
   max-width: calc(100% - 20px); /* Para evitar overflow por padding */
-
   margin: 7px;
   background-color: rgba(211, 211, 211, 0.678);
   color: gray;
-
   border-color: rgb(183, 183, 183);
   border-top: none;
   border-left: none;
   border-radius: 5px;
-
   padding: 5px;
   padding-left: 14px;
 }
@@ -157,7 +144,8 @@
 .backToProfA {
   text-decoration: none;
 }
-.backToProfA:hover, .backToProfA:focus {
+.backToProfA:hover,
+.backToProfA:focus {
   animation: movIzq 1.2s ease infinite alternate;
 }
 @keyframes movIzq {
@@ -195,13 +183,19 @@
   transform: scale(0.9);
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  /* display: flex;
-    justify-content: center; */
-  align-items: center;
-  background-image: url("../Assets/seamless-bg.png");
-  background-size: cover;
+/*Mobile device*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+  .newProfilePic {
+    width: 18em;
+    align-self: center;
+    margin-top: 10px;
+  }
 }
