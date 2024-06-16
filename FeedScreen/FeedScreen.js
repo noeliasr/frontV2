@@ -339,9 +339,9 @@ const countMemeLike = document.getElementById("number-like-perfil-details")
 imgProfile.src = `http://localhost:9000/${user.avatar}`
 imgProfile.alt = "Avatar de mi usuario"
 usernameProfile.textContent = user.username
-countFollowers.textContent = `Follower: ${user.followers.length}`
-countFollowing.textContent = `Following: ${user.following.length}`
-countPosts.textContent = `Posts: ${user.posts.length}`
+countFollowers.textContent = `Follower: ${user.followers?.length}`
+countFollowing.textContent = `Following: ${user.following?.length}`
+countPosts.textContent = `Posts: ${user.posts?.length}`
 
 let totalMemeLikes = 0
 user.posts.forEach((post) => {

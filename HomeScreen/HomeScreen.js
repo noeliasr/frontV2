@@ -104,6 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const user = await response.json()
         if (user.userID) {
+          user.followers = []
+          user.following = []
+          user.posts = []
           sessionStorage.setItem("user", JSON.stringify(user))
           window.location.href = "../FeedScreen/FeedScreen.html"
         } else {
