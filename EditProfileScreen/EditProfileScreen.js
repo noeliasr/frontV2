@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText)
         } else {
+          const userUpdated = await response.json()
+          sessionStorage.setItem("user", JSON.stringify(userUpdated))
           window.location.href = "../ProfileScreen/ProfileScreen.html"
         }
       } catch (error) {

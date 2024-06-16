@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText)
         }
+        const userPosts = await response.json()
+        user.posts.push(userPosts)
+        sessionStorage.setItem("user", JSON.stringify(user))
         window.location.href = "../ProfileScreen/ProfileScreen.html"
       } catch (error) {
         console.error("Error:", error)

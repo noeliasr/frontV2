@@ -314,6 +314,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText)
       }
+      const updatePosts = loggedUser.posts.filter((fo) => fo.postID != postID)
+      loggedUser.posts = updatePosts
+      sessionStorage.setItem("user", JSON.stringify(loggedUser))
       window.location.reload()
     } catch (error) {
       console.error("Error fetching posts:", error)
