@@ -10,7 +10,11 @@
     <div class="main-container">
       <div class="gradient-header"></div>
       <div class="container">
-        <a tabindex="1" class="backToConvA" href="../FeedScreen/FeedScreen.html"
+        <a
+          tabindex="1"
+          class="backToConvA"
+          target="_self"
+          href="../FeedScreen/FeedScreen.html"
           ><img src="../Assets/atras.png" alt="go back" style="width: 5%"
         /></a>
         <h1>Publish something!</h1>
@@ -18,25 +22,27 @@
           <textarea
             tabindex="2"
             id="postText"
+            name="postText"
+            title="postText"
             class="styledPost"
             placeholder="Tell us something!"
             aria-placeholder="here you can write the caption for your post"
-            aria-label="input for text content for the post"
-          ></textarea>
+            aria-label="input for text content for the post"></textarea>
           <input
             tabindex="3"
             type="file"
+            name="postImage"
+            title="postImage"
             id="postImg"
             class="styledPost"
             accept="image/*"
-            aria-label="attach your image to the post"
-          />
+            aria-label="attach your image to the post" />
           <button
             tabindex="4"
+            id="publishBtn"
             type="submit"
             class="btnPublish"
-            aria-label="button for publishing the post"
-          >
+            aria-label="button for publishing the post">
             Publish
           </button>
         </form>
@@ -58,7 +64,6 @@
     <script src="CreatePost.js"></script>
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </body>
 </html>

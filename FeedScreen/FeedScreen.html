@@ -13,19 +13,21 @@
         tabindex="1"
         class="enlaceSaltarContenido"
         href="#content"
-        aria-label="go to main content"
-      >
+        target="_self"
+        aria-label="go to main content">
         Go to main content
       </a>
       <a
         href="../FeedScreen/FeedScreen.html"
         class="logo"
+        target="_self"
         aria-label="logo for reloading feed"
         >meme-o</a
       >
       <div class="header-right">
         <a
           href="../Conversations/Conversations.html"
+          target="_self"
           aria-label="button to conversations"
           ><img
             src="../Assets/sobre.png"
@@ -34,6 +36,7 @@
         /></a>
         <a
           href="../FeedScreen/FeedScreen.html"
+          target="_self"
           aria-label="button for reloading feed"
           ><img
             src="../Assets/flecha-circular-apuntando-a-la-derecha.png"
@@ -42,6 +45,7 @@
         /></a>
         <a
           href="../ProfileScreen/ProfileScreen.html"
+          target="_self"
           aria-label="button to profile"
           ><img
             src="../Assets/usuario.png"
@@ -54,16 +58,17 @@
     <main id="content">
       <div class="container">
         <div class="container-img-input">
-          <img src="../Assets/buscar.png" />
+          <img src="../Assets/buscar.png" alt="search" />
           <input
             type="text"
+            name="search"
+            title="search"
             id="autoComplete"
             tabindex="0"
             placeholder="Search user"
             aria-placeholder="here you can search users by username"
             autocomplete="off"
-            aria-label="search for user input"
-          />
+            aria-label="search for user input" />
         </div>
         <datalist id="dataList" />
       </div>
@@ -74,7 +79,7 @@
       <div id="listPost"></div>
       <div class="spacer">
         <h2>Oh no! You're not following anyone yet :(</h2>
-        <img src="../Assets/triste.png" />
+        <img src="../Assets/triste.png" alt="sad face" />
       </div>
       <div class="modal" id="modalAdd" aria-modal="true">
         <div class="modal-container">
@@ -83,24 +88,24 @@
             <div class="left-column">
               <h2 id="user"></h2>
               <div id="idPost" class="post-modal">
-                <img class="img-post-modal" />
+                <img class="img-post-modal" alt="post image" />
               </div>
             </div>
             <div class="right-column">
               <div id="idComment" class="comentarios"></div>
               <input
                 id="inputComment"
+                name="inputComment"
+                title="inputComment"
                 class="styled-input"
                 type="text"
                 placeholder="Add your comment"
                 aria-placeholder="here you can add your comment"
-                aria-label="input for creation of comments"
-              />
+                aria-label="input for creation of comments" />
               <button
                 class="btnAddComment"
                 id="btnAddComment"
-                aria-label="publish comment button"
-              >
+                aria-label="publish comment button">
                 Agregar comentario
               </button>
             </div>
@@ -112,6 +117,7 @@
       <div id="create-post">
         <a
           href="../CreatePost/CreatePost.html"
+          target="_self"
           class="btn-create-post"
           aria-label="new post button"
           >let's meme!</a
@@ -120,8 +126,9 @@
       <aside id="perfil-details">
         <a
           href="../ProfileScreen/ProfileScreen.html"
+          target="_self"
           aria-label="go to profile from aside"
-          ><img id="img-perfil-details"
+          ><img id="img-perfil-details" alt="profile details avatar"
         /></a>
         <span id="username-perfil-details"></span>
         <span id="followers-perfil-details"></span>
@@ -131,7 +138,7 @@
       </aside>
     </main>
     <div id="circularBtnScroll">
-      <img src="../Assets/arrow-top-black.png" alt="Button back to top" />
+      <img src="../Assets/arrow-top-black.png" alt="back to top button" />
     </div>
 
     <!-- FOOTER -->
@@ -148,8 +155,7 @@
     </footer>
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="FeedScreen.js"></script>
   </body>
 </html>

@@ -15,14 +15,15 @@
     <header class="header">
       <a
         tabindex="1"
+        target="_self"
         class="enlaceSaltarContenido"
         href="#content"
-        aria-label="go to main content"
-      >
+        aria-label="go to main content">
         Go to main content
       </a>
       <a
         tabindex="2"
+        target="_self"
         href="../FeedScreen/FeedScreen.html"
         class="logo"
         aria-label="logo to feed"
@@ -31,6 +32,7 @@
       <div class="header-right">
         <a
           tabindex="3"
+          target="_self"
           href="../Conversations/Conversations.html"
           aria-label="button to conversations"
           ><img
@@ -40,6 +42,7 @@
         /></a>
         <a
           tabindex="4"
+          target="_self"
           href="../FeedScreen/FeedScreen.html"
           aria-label="button to feed"
           ><img
@@ -49,12 +52,14 @@
         /></a>
         <a
           tabindex="5"
+          target="_self"
           href="../ProfileScreen/ProfileScreen.html"
           aria-label="button to profile"
           ><img src="../Assets/usuario.png" alt="avatar" style="width: 50%"
         /></a>
         <a
           tabindex="6"
+          target="_self"
           href="../HomeScreen/HomeScreen.html"
           class="logOutButtonA"
           aria-label="logout button"
@@ -67,7 +72,7 @@
     <main id="content">
       <!-- header del perfil-->
       <div class="profileHead">
-        <img id="profileImage" alt="users' avatar" />
+        <img id="profileImage" alt="users avatar" />
         <br />
         <h2 id="usernameHeader"></h2>
         <div class="divCount">
@@ -82,6 +87,7 @@
         </div>
         <a
           tabindex="7"
+          target="_self"
           class="editProfileA"
           href="../EditProfileScreen/EditProfileScreen.html"
           aria-label="go to dit profile"
@@ -89,12 +95,13 @@
         >
         <a
           tabindex="7"
+          target="_self"
           class="followButtonA"
           href="#"
-          aria-label="follow or unfollow button"
-        ></a>
+          aria-label="follow or unfollow button"></a>
         <a
           tabindex="8"
+          target="_self"
           class="conversationButtonA"
           href="#"
           aria-label="go to conversation"
@@ -111,9 +118,9 @@
 
         <hr />
 
-        <!-- contenedor de pines-posts -->
+        <!-- contenedor de posts -->
         <div class="pin_container">
-          <!-- aquí van los posts/CARDS -->
+          <!-- posts -->
         </div>
       </div>
       <div class="modal" id="modalAdd" aria-modal="true">
@@ -123,29 +130,31 @@
             <div class="left-column">
               <h2 id="user"></h2>
               <div id="idPost" class="post-modal">
-                <img class="img-post-modal" />
+                <img class="img-post-modal" alt="post image" />
               </div>
             </div>
             <div class="right-column">
               <div id="idComment" class="comentarios"></div>
               <input
                 id="inputComment"
+                name="inputComment"
+                title="inputComment"
                 class="styled-input"
                 type="text"
                 placeholder="Add your comment"
                 aria-placeholder="here you can add your comment"
-                aria-label="input for creation of comments"
-              />
+                aria-label="input for creation of comments" />
               <button
                 class="btnAddComment"
                 id="btnAddComment"
-                aria-label="publish comment button"
-              >
+                aria-label="publish comment button">
                 Agregar comentario
               </button>
             </div>
           </div>
-          <div class="btnDeletePost"><img src="../Assets/borrar.png" /></div>
+          <div class="btnDeletePost">
+            <img src="../Assets/borrar.png" alt="delete post" />
+          </div>
         </div>
       </div>
 
@@ -169,8 +178,7 @@
 
     <script
       src="https://kit.fontawesome.com/e02fcbdbf9.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="ProfileScreen.js"></script>
   </body>
 </html>
