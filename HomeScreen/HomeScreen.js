@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //creo las variables del dom
   const modals = document.querySelectorAll(".modal")
   const toggleBtns = document.querySelectorAll(".toggle-btn")
 
-  //función para añadir la clase open al modal
   const openModal = (index) => {
     modals[index].classList.add("open")
   }
