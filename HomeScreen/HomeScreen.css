@@ -253,13 +253,6 @@ input {
   z-index: 100;
 }
 
-@media (max-width: 575.98px) {
-  .modal-wrapper {
-    margin: 0.5rem;
-    min-height: calc(100% - 1rem);
-  }
-}
-
 hr {
   height: 20px;
   border: none;
@@ -290,7 +283,7 @@ hr::before {
 
 h1 {
   font-family: "DreamyBubble", "Universe", Helvetica, Arial, sans-serif;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: bold;
   text-transform: none;
   padding-left: 2em;
@@ -301,7 +294,7 @@ h1 {
 }
 
 .main-section h2 {
-  padding-left: 2.6em;
+  padding-left: 5.4em;
   color: #fff;
 }
 
@@ -353,9 +346,44 @@ button:focus:after {
   top: 0px;
   left: 0px;
 }
+/*Mobile device*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .modal-wrapper {
+    margin: 0.5rem;
+    min-height: calc(100% - 1rem);
+  }
+  .modal-content {
+    padding: 11rem;
+    border-radius: 10px;
+    height: 75vh;
+  }
+  h1 {
+    font-size: 1.5em;
+    padding-left: 0.8em;
+  }
 
-@media (min-width: 768px) {
+  .main-section h2 {
+    font-size: 1em;
+    padding-left: 1em;
+  }
+}
+/*Tablet device*/
+@media (min-width: 768px) and (max-width: 1024px) {
   button {
     padding: 0.5em 2em;
+  }
+  .modal-content {
+    padding: 11rem;
+    border-radius: 20px;
+    height: 37vh;
+  }
+  h1 {
+    font-size: 3em;
+    padding-left: 0.8em;
+  }
+
+  .main-section h2 {
+    font-size: 1.5em;
+    padding-left: 1.6em;
   }
 }

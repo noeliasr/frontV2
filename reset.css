@@ -85,10 +85,6 @@ video {
   vertical-align: baseline;
 }
 
-section h1{
-  font-size: 2em;
-}
-
 article,
 aside,
 details,
@@ -134,20 +130,24 @@ textarea,
 p,
 span,
 a,
-label
-{
+label {
   font-family: "Univers", Helvetica, Arial, sans-serif;
   letter-spacing: -0.05em;
 }
 
 /* helvetica negrita y en mayúsculas para los encabezados h1 a h6 */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Universe", Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 @font-face {
-  font-family: 'Univers';
-  src: url('Fonts/UniversRegular.ttf') format('truetype');
+  font-family: "Univers";
+  src: url("Fonts/UniversRegular.ttf") format("truetype");
 }
