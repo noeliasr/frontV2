@@ -209,3 +209,27 @@ body {
   width: 70%;
   object-fit: scale-down;
 }
+.btnDeletePost {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  position: relative;
+  right: -1090px;
+  top: -45px;
+  cursor: pointer;
+}
+.btnDeletePost img {
+  width: 35px;
+  height: 35px;
+}
+@media (max-width: 575.98px) {
+  .btnDeletePost {
+    right: -270px;
+    top: 5px;
+  }
+}

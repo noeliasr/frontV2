@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let mybutton = document.getElementById("circularBtnScroll")
   mybutton.addEventListener("click", () => scrollToTop())
-
+  const btnDeletePost = document.querySelector(".btnDeletePost")
   // función para elegir los tamaños de los posts
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min) // min and max included
@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         followButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
         conversationButton.classList.add("hidden")
+        btnDeletePost.classList.remove("hidden")
       } else if (receiverUserID === loggedUser.userID) {
         var url = `http://localhost:9000/memeo/api/getuser/${loggedUser.userID}`
         editProfileButton.classList.remove("hidden")
@@ -62,9 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
         followButton.classList.add("hidden")
         conversationButton.classList.add("hidden")
         logOutButton.classList.remove("hidden")
+        btnDeletePost.classList.remove("hidden")
       } else {
         var url = `http://localhost:9000/memeo/api/getuser/${receiverUserID}`
         editProfileButton.classList.add("hidden")
+        btnDeletePost.classList.add("hidden")
         followButton.classList.remove("hidden")
         logOutButton.classList.add("hidden")
 
@@ -273,8 +276,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentAddCommentHandler) {
       btnAddComment.removeEventListener("click", currentAddCommentHandler)
     }
-    currentAddCommentHandler = addCommentHandler(post)
+    currentAddCommentHandler = addCommentHandler(post.postID)
     btnAddComment.addEventListener("click", currentAddCommentHandler)
+    btnDeletePost.addEventListener("click", () => deletePost(post.postID))
   }
 
   const addComment = async (post) => {
@@ -310,7 +314,22 @@ document.addEventListener("DOMContentLoaded", () => {
     post.comments.push(comment)
     loadComments(post)
   }
-
+  const deletePost = async (postID) => {
+    try {
+      const response = await fetch(
+        `http://localhost:9000/memeo/api/deletepost/${postID}`,
+        {
+          method: "DELETE",
+        }
+      )
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText)
+      }
+      window.location.reload()
+    } catch (error) {
+      console.error("Error fetching posts:", error)
+    }
+  }
   /*BTN SCROLL TO TOP */
 
   window.onscroll = function () {
