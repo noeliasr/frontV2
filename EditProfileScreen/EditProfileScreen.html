@@ -13,6 +13,7 @@
       <div class="profileChange">
         <a
           tabindex="1"
+          target="_self"
           class="backToProfA"
           href="../ProfileScreen/ProfileScreen.html"
           ><img
@@ -25,6 +26,8 @@
         <form class="newProfilePic" id="newProfilePicForm" action="#">
           <input
             tabindex="2"
+            name="avatar"
+            title="avatar"
             class="newProfilePic"
             id="avatar"
             type="file"
@@ -35,6 +38,7 @@
             class="inputsList"
             id="inputUsername"
             name="inputUsername"
+            title="input username"
             type="text"
             value=""
             readonly />
@@ -42,6 +46,7 @@
             class="inputsList"
             id="inputPass"
             name="inputPass"
+            title="input password"
             type="password"
             value="password123"
             readonly />
@@ -49,6 +54,7 @@
             class="inputsList"
             id="inputName"
             name="inputName"
+            title="input name"
             type="text"
             value=""
             readonly />
@@ -56,13 +62,15 @@
             class="inputsList"
             id="inputSurname"
             name="inputSurname"
+            title="input surname"
             type="text"
             value=""
             readonly />
           <input
             class="inputsList"
             id="inputBirthdate"
-            name="inputSurname"
+            name="inputBirthdate"
+            title="input birthdate"
             type="text"
             value=""
             readonly />
@@ -72,6 +80,7 @@
           <input
             tabindex="3"
             class="submitA"
+            title="save changes"
             type="submit"
             aria-label="button for saving changes" />
         </form>

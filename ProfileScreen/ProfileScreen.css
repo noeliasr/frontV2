@@ -163,9 +163,11 @@ body {
   grid-auto-rows: var(--row_increment);
   justify-content: center;
 }
+
 .divCount h3 {
   font-size: 0.9em;
 }
+
 .titlePin_container {
   margin: 0;
   padding: 0;
