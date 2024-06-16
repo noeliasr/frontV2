@@ -8,6 +8,7 @@ const comments = document.getElementById("idComment")
 const idLike = document.getElementsByTagName("#idLike")
 const inputComment = document.getElementById("inputComment")
 const btnAddComment = document.getElementById("btnAddComment")
+const spaceNoPost = document.querySelector(".spacer")
 
 const user = JSON.parse(sessionStorage.getItem("user"))
 
@@ -57,6 +58,9 @@ const showPosts = (dataPost) => {
   lista.style.display = "flex"
   loader.style.display = "none"
   removeChildNodes(lista)
+  if (dataPost.length !== 0) {
+    spaceNoPost.style.display = "none"
+  }
   dataPost.forEach(async (elemento) => {
     const postDiv = document.createElement("article")
     postDiv.classList.add("post")

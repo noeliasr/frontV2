@@ -200,7 +200,19 @@ h1 {
 .btn-create-post:hover {
   color: #fff;
 }
-
+.spacer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+}
+.spacer h2 {
+  padding: 4%;
+}
+.spacer img {
+  margin-top: 3%;
+}
 #perfil-details {
   text-align: center;
   vertical-align: middle;
@@ -244,6 +256,10 @@ h1 {
   }
   #perfil-details {
     display: none;
+  }
+  .spacer h2 {
+    font-size: 1em;
+    text-align: center;
   }
 }
 
