@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageDiv = document.createElement("div")
     messageDiv.classList.add("message")
     messageDiv.innerHTML = `<strong>${
-      conversation.conversationPK.senderID === user.userID
+      lastMessage.senderUser.userID === user.userID
         ? user.username
         : titleNameConversation
     }:</strong> ${lastMessage.text_content}`
