@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     conversationTitle.textContent = titleNameConversation
     conversationDiv.appendChild(conversationTitle)
 
-    // const senderName = user[lastMessage.senderID] || `User ${lastMessage.senderID}`;
     const messageDiv = document.createElement("div")
     messageDiv.classList.add("message")
     messageDiv.innerHTML = `<strong>${

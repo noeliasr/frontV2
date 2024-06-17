@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const dataMessages = await response.json()
 
-      // Settear mensajes
+      // settear mensajes
       const msgContainer = document.querySelector(".messagesContainer")
       msgContainer.innerHTML = ""
       dataMessages.forEach((dm) => {
@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
         containerMessage.textContent = `${dm.text_content}`
 
         if (dm.senderUser.userID === loggedUser.userID) {
-          // Se crea y va a la derecha
+          // se crea y va a la derecha
           containerMessage.classList.add("sent")
         } else {
           conversationWithTitle.textContent = dm.senderUser.username
 
-          // Se crea y va a la izquierda
+          // se crea y va a la izquierda
           containerMessage.classList.add("received")
         }
         msgContainer.appendChild(containerMessage)
